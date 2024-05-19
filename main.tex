@@ -4,10 +4,13 @@
 \usepackage{url}
 \usepackage{main}
 \usepackage{adjustbox}
+\usepackage{caption}
 
 \renewcommand{\chaptername}{Capítol}
 \renewcommand{\contentsname}{Índex}
 \renewcommand{\bibname}{Bibliografia}
+\renewcommand{\figurename}{\textbf{Figura}}
+\captionsetup[figure]{labelfont=bf}
 
 \begin{document}
 
@@ -16,6 +19,9 @@
 
 \include{chapters/abstract}
 \include{chapters/introduction}
+\include{chapters/methodology}
+\include{chapters/data-processing}
+\include{chapters/data-analysis}
 \include{chapters/conclusion}
 \appendix
 %\include{tex/appendix}
