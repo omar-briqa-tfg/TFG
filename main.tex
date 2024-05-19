@@ -1,6 +1,7 @@
 \documentclass{report}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{url}
 
 \begin{document}
 
@@ -14,7 +15,8 @@
 \appendix
 %\include{tex/appendix}
 
-\bibliographystyle{plain}
+\bibliographystyle{acm}
 \bibliography{main}
+\nocite{*} % TODO: remove non-referenced
 
 \end{document}
