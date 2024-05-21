@@ -5,17 +5,23 @@
 \usepackage{main}
 \usepackage{adjustbox}
 \usepackage{caption}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
 
 \renewcommand{\chaptername}{Capítol}
 \renewcommand{\contentsname}{Índex}
 \renewcommand{\bibname}{Bibliografia}
+\renewcommand{\appendixname}{Annex}
 \renewcommand{\figurename}{\textbf{Figura}}
 \captionsetup[figure]{labelfont=bf}
 
 \begin{document}
 
-\include{frontmatter/titlepage}
-\include{chapters/abstract}
+\include{frontmatter/titlepage-epsevg}
+\include{frontmatter/thesis-evaluation}
+\include{chapters/abstract-ca}
+\include{chapters/abstract-es}
+\include{chapters/abstract-en}
 
 \include{frontmatter/toc}
 
@@ -23,13 +29,14 @@
 \include{chapters/methodology}
 \include{chapters/data-processing}
 \include{chapters/data-analysis}
+
 \include{chapters/conclusion}
+\include{frontmatter/acknowledgments}
+    \addcontentsline{toc}{chapter}{\bibname}
+    \bibliographystyle{acm}
+    \bibliography{main}~\nocite{*} % TODO: remove non-referenced
 
 \appendix
-%\include{tex/appendix}
-
-\bibliographystyle{acm}
-\bibliography{main}
-\nocite{*} % TODO: remove non-referenced
+\include{appendices/software-installation}
 
 \end{document}
