@@ -11,6 +11,7 @@
 \renewcommand{\chaptername}{Capítol}
 \renewcommand{\contentsname}{Índex}
 \renewcommand{\bibname}{Bibliografia}
+\renewcommand{\appendixname}{Annex}
 \renewcommand{\figurename}{\textbf{Figura}}
 \captionsetup[figure]{labelfont=bf}
 
@@ -28,14 +29,14 @@
 \include{chapters/methodology}
 \include{chapters/data-processing}
 \include{chapters/data-analysis}
+
 \include{chapters/conclusion}
 \include{frontmatter/acknowledgments}
+    \addcontentsline{toc}{chapter}{\bibname}
+    \bibliographystyle{acm}
+    \bibliography{main}~\nocite{*} % TODO: remove non-referenced
 
 \appendix
-%\include{tex/appendix}
-
-\bibliographystyle{acm}
-\bibliography{main}
-\nocite{*} % TODO: remove non-referenced
+\include{appendices/software-installation}
 
 \end{document}
