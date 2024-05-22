@@ -10,6 +10,7 @@
 \usepackage{tocloft}
 \usepackage{lipsum}
 \usepackage{multicol}
+\usepackage{booktabs}
 
 \newcommand{\source}[1]{\caption*{Source: {#1}} }
 
@@ -20,6 +21,7 @@
 \renewcommand{\tablename}{Taula}
 \renewcommand{\cftdotsep}{\cftnodots}
 \renewcommand{\listfigurename}{Índex de figures}
+\renewcommand{\listtablename}{Índex de taules}
 \renewcommand{\figurename}{\textbf{Figura}}
 \captionsetup[figure]{labelfont=bf}
 
@@ -34,6 +36,7 @@
 \tableofcontents
 \clearpage
 \listoffigures
+\listoftables
 
 \include{chapters/glossary}
 \include{chapters/introduction}
