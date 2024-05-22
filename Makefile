@@ -1,4 +1,4 @@
-path =
+path := $(shell pwd)
 filename = main
 
 all:
