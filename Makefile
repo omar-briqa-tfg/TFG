@@ -1,10 +1,31 @@
+path := $(shell pwd)
 filename = main
-ext_ignored = ps log aux out dvi bbl blg toc bcf run.xml fls gz latexmk
 
 all:
-	latexmk -pdf ${filename}.tex > /dev/null
-	make clean
+	make pdf bib gls
+	make pdf open
+
+pdf:
+	pdflatex \
+		-file-line-error \
+    	-interaction=nonstopmode \
+    	-synctex=1 \
+    	-output-format=pdf \
+    	-output-directory=$(path)/out \
+    	-aux-directory=$(path)/aux \
+        $(filename).tex
+
+bib:
+	cd $(path)/aux && \
+		bibtex -include-directory=$(path) $(filename)
+	cd $(path)
+
+gls:
+	makeglossaries -d $(path)/aux $(filename)
+
+open:
+	open $(path)/out/$(filename).pdf
 
 clean:
-	for ext in $(ext_ignored); do find . -type f -name "*$$ext" -exec rm -f {} +; done
-	rm -rf tmp
+	rm -rf aux/*
+	rm -rf out/*
