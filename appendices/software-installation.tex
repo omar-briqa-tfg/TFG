@@ -1,1 +1,36 @@
 \chapter{Instal·lació de software}\label{ch:software-installation}
+
+El procés de desenvolupament s’ha dut a terme emprant un servidor preparat pels directors del projecte, amb les següents característiques:
+
+\begin{itemize}
+    \item \textbf{Processador:}
+    \begin{itemize}
+        \item quatre cores
+    \end{itemize}
+    \item \textbf{Emmagatzemament:}
+    \begin{itemize}
+        \item 16 GB de disc de sistema
+        \item 256 GB de disc SSD per dades
+    \end{itemize}
+\end{itemize}
+
+\noindent
+Aquest disposa de dos usuaris, tfe, per l’ús diari, i un altre, amb privilegis d’administrador, root, en cas que es necessitin aquests.
+L’accés es realitza a través de l’usuari tfe, utilitzant una connexió ssh:
+
+\begin{verbatim}
+    $ ssh tfe@ostia.epsevg.upc.edu
+\end{verbatim}
+
+\noindent
+Les tasques principals realitzades són:
+
+\begin{itemize}
+    \item Desenvolupament del codi d’OSTIA (Open Science Toolkit Information Access), utilitzant el sistema de control de versions git.
+    \item Anàlisis, dels logs d’UPCommons, amb registres des del 2006 fins al 2023.
+    \item Processament i abocament dels logs a la base de dades InfluxDb, ubicada al mateix servidor.
+    \item Descàrrega de totes les metadades del servidor OAI sbivdev1.
+    \item Anàlisis, processament i abocament de les metadades a una base de dades MongoDb.
+    \item Anàlisi quantitativa i qualitatiu del conjunt de les dades, amb el suport l’eina Grafana.
+\end{itemize}
+
