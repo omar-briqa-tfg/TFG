@@ -16,7 +16,7 @@ El procés de desenvolupament s’ha dut a terme emprant un servidor preparat pe
 
 \noindent
 Aquest disposa de dos usuaris, \textit{tfe}, per l’ús diari, i un altre, amb privilegis d’administrador, \textit{root}, en cas que es necessitin aquests.
-L’accés es realitza a través de l’usuari tfe, utilitzant una connexió ssh:
+L’accés es realitza a través de l’usuari tfe, utilitzant una connexió \gls{ssh}:
 
 \begin{verbatim}
     $ ssh tfe@ostia.epsevg.upc.edu
@@ -26,11 +26,11 @@ L’accés es realitza a través de l’usuari tfe, utilitzant una connexió ssh
 Les tasques principals realitzades són:
 
 \begin{itemize}
-    \item Desenvolupament del codi d’OSTIA (Open Science Toolkit Information Access), utilitzant el sistema de control de versions git.
-    \item Anàlisis, dels logs d’UPCommons, amb registres des del 2006 fins al 2023.
-    \item Processament i abocament dels logs a la base de dades InfluxDb, ubicada al mateix servidor.
-    \item Descàrrega de totes les metadades del servidor OAI sbivdev1.
-    \item Anàlisis, processament i abocament de les metadades a una base de dades MongoDb.
+    \item Desenvolupament del codi d’\gls{OSTIA}, utilitzant el sistema de control de versions git.
+    \item Anàlisis dels logs d’\gls{UPCommons}, amb registres des del 2006 fins al 2023.
+    \item Processament i abocament dels logs a la base de dades InfluxDB, ubicada al mateix servidor.
+    \item Descàrrega de totes les metadades del servidor \gls{OAI} sbivdev1.
+    \item Anàlisis, processament i abocament de les metadades a una base de dades MongoDB.
     \item Anàlisi quantitativa i qualitatiu del conjunt de les dades, amb el suport l’eina Grafana.
 \end{itemize}
 
@@ -45,7 +45,7 @@ Els principals serveis utilitzats durant la realització del projecte han sigut:
     \begin{itemize}
         \item Base de dades on hem emmagatzemat els logs.
         \item {
-            Incorporem també el \textit{plugin} d’InfluxDb anomenat Telegraf.
+            Incorporem també el \textit{\gls{plugin}} d’InfluxDB anomenat Telegraf.
             Encara que el seu ús no és imperatiu pels nostres objectius, pot ser útil per recol·lectar dades del sistema.
         }
     \end{itemize}
@@ -61,27 +61,27 @@ Els principals serveis utilitzats durant la realització del projecte han sigut:
 \end{itemize}
 
 \noindent
-Per cadascun d’aquests serveis definirem un fitxer de configuració, que configurarà cada contenidor, que en aquest cas, són de tipus Docker. \\
+Per cadascun d’aquests serveis definirem un fitxer de configuració, que configurarà cada contenidor, que en aquest cas, són de tipus \textit{\gls{Docker}}. \\
 
 \noindent
-Com disposem de diverses aplicacions, la manera més senzilla és utilitzar el sistema per configurar i executar aplicacions multi-contenidor per antonomàsia, que és docker-compose. \\
+Com disposem de diverses aplicacions, la manera més senzilla és utilitzar el sistema per configurar i executar aplicacions multi-contenidor per antonomàsia, que és \textit{\gls{docker-compose}}. \\
 
 \noindent
 Aquest fitxer acostuma a tenir aquesta estructura:
 
 \begin{itemize}
-    \item Definició del nom del servei
-    \item Imatge de Docker que es vol utilitzar.
+    \item Definició del nom del servei.
+    \item Imatge de \textit{\gls{Docker}} que es vol utilitzar.
     \item Els ports, definint el port de la màquina host i el del contenidor.
     \item El fitxer de configuració del servei.
-    \item La xarxa interna del servei de Docker que adoptarà el servei.
+    \item La xarxa interna del servei de \textit{\gls{Docker}} que adoptarà el servei.
     \item Altres opcions.
 \end{itemize}
 
 \clearpage
 
 \noindent
-A l'exemple següent es troba la configuració específica per la base de dades InfluxDB
+A l'exemple següent es troba la configuració específica per la base de dades InfluxDB.
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/docker-compose-influxdb}}
@@ -92,13 +92,13 @@ A l'exemple següent es troba la configuració específica per la base de dades 
 
 \begin{tcolorbox}[colback=yellow!5!white, colframe=blue!75!black, title=Fitxers de configuració]
     Habitualment aquests fitxers solen incloure credencials privades d'aquests serveis.
-    Com a bona pràctica, afegeix el sufix \textit{.env} al fitxer i no el pugis a Github, omitin-lo mitjançant el fitxer \textit{.gitignore}.
+    Com a bona pràctica, afegeix el sufix \textit{.env} al fitxer i no el pugis a Github, omitin-lo mitjançant el fitxer \textit{.\gls{gitignore}}.
 \end{tcolorbox}
 \vspace{1em}
 
 \noindent
 Un cop definits tots els serveis, es procedeix amb la instal·lació.
-La comanda següent, descarrega les imatges de Docker en cas que aquestes no estiguin presents al sistema,
+La comanda següent, descarrega les imatges de \textit{\gls{Docker}} en cas que aquestes no estiguin presents al sistema,
 crea les xarxes virtuals pels contenidors i finalment, configura els serveis.
 
 \begin{verbatim}
@@ -106,7 +106,7 @@ crea les xarxes virtuals pels contenidors i finalment, configura els serveis.
 \end{verbatim}
 
 \begin{tcolorbox}[colback=yellow!5!white, colframe=red!75!black, title=Atenció]
-    Aquesta comanda s'ha d'executar en el mateix directori on es troba el fitxer \textit{docker-compose}.
+    Aquesta comanda s'ha d'executar en el mateix directori on es troba el fitxer \textit{\gls{docker-compose}}.
 \end{tcolorbox}
 
 \clearpage
@@ -115,7 +115,7 @@ crea les xarxes virtuals pels contenidors i finalment, configura els serveis.
 
 \noindent
 Per accedir als diferents serveis que es troben al servidor, utilitzarem un túnel ssh~\cite{tunel-ssh}.
-Aquest consisteix en xifrar tota comunicació entre client servidor \\
+Aquest consisteix en xifrar tota comunicació entre client i servidor. \\
 
 \noindent
 Per exemple, el contingut de la interfície gràfica de Grafana, accessible a través del port tres mil del servidor,
