@@ -90,6 +90,12 @@ A l'exemple següent es troba la configuració específica per la base de dades 
     \source{Repositori de codi del projecte.}
 \end{figure}
 
+\begin{tcolorbox}[colback=yellow!5!white, colframe=blue!75!black, title=Fitxers de configuració]
+    Habitualment aquests fitxers solen incloure credencials privades d'aquests serveis.
+    Com a bona pràctica, afegeix el sufix \textit{.env} al fitxer i no el pugis a Github, omitin-lo mitjançant el fitxer \textit{.gitignore}.
+\end{tcolorbox}
+\vspace{1em}
+
 \noindent
 Un cop definits tots els serveis, es procedeix amb la instal·lació.
 La comanda següent, descarrega les imatges de Docker en cas que aquestes no estiguin presents al sistema,
@@ -97,4 +103,28 @@ crea les xarxes virtuals pels contenidors i finalment, configura els serveis.
 
 \begin{verbatim}
     $ docker compose up -d
+\end{verbatim}
+
+\begin{tcolorbox}[colback=yellow!5!white, colframe=red!75!black, title=Atenció]
+    Aquesta comanda s'ha d'executar en el mateix directori on es troba el fitxer \textit{docker-compose}.
+\end{tcolorbox}
+
+\clearpage
+
+\section*{Accés als serveis}\label{sec:server-access}
+
+\noindent
+Per accedir als diferents serveis que es troben al servidor, utilitzarem un túnel ssh~\cite{tunel-ssh}.
+Aquest consisteix en xifrar tota comunicació entre client servidor \\
+
+\noindent
+Per exemple, el contingut de la interfície gràfica de Grafana, accessible a través del port tres mil del servidor,
+serà accessible pel port tres mil de la màquina \textit{host} amb els següents passos:
+
+\begin{verbatim}
+    $ ssh -N -L localhost:3000:ostia.epsevg.upc.edu:3000 \
+        tfe@ostia.epsevg.upc.edu
+\end{verbatim}
+\begin{verbatim}
+    $ open https://localhost:3000
 \end{verbatim}
