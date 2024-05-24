@@ -41,7 +41,7 @@ A continuació es mostren algunes metadades extretes d'un recurs, on es pot cont
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/metadata-example}}
     \captionsetup{justification=centering}
-    \caption{Llista parcial de les metadades d'un recurs}\label{fig:metadata-example}
+    \caption{Llista parcial de les metadades d'un recurs.}\label{fig:metadata-example}
     \source{\url{http://hdl.handle.net/2117/386687}}
 \end{figure}
 
@@ -74,7 +74,7 @@ Alguns servidors implementen un mecanisme de control de flux per tal de tractar 
 Es basa en utilitzar un identificador anoment \textit{resumptionToken}, que retorni la petició anterior amb la llista incompleta, i sigui paràmetre de la següent petició. \\
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Finestra lliscant]
-    Per comparar-ho amb altres protocols, \gls{TCP} utilitza el valor de la "finestra lliscant" per indicar la quantitat de dades que ha d'enviar l'emissor,
+    Per comparar-ho amb altres protocols, \gls{TCP}~\cite{tcp} utilitza el valor de la "finestra lliscant" per indicar la quantitat de dades que ha d'enviar l'emissor,
     i per \textbf{on} ha de començar, ja que aquest valor es suma al número de seqüència.
 \end{tcolorbox}
 
@@ -94,6 +94,23 @@ permet la recuperació del context en cas d'errors de xarxa o d'altre classe.
 \clearpage
 
 \subsection{Implementació}\label{subsec:metadata-implemntation}
+
+L'objectiu és clar, descarregar totes les metadades.
+El protocol està ben definit.
+La llibreria Sickle ens facilita la feina.
+Això resulta en una implementació senzilla:
+
+\begin{enumerate}
+    \item Connectar-se al servidor OAI .
+    \item Demanem les metadades:
+    \begin{enumerate}
+        \item Disposem de la llista (incompleta) de registres de metadades.
+        \item Extraiem aquella informació rellevant pel nostre cas d'ús, que són les metadades en format Dublin Core.
+        \item Descartem aquells registres marcats com esborrats, no contenen cap informació.
+        \item Realitzem l'abocament a la base de dades corresponent.
+    \end{enumerate}
+    \item Tornem a iterar fins a obtenir la llista completa de les metadades.
+\end{enumerate}
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=1.2\textwidth]{figures/metadata-processing}}
