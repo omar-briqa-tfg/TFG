@@ -66,6 +66,35 @@ Aquest protocol defineix sis operacions bàsiques~\cite{oai-pmh}:
     \item \texttt{\textbf{ListSets}}: retorna l’estructura dels sets del repositori.
 \end{itemize}
 
+\clearpage
+
+\subsection{Control de Flux}\label{subsec:flux-control}
+
+Alguns servidors implementen un mecanisme de control de flux per tal de tractar les peticions que retornin llistes incompletes.
+Es basa en utilitzar un identificador anoment \textit{resumptionToken}, que retorni la petició anterior amb la llista incompleta, i sigui paràmetre de la següent petició. \\
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Finestra lliscant]
+    Per comparar-ho amb altres protocols, \gls{TCP} utilitza el valor de la "finestra lliscant" per indicar la quantitat de dades que ha d'enviar l'emissor,
+    i per \textbf{on} ha de començar, ja que aquest valor es suma al número de seqüència.
+\end{tcolorbox}
+
+\noindent \\
+El procès s'iterarà fins a obternir la llista completa.
+Podrem identificar el final, ja que:
+
+\begin{itemize}
+    \item Aquesta darrera llista té una grandària inferior a les anteriors (acostuma a ser 100 unitats).
+    \item El valor del \textit{resumptionToken} és nul. \\
+\end{itemize}
+
+\noindent
+L'objectiu és, altrament que la fragmentació de peticions que demanen quantitats ciclòpiques de dades és més operatiu,
+permet la recuperació del context en cas d'errors de xarxa o d'altre classe.
+
+\clearpage
+
+\subsection{Implementació}\label{subsec:metadata-implemntation}
+
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=1.2\textwidth]{figures/metadata-processing}}
     \captionsetup{justification=centering}
