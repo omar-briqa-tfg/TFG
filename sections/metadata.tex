@@ -18,23 +18,52 @@ Per exemple, l'autor principal d'un recurs s'identificaria com:
     \text{dc.contributor.author} \\
 \end{center}
 
-\begin{figure}[htbp]
-    \centerline{\includegraphics[width=0.8\textwidth]{figures/metadata-example}}
-    \captionsetup{justification=centering}
-    \caption{Llista parcial de les metadades del recurs}\label{fig:metadata-example}
-    \source{\url{http://hdl.handle.net/2117/386687}}
-\end{figure}
-
-
-
 \noindent
 Per cada metadada, s'assignen els següent valors:
 
 \begin{itemize}
     \item \textbf{value}: Valor de la metadada.
-    \item \textbf{language}: Idioma. És habitual trobar-lo a les descripcions / resums dels registres, encara que a vegades no està ben introduït.
+    \item \textbf{language}: Idioma.
+    És habitual trobar-lo a les descripcions / resums dels registres, encara que a vegades no està ben introduït.
     \item \textbf{authority}: Codi que relaciona la metadada amb un sistema d'autoritats que permet obtenir més dades.
     \item \textbf{qualifier}: Un nivell de confiança associat a l'autoritat.
+\end{itemize}
+
+\clearpage
+
+\noindent
+A continuació es mostren algunes metadades extretes d'un recurs, on es pot contemplar tant el format de les metadades, com els valors. \\
+
+\begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Metadades]
+    Al web només hi apareix el \textbf{\textit{value}} o el \textbf{\textit{language}} de la metadada, els altres camps s'emmagatzemen internament.
+\end{tcolorbox}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=\textwidth]{figures/metadata-example}}
+    \captionsetup{justification=centering}
+    \caption{Llista parcial de les metadades d'un recurs}\label{fig:metadata-example}
+    \source{\url{http://hdl.handle.net/2117/386687}}
+\end{figure}
+
+\clearpage
+
+\subsection{\gls{OAI-PMH}}\label{subsec:oai-pmh}
+
+El protocol \gls{OAI-PMH} (Open Archive Initiative-Protocol for Metadata Harvesting) és un estàndard d'interoperabilitat desenvolupat per l'intercanvi i la difusió de metadades. \\
+
+\noindent
+Permet accedir a metadades codificades en diferents formats, encara que el més habitual és el Dublin Core. \\
+
+\noindent
+Aquest protocol defineix sis operacions bàsiques~\cite{oai-pmh}:
+
+\begin{itemize}
+    \item \textbf{\texttt{GetRecord}}: Utilitzat per obtenir informació sobre un registre individual.
+    \item \texttt{\textbf{Identify}}: Emprat per aconseguir informació sobre el repositori.
+    \item \texttt{\textbf{ListIdentifiers}}: retorna les capçaleres dels registres.
+    \item \texttt{\textbf{ListMetadataFormats}}: retorna els formats de metadades disponibles al repositori.
+    \item \texttt{\textbf{ListRecords}}: principal verb per la recol·lecta de metadades, retorna els registres complets.
+    \item \texttt{\textbf{ListSets}}: retorna l’estructura dels sets del repositori.
 \end{itemize}
 
 \begin{figure}[htbp]
