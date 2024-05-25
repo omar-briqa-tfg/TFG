@@ -32,7 +32,7 @@ L'agent pot ser:
 \end{itemize}
 Degut a questions de privacitat i protecció de dades, aquest identificador ha sigut modificat en un procés d'anonimització. \\
 
-\begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Els iguals emmascarats]
+\begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Els iguals emmascarats]\label{tcbox:iguals-emmascarats}
     No podem sempre afirmar que dues peticions amb el mateix identificador provenen del mateix usuari.
     Pot haver-hi darrere un \gls{NAT}, usuaris compartint dispositiu, etc.
 \end{tcolorbox}
@@ -96,6 +96,40 @@ com podrien ser fixters css, javascript, gifs …
     \caption{Exemple d'un \textit{log} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}} .}\label{fig:log-web-resource}
     \source{UPCommons.}
 \end{figure}
+
+\noindent \\
+Com que aquests registres no ens aporten cap informació valuosa pels nostres casos d'ús, els \textbf{descartarem}.
+
+\clearpage
+
+\noindent
+\textbf{Repeticions} \\
+
+\noindent
+Un log apareix exactament igual a diverses entrades, amb una petita diferència temporal (vermell).
+Al següent exemple podem veure com el mateix accés es repeteix tres vegades (verd i groc),a diferents adreces \gls{IP} (vermell).
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=\textwidth]{figures/log-repetitions}}
+    \captionsetup{justification=centering}
+    \caption{Exemple d'un \textit{log} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}} .}\label{fig:log-web-resource}
+    \source{UPCommons.}
+\end{figure}
+
+\begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Divergència relativa]
+    No podem sempre afirmar que peticions amb contingut igual però diferents identificadors provenen d'usuaris diferents.
+    Pot haver-hi darrere un servidor \textit{Proxy} que redirigeixi les peticions, distribuidors de càrrega, etc.
+    \tcblower
+    Cas anàlog als ``iguals emmascarats''~\ref{tcbox:iguals-emmascarats}.
+\end{tcolorbox}
+
+\noindent
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Counter]
+    Per a futures refèrncies, el projecte Counter~\cite{counter} pot servir com a base per tractar aquesta casuística.
+\end{tcolorbox}
+
+\noindent \\
+Amb la finalitat de d'enfocar l'anàlisi per altres bandes, no s'ha pres cap decisió en vers aquests cassos, i seran tractats com la generalitat.
 
 %\begin{figure}[htbp]
 %    \centerline{\includegraphics[width=1.3\textwidth]{figures/log-processing}}
