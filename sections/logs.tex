@@ -148,8 +148,37 @@ Als logs hi són presents cerques dins de la plataforma UPCommons. \\
 
 \noindent
 El procediment general no canvia respecta aquest cas.
-Haurem de tenir en compte quins són, i diferenciar-los de la resta.
+Haurem de tenir en compte quins són, i diferenciar-los de la resta. \\
 
+\noindent
+\textbf{Errors de processament} \\
+
+\noindent
+Diem que un \textit{log} produeix un error de processament si el seu format difereix abrutment del general (vegeu ~\ref{subsec:log-analysis}).
+Diferenciarem entre dos casos:
+
+\begin{itemize}
+    \item \textbf{Errors reversibles:} són aquells que segueixen un paradigma.
+    La seva presència és abundant.
+    Alguns exemples śon:
+    \begin{itemize}
+        \item La direcció \gls{IP} no existeix o és malformada.
+        \item Contigut alterat (a vegades, intencionadament!)
+    \end{itemize}
+    En aquests casos manipularem el registre afectat per homogeneïtzar el conjunt dels \textit{logs}.
+    \item \textbf{Errors irreversibles:} alteració en grau superlatiu del cos del \textit{log}.
+    Dificulta el seu processament.
+    La seva presència és escassa.
+    El resultat d'afegir la lògica necessària per tractar aquests cassos no justifica en cap cas el seu tractament.
+
+    \begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=No val la pena]\label{tcbox:no-val-la-pena}
+    Parlem d'afegir condicions al processament que només s'utilitzarien en el 0,000000287\% dels casos.
+    \tcblower 552 \textit{logs} de 1.922.392.760
+    \end{tcolorbox}
+
+    Per aquests motius, aquests casos es descartaran.
+    El nombre total de registres descartats es troba documentat a la taula~\ref{tab:logs-table}.
+\end{itemize}
 
 
 %\begin{figure}[htbp]
