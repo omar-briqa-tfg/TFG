@@ -22,7 +22,8 @@
 \renewcommand{\contentsname}{Índex}
 \renewcommand{\bibname}{Bibliografia}
 \renewcommand{\appendixname}{Annex}
-\renewcommand{\tablename}{Taula}
+\renewcommand{\tablename}{\textbf{Taula}}
+\captionsetup[table]{labelfont=bf}
 \renewcommand{\cftdotsep}{\cftnodots}
 \renewcommand{\listfigurename}{Índex de figures}
 \renewcommand{\listtablename}{Índex de taules}
@@ -55,7 +56,7 @@
 \include{frontmatter/acknowledgments}
     \addcontentsline{toc}{chapter}{\bibname}
     \bibliographystyle{acm}
-    \bibliography{main}~\nocite{*} % TODO: remove non-referenced
+    \bibliography{main}
 
 \appendix
 \include{appendices/server-description}
