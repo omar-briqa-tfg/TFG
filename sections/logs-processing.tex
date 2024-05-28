@@ -297,6 +297,16 @@ S'han desenvolupat les següents funcions:
     \item \texttt{AccessResourceBitstream}: Detecta si el recurs accedit és un recurs d’\gls{UPCommons} a través de l'identificador \gls{bitstream} \gls{UUID}
 \end{itemize}
 
+\noindent \\
+\texttt{Bolcat}:
+\begin{itemize}
+    \item \texttt{InfluxDbForwarder}:
+    \begin{itemize}
+        \item Adaptar el \textit{log} en format JSON al format específic de la base de dades.
+        \item Enviar el \textit{log} a la base de dades.
+    \end{itemize}
+\end{itemize}
+
 \clearpage
 
 \noindent
@@ -319,19 +329,8 @@ S'han desenvolupat les seguents funcions:
 \end{itemize}
 
 \noindent \\
-\texttt{Bolcat}:
-\begin{itemize}
-    \item \texttt{InfluxDbForwarder}:
-    \begin{itemize}
-        \item Adaptar el \textit{log} en format JSON al format específic de la base de dades.
-        \item Enviar el \textit{log} a la base de dades.
-    \end{itemize}
-\end{itemize}
-
-\clearpage
-
 \begin{figure}[htbp]
-    \centerline{\includegraphics[width=1.2\textwidth]{figures/log-processing-workflow}}
+    \centerline{\includegraphics[width=1.3\textwidth]{figures/log-processing-workflow}}
     \captionsetup{justification=centering}
     \caption{Implementació del processament dels \textit{logs}.}\label{fig:log-processing-workflow}
     \source{Elaboració pròpia.}
