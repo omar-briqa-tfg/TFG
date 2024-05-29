@@ -27,8 +27,8 @@ Les tasques principals realitzades són:
 
 \begin{itemize}
     \item Desenvolupament del codi d’\gls{OSTIA}, utilitzant el sistema de control de versions git.
-    \item Anàlisis dels logs d’\gls{UPCommons}, amb registres des del 2006 fins al 2023.
-    \item Processament i abocament dels logs a la base de dades InfluxDB, ubicada al mateix servidor.
+    \item Anàlisis dels \textit{\gls{log}s} d’\gls{UPCommons}, amb registres des del 2006 fins al 2023.
+    \item Processament i abocament dels \textit{\gls{log}s} a la base de dades InfluxDB, ubicada al mateix servidor.
     \item Descàrrega de totes les metadades del servidor \gls{OAI} sbivdev1.
     \item Anàlisis, processament i abocament de les metadades a una base de dades MongoDB.
     \item Anàlisi quantitativa i qualitatiu del conjunt de les dades, amb el suport l’eina Grafana.
@@ -92,7 +92,7 @@ A l'exemple següent es troba la configuració específica per la base de dades 
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Fitxers de configuració]
     Habitualment aquests fitxers solen incloure credencials privades d'aquests serveis.
-    Com a bona pràctica, afegeix el sufix \textit{.env} al fitxer i no el pugis a Github, omitin-lo mitjançant el fitxer \textit{.\gls{gitignore}}.
+    Com a bona pràctica, afegeix el sufix \textit{.env} al fitxer i no el pugis a \textit{\gls{GitHub}}, omitin-lo mitjançant el fitxer \textit{.\gls{gitignore}}.
 \end{tcolorbox}
 \vspace{1em}
 
@@ -114,7 +114,7 @@ crea les xarxes virtuals pels contenidors i finalment, configura els serveis.
 \section{Accés als serveis}\label{sec:server-access}
 
 \noindent
-Per accedir als diferents serveis que es troben al servidor, utilitzarem un túnel ssh~\cite{tunel-ssh}.
+Per accedir als diferents serveis que es troben al servidor, utilitzarem un túnel \gls{ssh}~\cite{tunel-ssh}.
 Aquest consisteix en xifrar tota comunicació entre client i servidor. \\
 
 \noindent
