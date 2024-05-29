@@ -24,7 +24,7 @@ Aquí un exemple d’un \textit{log}:
 
 
 \noindent \\
-Aquesta estructura de dades representa la informació que podem extreure directament dels \textit{logs} provenents d'\gls{UPCommons}.
+Aquesta estructura de dades representa la informació que podem extreure directament dels \textit{\gls{log}s} provenents d'\gls{UPCommons}.
 El resultat del nostre processament d'aquests, altera aquest format per afegir més informació, com veurem més endavant.
 
 \clearpage
@@ -45,7 +45,7 @@ Com a primeres opcions considerem aquelles que siguin de programari lliure i en 
 \textbf{Grafana Loki~\cite{loki:main}}\label{subsubsec:log-db-option-loki}
 
 \noindent \\
-\textit{Grafana Labs} proporciona \textit{Loki}, un sistema d’agregació codi obert de logs basat en Prometheus.
+\textit{Grafana Labs} proporciona \textit{Loki}, un sistema d’agregació codi obert de \textit{\gls{log}s} basat en Prometheus.
 És un sistema distribuït i dissenyat per ser escalable.
 Les seves característiques principals:
 
@@ -53,8 +53,8 @@ Les seves característiques principals:
     \item \textbf{Escalabilitat}: disposa de diferents modes de desplegament on pots escollir el que més s’adapti pels teus requisits.
     \item \textbf{Integració}: suporta diverses implementacions/llibreries de tercers per fer-ne servir, i diversos modes de desplegament en local.
     \item \textbf{Grafana}: integració per defecte amb \textit{Grafana} com a eina principal d’observabilitat.
-    \item \textbf{Emmagatzemament}: Loki només indexa les metadades dels logs~\cite{loki:indexing}, és a dir, només el \textit{timestamp} i els \textit{labels} definits.
-    El contingut del log no s’indexa.
+    \item \textbf{Emmagatzemament}: Loki només indexa les metadades dels \textit{\gls{log}s}~\cite{loki:indexing}, és a dir, només el \textit{\gls{timestamp}} i els \textit{labels} definits.
+    El contingut del \textit{\gls{log}} no s’indexa.
     Utilitzant aquest plantejament, s’aconsegueix reduir la quantitat total de disc necessari.
     \begin{itemize}
         \item Aquesta característica és bastant interessent si utilitzem aquests labels per afegir informació relacionada amb el recurs accedit per després com a millorar el procés de cerca.
@@ -71,7 +71,7 @@ Elastic, conegut pel seu motor de cerca Elasticsearch, disposa d’una solució 
 Les seves característiques principals:
 
 \begin{itemize}
-    \item \textbf{Escalabilitat}: dissenyat per monitorar logs fins a una escala de petabytes
+    \item \textbf{Escalabilitat}: dissenyat per monitorar \textit{\gls{log}s} fins a una escala de petabytes
     \item \textbf{Integració}: suporta diverses implementacions/llibreries de tercers per fer-ne servir, i modes de desplegament en local.
     \item \textbf{\textit{Logstash}}: mecanisme per centralitzar i transformar les dades per després emmagatzemar-les a qualsevol lloc.
     \item \textbf{\textit{Kibana}}: integració per defecte amb \textit{Elastic Kibana} com a eina principal d’observabilitat.
@@ -126,11 +126,11 @@ La primera decisió presa fou donar suport a \textit{Grafana Loki}, amb els moti
     \item Té una gran quantitat d’usuaris actius.
     El repositori de codi~\cite{loki:code} és mantingut activament i de forma actual.
     \item Integració per defecte amb \textit{Grafana} per poder visualitzar els \textit{logs}.
-    \item Diverses llibreries~\cite{loki:libraries} ja implementades per enviar \textit{logs} a la base de dades.
+    \item Diverses llibreries~\cite{loki:libraries} ja implementades per enviar \textit{\gls{log}s} a la base de dades.
     \item Com prèviament s’ha mencionat, la indexació és a partir del \textit{\gls{timestamp}} més les metadades.
     Aquestes darreres, poden ser utilitzades per afegir valors que després agilitzaran el processament. \\ \\
-    Com podem veure a la imatge~\ref{fig:loki-indexing}, converteixen un log semblant als nostres en un altre adaptat al format de loki, on utilitzen com etiqueta el tipus petició (\textit{action}) o el codi d’estat (\textit{status\_code}) \\ \\
-    El nostre cas, en podem afegir uns que indiquin el tipus de \textit{log} (cerca, accés a recurs) o marcar-ne alguns que tinguin algun contingut inexacte.
+    Com podem veure a la imatge~\ref{fig:loki-indexing}, converteixen un \textit{\gls{log}} semblant als nostres en un altre adaptat al format de loki, on utilitzen com etiqueta el tipus petició (\textit{action}) o el codi d’estat (\textit{status\_code}) \\ \\
+    El nostre cas, en podem afegir uns que indiquin el tipus de \textit{\gls{log}} (cerca, accés a recurs) o marcar-ne alguns que tinguin algun contingut inexacte.
 \end{itemize}
 
 \clearpage
@@ -160,7 +160,7 @@ Aquesta base de dades, també basada en series temporals, té característiques 
     \begin{itemize}
         \item Aquest és un dels punts que ens van fer considerar aquesta opció, ja que va ser recomanada pel mateix aplicatiu de Grafana.
     \end{itemize}
-    \item Diverses llibreries~\cite{influxdb:libraries} ja implementades per enviar logs a la base de dades.
+    \item Diverses llibreries~\cite{influxdb:libraries} ja implementades per enviar \textit{\gls{log}s} a la base de dades.
     \begin{itemize}
         \item En el nostre cas emprar \textit{influxdb-client}~\cite{influxdb:python} pel llenguatge \textit{Python}.
     \end{itemize}
@@ -177,13 +177,13 @@ Aquesta base de dades, també basada en series temporals, té característiques 
 
 \clearpage
 
-\subsection{Procés d'abocament dels \textit{logs}}\label{subsec:log-push}
+\subsection{Procés d'abocament dels \textit{\gls{log}s}}\label{subsec:log-push}
 
 \noindent
-El procés d’abocament dels logs consisteix a migrar tots els logs d’una estructura de fitxers, emmagatzemats en un directori, a un sistema gestor de bases de dades. \\
+El procés d’abocament dels \textit{\gls{log}s} consisteix a migrar tots els \textit{\gls{log}s} d’una estructura de fitxers, emmagatzemats en un directori, a un sistema gestor de bases de dades. \\
 
 \noindent
-Els \textit{logs} es trobaven emmagatzemats a \texttt{/mnt/working/logsanon}, on hi havia un fitxer comprimit amb tots els registres d’un dia concret. \\
+Els \textit{\gls{log}s} es trobaven emmagatzemats a \texttt{/mnt/working/logsanon}, on hi havia un fitxer comprimit amb tots els registres d’un dia concret. \\
 
 \noindent
 Per tal de poder fragmentar la tasca, s’ha desenvolupat un petit \textit{script}~\cite{ostia:unzip} que descomprimeixi aquests arxius, i el més important, seguint aquesta estructura de fitxers com a ubicació destí:
@@ -215,8 +215,8 @@ Esquematitzant-ho, i amb el suport de la figura~\ref{fig:influxdb-indexing}, tra
     \begin{itemize}
         \item \textbf{content}: format del contingut, pot ser:
         \begin{itemize}
-            \item \texttt{ok}: el format del \textit{log} és l'esperat.
-            \item \texttt{diferent}: el format del \textit{log} no és l'esperat però s'ha pogut tractar.
+            \item \texttt{ok}: el format del \textit{\gls{log}} és l'esperat.
+            \item \texttt{diferent}: el format del \textit{\gls{log}} no és l'esperat però s'ha pogut tractar.
             \item \texttt{error}: error de processament.
         \end{itemize}
         Vegeu errors de processament~\ref{subsubsection:log-errors}.
@@ -228,7 +228,7 @@ Esquematitzant-ho, i amb el suport de la figura~\ref{fig:influxdb-indexing}, tra
             \item \texttt{recurs}: accés a un recurs d'\gls{UPCommons}.
             \item \texttt{altres}: altres tipus de \textit{\gls{log}}.
         \end{itemize}
-        Vegeu filtrage dels \textit{logs}~\ref{subsec:log-filter}.
+        Vegeu filtrage dels \textit{\gls{log}s}~\ref{subsec:log-filter}.
     \end{itemize}
     \item \texttt{field set}: conjunt de parelles clau-valor \textbf{no indexades}.
     Aquí hi emmagatzemarem valors únics, com són:
@@ -249,7 +249,7 @@ La implementació~\cite{ostia:influxdb-forwarder} del client d'InfluxDb ha estat
 
 \begin{itemize}
     \item \texttt{batching}: El mode d'escriptura emprat és el \textit{batching}.
-    Consisteix en agrupar els elements (\textit{logs}) en tandes, i després enviar una petició d'escriptura.
+    Consisteix en agrupar els elements (\textit{\gls{log}s}) en tandes, i després enviar una petició d'escriptura.
     A causa del volum de dades que tractem, evitem enviar una petició per cada \textit{log}, alleugerint la càrrega computacional.
     \begin{tcolorbox}[colback=red!5!white, colframe=red!75!black, title=Sobrecàrrega]
     En cas de disposar de la base de dades en algun servei de \textit{cloud}, aquest problema s'agreugaria, incrementant la latència.
@@ -261,8 +261,8 @@ La implementació~\cite{ostia:influxdb-forwarder} del client d'InfluxDb ha estat
         \item S’ha arribat a la mida del \textit{batch}: 500.
         \item Ha passat dos segons desde la darrera petició d’escriptura.
     \end{itemize}
-    \item \texttt{tags}: El diccionari que conté les etiquetes amb informació rellevant del log s’ha ordenat alfabèticament a partir de les claus.
-    \item \texttt{\gls{timestamp}}: Enviem el log amb la marca temporal amb precisió de l’orde dels nanosegons, format que utilitza \textbf{InfluxDb}.
+    \item \texttt{tags}: El diccionari que conté les etiquetes amb informació rellevant del \textit{\gls{log}} s’ha ordenat alfabèticament a partir de les claus.
+    \item \texttt{\gls{timestamp}}: Enviem el \textit{\gls{log}} amb la marca temporal amb precisió de l’orde dels nanosegons, format que utilitza \textbf{InfluxDb}.
     \item \texttt{\gls{gzip}}: comprimint les dades podem accelerar el procés d’escriptura fins a cinc vegades, tal i com indica la guia d'optimització d'InfluxDb~\cite{influxdb:optimizations}
 \end{itemize}
 
@@ -276,7 +276,7 @@ El resultat de l’abocament conclou amb la taula~\ref{tab:logs-table} on es mos
 Per cada columna, tenim els següents camps:
 
 \begin{itemize}
-    \item Nombre total de \textit{logs}:
+    \item Nombre total de \textit{\gls{log}s}:
     \begin{itemize}
         \item Nombre total de \textit{logs} processats.
     \end{itemize}
@@ -286,7 +286,7 @@ Per cada columna, tenim els següents camps:
         Es té en compte els següents dos casos:
         \begin{itemize}
             \item Contenen l’identificador \gls{handle} present.
-            \item Content el bitstream \gls{UUID} present.
+            \item Content el \gls{bitstream} \gls{UUID} present.
         \end{itemize}
     \end{itemize}
     \item Cerques a \gls{UPCommons}:
