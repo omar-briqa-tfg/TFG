@@ -4,22 +4,22 @@
 
 \clearpage
 
-\subsection{Anàlisi superficial dels \textit{logs}}\label{subsec:log-analysis}
+\subsection{Anàlisi superficial dels \textit{\gls{log}s}}\label{subsec:log-analysis}
 
-El format dels fitxers d'entrada on hi són emmagatzemats els registres, és d'un text pla on es registren tots els \textit{logs} corresponents a un dia.
+El format dels fitxers d'entrada on hi són emmagatzemats els registres, és d'un text pla on es registren tots els \textit{\gls{log}s} corresponents a un dia.
 Tractant-se de la informació d'accés als recursos d'\gls{UPCommons}, accessibles des de la pàgina web,
 tenim aquesta informació recollida des de la capa d'aplicació, mitjançant els missatges de petició del protocol \gls{HTTP}.
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=1\textwidth]{figures/example-log}}
     \captionsetup{justification=centering}
-    \caption{Exemple del contingut d'un \textit{log}.}\label{fig:example-log}
+    \caption{Exemple del contingut d'un \textit{\gls{log}}.}\label{fig:example-log}
     \source{UPCommons.}
 \end{figure}
 
 
 \noindent
-Cada línia present als fitxers de \textit{logs} correspon a una petició \gls{HTTP} .
+Cada línia present als fitxers de \textit{\gls{log}s} correspon a una petició \gls{HTTP} .
 El format d'aquest és el següent:
 
 \noindent \\
@@ -66,13 +66,13 @@ Amb l’ajuda d’aquest camp, podrem analitzar l’empremta digital del cercado
 
 \clearpage
 
-\subsection{Filtratge dels \textit{logs}}\label{subsec:log-filter}
+\subsection{Filtratge dels \textit{\gls{log}s}}\label{subsec:log-filter}
 
 Un cop entenem l'estructura dels \textit{logs}, el següent pas és realitzar una anàlisis preliminar del seu contingut.
 Esmentarem diferents casos trobats durant el processament d'aquests. \\
 
 \noindent
-El cas principal és aquell \textit{log} que incorpori informació sobre un accés a un recurs, o una cerca.
+El cas principal és aquell \textit{\gls{log}} que incorpori informació sobre un accés a un recurs, o una cerca.
 Els podrem identificar perquè:
 
 \begin{itemize}
@@ -87,13 +87,13 @@ Però els servidors registren \textbf{moltes} més coses.
 
 \noindent
 \textbf{Accés a recursos web} \\ \\
-Després d’un accés a algun recurs, generalment als \textit{logs} es poden veure registres d’accessos a recursos web (en vermell),
+Després d’un accés a algun recurs, generalment als \textit{\gls{log}s} es poden veure registres d’accessos a recursos web (en vermell),
 com podrien ser fixters css, javascript, gifs …
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-web-resource}}
     \captionsetup{justification=centering}
-    \caption{Exemple d'un \textit{log} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}} .}\label{fig:log-web-resource}
+    \caption{Exemple d'un \textit{\gls{log}} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}} .}\label{fig:log-web-resource}
     \source{UPCommons.}
 \end{figure}
 
@@ -106,14 +106,14 @@ Com que aquests registres no ens aporten cap informació valuosa pels nostres ca
 \textbf{Repeticions} \\
 
 \noindent
-Un log apareix exactament igual a diverses entrades, amb una petita diferència temporal (vermell).
+Un \textit{\gls{log}} apareix exactament igual a diverses entrades, amb una petita diferència temporal (vermell).
 Al següent exemple podem veure com el mateix accés es repeteix tres vegades (verd i groc),a diferents adreces \gls{IP} (vermell).
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-repetitions}}
     \captionsetup{justification=centering}
-    \caption{Exemple d'una cadena de \textit{logs} que accedeixen al mateix contingut.}\label{fig:log-repetitions}
-    \source{UPCommons.}
+\caption{Exemple d'una cadena de \textit{\gls{log}s} que accedeixen al mateix contingut.}\label{fig:log-repetitions}
+    \source{\gls{UPCommons}.}
 \end{figure}
 
 \begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Divergència relativa]
@@ -137,12 +137,12 @@ Amb la finalitat de d'enfocar l'anàlisi per altres bandes, no s'ha pres cap dec
 \textbf{Cerques} \\
 
 \noindent
-Als logs hi són presents cerques dins de la plataforma UPCommons. \\
+Als \textit{\gls{log}s} hi són presents cerques dins de la plataforma \gls{UPCommons}. \\
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-search}}
     \captionsetup{justification=centering}
-    \caption{Exemple d'un \textit{log} d'una cerca a la plataforma.}\label{fig:log-search}
+    \caption{Exemple d'un \textit{\gls{log}} d'una cerca a la plataforma.}\label{fig:log-search}
     \source{UPCommons.}
 \end{figure}
 
@@ -154,7 +154,7 @@ Haurem de tenir en compte quins són, i diferenciar-los de la resta. \\
 \textbf{Errors de processament}\label{subsubsection:log-errors} \\
 
 \noindent
-Diem que un \textit{log} produeix un error de processament si el seu format difereix abrutment del general (vegeu ~\ref{subsec:log-analysis}).
+Diem que un \textit{\gls{log}} produeix un error de processament si el seu format difereix abrutment del general (vegeu ~\ref{subsec:log-analysis}).
 Diferenciarem entre dos casos:
 
 \begin{itemize}
@@ -173,7 +173,7 @@ Diferenciarem entre dos casos:
 
     \begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=No val la pena]\label{tcbox:no-val-la-pena}
     Parlem d'afegir condicions al processament que només s'utilitzarien en el 0,000000287\% dels casos.
-    \tcblower 552 \textit{logs} de 1.922.392.760
+    \tcblower 552 \textit{\gls{log}s} de 1.922.392.760
     \end{tcolorbox}
 
     Per aquests motius, aquests casos es descartaran.
@@ -185,7 +185,7 @@ Diferenciarem entre dos casos:
 \subsection{Disseny tècnic}\label{subsec:logs-technical-design}
 
 Un cop tenim el \textbf{què} sobre els logs, passem al \textbf{com} els processem.
-L'objectiu és proposar una solució que abasti el procés que es durà a terme des de la lectura d’un \textit{log} fins a la seva agregació a la base de dades. \\
+L'objectiu és proposar una solució que abasti el procés que es durà a terme des de la lectura d’un \textit{\gls{log}} fins a la seva agregació a la base de dades. \\
 
 \noindent
 La nostra premisa és la següent:
@@ -197,7 +197,7 @@ La nostra premisa és la següent:
 \noindent
 Que es traduiria a:
 \begin{center}
-    Inserta a la base de dades el \textit{log} que compleixi cert criteri i fes-ho amb aquest format.
+    Inserta a la base de dades el \textit{\gls{log}} que compleixi cert criteri i fes-ho amb aquest format.
 \end{center}
 
 \begin{figure}[htbp]
@@ -214,14 +214,14 @@ Aquest disseny modular té tres components principals: \\
 \textbf{Component \texttt{Filtre}} \\
 
 \noindent
-El component \texttt{Filtre} s’encarrega de filtrar cada log mitjançant un criteri específic.
+El component \texttt{Filtre} s’encarrega de filtrar cada \textit{\gls{log}} mitjançant un criteri específic.
 Per exemple:
 \begin{itemize}
-    \item Si només volem admetre logs que provenen de dispositius mòbils, definirem una funció filtre que ho faci.
+    \item Si només volem admetre \textit{\gls{log}s} que provenen de dispositius mòbils, definirem una funció filtre que ho faci.
 \end{itemize}
 
 \noindent
-Les funcions de \texttt{Filtre} poden ser additives, és a dir, un mateix \textit{log} pot ser filtrat per diverses funcions.
+Les funcions de \texttt{Filtre} poden ser additives, és a dir, un mateix \textit{\gls{log}} pot ser filtrat per diverses funcions.
 Si cap filtre és necessari, no es definirà cap. \\
 
 \clearpage
@@ -230,24 +230,24 @@ Si cap filtre és necessari, no es definirà cap. \\
 \textbf{Component \texttt{Transformació}} \\
 
 \noindent
-L’objectiu del component \texttt{Transformació} és modificar el format del \textit{log} per afegir o treure camps segons els criteris determinats.
+L’objectiu del component \texttt{Transformació} és modificar el format del \textit{\gls{log}} per afegir o treure camps segons els criteris determinats.
 Per exemple:
 
 \begin{itemize}
-    \item Podem definir una funció de transformació per canviar del format de la data i hora a un unix timestamp.
+    \item Podem definir una funció de transformació per canviar del format de la data i hora a un UNIX \textit{\gls{timestamp}}.
     \item Eliminar algun camp que es consideri irrellevant s’hauria de fer mitjançant funcions de transformació.
 \end{itemize}
 
 \noindent
-Les funcions de \texttt{Transformació} poden ser additives, és a dir, un mateix log pot ser reformat per diverses funcions.
+Les funcions de \texttt{Transformació} poden ser additives, és a dir, un mateix \textit{\gls{log}} pot ser reformat per diverses funcions.
 Si cap transformació és necessaria, no es definirà cap. \\
 
 \noindent
 \textbf{Component \texttt{Bolcat}} \\
 
 \noindent
-Finalment, al component \texttt{Bolcat} arribarà els \textit{logs} desitjats amb el format escollit.
-Ara bé, depenen de la base de dades on es vol fer l’agregació, és possible que s’hagin de fer petits retocs al log per compatibilitzar amb la base de dades. \\
+Finalment, al component \texttt{Bolcat} arribarà els \textit{\gls{log}s} desitjats amb el format escollit.
+Ara bé, depenen de la base de dades on es vol fer l’agregació, és possible que s’hagin de fer petits retocs al \textit{\gls{log}} per compatibilitzar amb la base de dades. \\
 
 \noindent
 \textbf{Processament}
@@ -262,7 +262,7 @@ Així mateix, si tenim \(X_1\)..\(X_N\) funcions filtre, i \(Y_1\)..\(Y_N\) func
         \item \texttt{Transformació:} \(Y_1\)
         \item \texttt{Bolcat:} \texttt{PostgreSQLForwarder}
     \end{itemize}
-    \item \textbf{Cas d'ús \#2}: processa només els logs que accedeixin a recursos UPC, afegeix l’enllaç permanent i guarda-ho a un fitxer pla:
+    \item \textbf{Cas d'ús \#2}: processa només els \textit{\gls{log}s} que accedeixin a recursos UPC, afegeix l’enllaç permanent i guarda-ho a un fitxer pla:
     \begin{itemize}
         \item \texttt{Filtre:} \(X_2\)
         \item \texttt{Transformació:} \(Y_2\)
@@ -283,7 +283,7 @@ La interfície del módul filtre requereix que les seves implementacions disposs
 \begin{center}
     \texttt{function filter(Log) -> bool}
 \end{center}
-Aquesta ha d'acceptar un \textit{log} com a paràmetre explícit, i retornar cert, si i només si aquell registre passa el filtre definit.
+Aquesta ha d'acceptar un \textit{\gls{log}} com a paràmetre explícit, i retornar cert, si i només si aquell registre passa el filtre definit.
 
 \noindent \\
 S'han desenvolupat les següents funcions:
@@ -292,8 +292,8 @@ S'han desenvolupat les següents funcions:
     \item \texttt{WebResource}: Detecta si el recurs accedit és un recurs web.
     \item \texttt{SearchResource}: Detecta si és una cerca d’un recurs.
     \item \texttt{AccessResource}: Detecta si el recurs accedit és un recurs d’\gls{UPCommons} a través de l'identificador \gls{handle}.
-    \item \texttt{WithIPv6Address}: Detecta si el \textit{log} té present l’adreça en versió IPv6.
-    \item \texttt{WithoutIpAddress}: Detecta si el \textit{log} no té present el camp d'adreça \gls{IP}.
+    \item \texttt{WithIPv6Address}: Detecta si el \textit{\gls{log}} té present l’adreça en versió IPv6.
+    \item \texttt{WithoutIpAddress}: Detecta si el \textit{\gls{log}} no té present el camp d'adreça \gls{IP}.
     \item \texttt{AccessResourceBitstream}: Detecta si el recurs accedit és un recurs d’\gls{UPCommons} a través de l'identificador \gls{bitstream} \gls{UUID}
 \end{itemize}
 
@@ -302,8 +302,8 @@ S'han desenvolupat les següents funcions:
 \begin{itemize}
     \item \texttt{InfluxDbForwarder}:
     \begin{itemize}
-        \item Adaptar el \textit{log} en format JSON al format específic de la base de dades.
-        \item Enviar el \textit{log} a la base de dades.
+        \item Adaptar el \textit{\gls{log}} en format JSON al format específic de la base de dades.
+        \item Enviar el \textit{\gls{log}} a la base de dades.
     \end{itemize}
 \end{itemize}
 
@@ -320,12 +320,12 @@ S'han desenvolupat les seguents funcions:
 \noindent \\
 \texttt{Transformació}:
 \begin{itemize}
-    \item \texttt{ToJSON}: Converteix un \textit{log} emmagatzemat en una seqüència de caràcters en un \gls{JSON} estructurat.
+    \item \texttt{ToJSON}: Converteix un \textit{\gls{log}} emmagatzemat en una seqüència de caràcters en un \gls{JSON} estructurat.
     \item \texttt{AddLabel}: Afegeix al JSON un parell clau valor.
     \item \texttt{AddTimestamp}: Extrau i afegeix el valor de la data i la hora.
     \item \texttt{RemoveIPv6Address}: Elimina la adreça \gls{IP} en format IPv6 i manté aquella en format IPv4.
     \item \texttt{AddResourceIdLabel}: Afegeix l'identificador del recurs al qual accedeix el \textit{log}, en cas que aquest sigui un accés a un recurs.
-    \item \texttt{AddDefaultIpAddress}: Afegeix una adreça \gls{IP} constant a aquells \textit{logs} que no en tinguin cap.
+    \item \texttt{AddDefaultIpAddress}: Afegeix una adreça \gls{IP} constant a aquells \textit{\gls{log}s} que no en tinguin cap.
 \end{itemize}
 
 \noindent \\
