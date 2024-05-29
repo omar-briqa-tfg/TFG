@@ -1,0 +1,103 @@
+\chapter{Open Science Toolkit Information Access}\label{ch:ostia}
+El repositori principal on es troba el codi emprat per tractar i analitzar les dades d'accés a \gls{UPCommons} s'anomena Open Science Toolkit Information Access (\gls{OSTIA}).
+
+\noindent \\
+En aquest s'hi ha desenvolupat les eines necessàries per la realització del projecte.
+Es tracta d'un repositori basat en el sistema de control de versions \textit{\gls{git}}.
+
+\noindent \\
+La mecànica de treball sobre aquest tipus de repositoris és la tradicional.
+Per cada nova característica que es vulgui afegir al codi font de l'eina, es crea una nova branca.
+Tot el procés de desenvolupament es fa sobre aquesta, deixant la branca principal pel codi acabat.
+
+\noindent \\
+Per no divergir gaire amb la principal, un cop s'acaba la característica que es vol implementar, es disposa a fer la fusió.
+Aquest procés es sol fer mitjançant una petició (al context de git, \textit{Pull Request}), ja qué com a bona pràctica, la branca prinicpal està protegida per tal d'evitar a tota costa la introducció d'errors, \textit{bugs}, etc.
+
+\noindent \\
+Aquesta petició per afegir el nou codi sol ser revisada per altres membres de l'equip de desenvolupadors, els contribuidors a l'eina, responsables\dots
+
+\noindent \\
+En el nostre cas, la feina ha estat realitzada individualment, per tant no tenim aquests segons punts de vista.
+Malgrat això, el procés s'ha dut a terme igualment per dos motius: mantenit un històric de canvis, i modularitzar el desenvolupamnet.
+
+\clearpage
+
+\section*{Estructura}\label{sec:ostia-structure}
+
+\noindent
+Dividirem l'estructura del repositori de codi en dues parts:
+\begin{itemize}
+    \item Codi relacionat amb el correcte funcionament del mateix repositori.
+    \item Codi relacionat amb el processament i l'anàlisi de les dades d'accés a \gls{UPCommons}
+\end{itemize}
+
+\noindent \\
+La primera part està estructurada de la següent manera:
+
+\begin{verbatim}
+    - .github/workflows
+    - LICENSE
+    - README.md
+    - Makefile
+    - Pipfile
+    - pre-commit-config.yaml
+\end{verbatim}
+
+\noindent \\
+El propòsit individual és:
+
+\begin{itemize}
+    \item \texttt{.github/workflow}: Directori on s'inclouen tots els arxius que defineixen els github \textit{workflows}.
+    Parlem d'accions que s'executen puntualment, com per exemple, després d'afegir codi a la branca principal, durant el procés de \textit{Pull Request}, etc.
+    \item \texttt{LICENSE}: llicència sota la qual es desenvolupa el programari.
+    \item \texttt{README.md}: per norma general, fitxer informatiu principal als repositoris de \textit{Github<}
+    \item \texttt{Makefile}: fitxer d'automatització de comandes.
+    L'utilitzarem per generar la documentació, comprimir el codi principal, crear la imatge de \textit{\gls{Docker}}
+    \item \texttt{Pipfile}: fitxer que defineix les dependències, conjuntament amb la versió específica, necessàries pel funcioanment de l'eina.
+    \item \texttt{pre-commit-config.yaml}: fitxer de configuració que determina un seguit de normes que s'han de complir abans d'enviar un \textit{\gls{commit}}
+\end{itemize}
+
+\clearpage
+
+\noindent \\
+Per altre banda, tenim la següent estructura:
+
+\begin{verbatim}
+    - config
+    - doc
+    - lib
+    - scripts
+    - src
+      |-- logs
+      |-- metadata
+      |-- queries
+\end{verbatim}
+
+\noindent \\
+El propòsit de cada directori és:
+
+\begin{itemize}
+    \item \texttt{config}: Emmagatzema els diferents fitxers de configuració requerits durant el processament de les dades.
+    Tant la base de dades com els diferents \textit{\gls{plugin}s} utilitzats es troben definits aquí. \\
+    Vegeu configuració del servidor~\ref{sec:server-configuration}
+    \item \texttt{doc}: Documentació del codi.
+    Classes, mètodes, comentaris, excepcions, etc.
+    Inclou TODO! una eina per generar manualment aquesta documentació
+    \item \texttt{lib}: Dependències necessàries pel funcionament de l'eina.
+    \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Interoperabilitat]
+        Com menys dependències externes tingui un programari, aquest serà més versàtil, operable i multiplataforma.
+    \end{tcolorbox}
+    \item \texttt{scripts}: Conjunt de \textit{scripts} que ajuden a automatitzar certes tasques.
+    No formen part del codi principal de l'eina, però si que en complementen aquesta.
+    \item \texttt{src}: Directori principal de codi.
+    Es troba el codi font emprat per la realització del projecte.
+    Està escrit en Python.
+    Diferenciem els tres casos d'ús:
+    \begin{itemize}
+        \item \texttt{logs}: processament i emmagatzematge dels \textit{logs}.
+        \item \texttt{metadata}: processament i emmagatzematge de les metadades.
+        \item \texttt{queries}: anàlisi de les dades.
+    \end{itemize}
+\end{itemize}
+
