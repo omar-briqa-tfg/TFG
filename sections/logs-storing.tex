@@ -186,7 +186,7 @@ El procés d’abocament dels \textit{\gls{log}s} consisteix a migrar tots els \
 Els \textit{\gls{log}s} es trobaven emmagatzemats a \texttt{/mnt/working/logsanon}, on hi havia un fitxer comprimit amb tots els registres d’un dia concret. \\
 
 \noindent
-Per tal de poder fragmentar la tasca, s’ha desenvolupat un petit \textit{script}~\cite{ostia:unzip} que descomprimeixi aquests arxius, i el més important, seguint aquesta estructura de fitxers com a ubicació destí:
+Per tal de poder fragmentar la tasca, s’ha desenvolupat un petit \textit{script} que descomprimeixi aquests arxius, i el més important, seguint aquesta estructura de fitxers com a ubicació destí:
 
 \begin{verbatim}
     2006
@@ -245,7 +245,7 @@ Esquematitzant-ho, i amb el suport de la figura~\ref{fig:influxdb-indexing}, tra
 \textbf{Optimitzacions} \\ \\
 
 \noindent
-La implementació~\cite{ostia:influxdb-forwarder} del client d'InfluxDb ha estat optimitzada~\cite{influxdb:optimizations} de la següent manera:
+La implementació del client d'InfluxDb ha estat optimitzada~\cite{influxdb:optimizations} de la següent manera:
 
 \begin{itemize}
     \item \texttt{batching}: El mode d'escriptura emprat és el \textit{batching}.
