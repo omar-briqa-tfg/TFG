@@ -9,8 +9,8 @@ El procés de desenvolupament s’ha dut a terme emprant un servidor preparat pe
     \end{itemize}
     \item \textbf{Emmagatzemament:}
     \begin{itemize}
-        \item 16 GB de disc de sistema
-        \item 256 GB de disc SSD per dades
+        \item 16 GB de disc de sistema.
+        \item 256 GB de disc SSD per dades.
     \end{itemize}
 \end{itemize}
 
@@ -52,7 +52,7 @@ Els principals serveis utilitzats durant la realització del projecte han sigut:
     \item \textbf{MongoDB}
     \begin{itemize}
         \item Base de dades utilitzada per l’emmagatzematge de les metadades.
-        \item El mateix servei no ofereix cap interfície gràfica, així doncs afegim el suport de mongodb-expres.
+        \item El mateix servei no ofereix cap interfície gràfica, així perquè afegim el suport de mongodb-expres.
     \end{itemize}
     \item \textbf{Grafana}
     \begin{itemize}
@@ -64,7 +64,7 @@ Els principals serveis utilitzats durant la realització del projecte han sigut:
 Per cadascun d’aquests serveis definirem un fitxer de configuració, que configurarà cada contenidor, que en aquest cas, són de tipus \textit{\gls{Docker}}. \\
 
 \noindent
-Com disposem de diverses aplicacions, la manera més senzilla és utilitzar el sistema per configurar i executar aplicacions multi-contenidor per antonomàsia, que és \textit{\gls{docker-compose}}. \\
+Com disposem de diverses aplicacions, la manera més senzilla és utilitzar el sistema per configurar i executar aplicacions multicontenidor per antonomàsia, que és \textit{\gls{docker-compose}}. \\
 
 \noindent
 Aquest fitxer acostuma a tenir aquesta estructura:
@@ -98,7 +98,7 @@ A l'exemple següent es troba la configuració específica per la base de dades 
 
 \noindent
 Un cop definits tots els serveis, es procedeix amb la instal·lació.
-La comanda següent, descarrega les imatges de \textit{\gls{Docker}} en cas que aquestes no estiguin presents al sistema,
+La comanda següent descarrega les imatges de \textit{\gls{Docker}} en cas que aquestes no estiguin presents al sistema,
 crea les xarxes virtuals pels contenidors i finalment, configura els serveis.
 
 \begin{verbatim}
@@ -115,7 +115,7 @@ crea les xarxes virtuals pels contenidors i finalment, configura els serveis.
 
 \noindent
 Per accedir als diferents serveis que es troben al servidor, utilitzarem un túnel \gls{ssh}~\cite{tunel-ssh}.
-Aquest consisteix en xifrar tota comunicació entre client i servidor. \\
+Aquest consisteix a xifrar tota comunicació entre client i servidor. \\
 
 \noindent
 Per exemple, el contingut de la interfície gràfica de Grafana, accessible a través del port tres mil del servidor,
@@ -136,7 +136,7 @@ En un altre terminal:
 \noindent \\
 \section*{Instal·lació de software}\label{sec:software-installation}
 
-El treball diari al servidor requereix de la instal·lació d'alguns paquets, alguns on la seva instal·lació és trivial utilitzan un gestor de paquets com \textit{\textit{apt}}, però d'altres en necessiten d'una instal·lació i configuració més curosa, com veurem amb \textit{\gls{Docker}}.
+El treball diari al servidor requereix de la instal·lació d'alguns paquets, alguns on la seva instal·lació és trivial utilitzant un gestor de paquets com \textit{\textit{apt}}, però d'altres en necessiten d'una instal·lació i configuració més curosa, com veurem amb \textit{\gls{Docker}}.
 
 \noindent \\
 Els paquets descarregats a través d'\textit{\gls{apt}} són els següents:
@@ -200,7 +200,7 @@ $ sudo systemctl start docker
 \end{verbatim}
 
 \noindent \\
-Habilitem que el servei s'inicii automàticament cada vegada que es reinicia el sistema.
+Habilitem que el servei s'iniciï automàticament cada vegada que es reinicia el sistema.
 \begin{verbatim}
 $ sudo systemctl enable docker
 \end{verbatim}

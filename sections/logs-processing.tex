@@ -2,7 +2,7 @@
 \section{Logs}\label{sec:logs-processing}
 
 Com a primer pas per analitzar les dades, treballarem els registres d'accés a la plataforma d'UPCommons.
-Ens han proporcionat aquestes dades que corresponen als accessos desde del primer dia de l'any 2006 fins al darrer dia del 2023.
+Ens han proporcionat aquestes dades que corresponen als accessos des de del primer dia de l'any 2006 fins al darrer dia del 2023.
 
 \clearpage
 
@@ -32,7 +32,7 @@ L'agent pot ser:
     \item Un usuari humà.
     \item Un agent automatitzat: robots, scripts, serveis de mail, etc.
 \end{itemize}
-Degut a questions de privacitat i protecció de dades, aquest identificador ha sigut modificat en un procés d'anonimització. \\
+A cause de qüestions de privacitat i protecció de dades, aquest identificador ha sigut modificat en un procés d'anonimització. \\
 
 \begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Els iguals emmascarats]\label{tcbox:iguals-emmascarats}
     No podem sempre afirmar que dues peticions amb el mateix identificador provenen del mateix usuari.
@@ -42,7 +42,7 @@ Degut a questions de privacitat i protecció de dades, aquest identificador ha s
 \noindent \\
 \textbf{Data i hora} \\ \\
 La marca temporal del registre ve definida per la seva data i hora.
-Si bé es pot treballar directament amb aquest valors si segueix el format \gls{ISO}, és preferible utilitzar el format estàndard \gls{POSIX} (nombre de segons no intercalars des de l'1 de gener del 1970)
+Si bé es pot treballar directament amb aquest valor si segueix el format \gls{ISO}, és preferible utilitzar el format estàndard \gls{POSIX} (nombre de segons no intercalars des de l'1 de gener del 1970)
 
 \clearpage
 
@@ -54,7 +54,7 @@ Si bé es pot treballar directament amb aquest valors si segueix el format \gls{
     \item Recurs accedit: enllaç al recurs accedit per la petició.
     \item Versió \gls{HTTP}: evolució d'\texttt{HTTP/1.0} fins a \texttt{HTTP/1.1} en el transcurs dels anys.
     \item Codi d'estat que retorna la petició: codi que representa el resultat de la petició.
-    Els més habituals són els \texttt{2XX} (succes), \texttt{4XX} (error del client) i \texttt{5XX} (error del servidor)
+    Els més habituals són els \texttt{2XX} (succés), \texttt{4XX} (error del client) i \texttt{5XX} (error del servidor)
     \item Mida de la resposta: mida en \textit{bytes} del cos de la resposta.
 \end{itemize}
 
@@ -70,7 +70,7 @@ Amb l’ajuda d’aquest camp, podrem analitzar l’empremta digital del cercado
 
 \subsection{Filtratge dels \textit{\gls{log}s}}\label{subsec:log-filter}
 
-Un cop entenem l'estructura dels \textit{logs}, el següent pas és realitzar una anàlisis preliminar del seu contingut.
+Un cop entenem l'estructura dels \textit{logs}, el següent pas és dur a terme un anàlisi preliminar del seu contingut.
 Esmentarem diferents casos trobats durant el processament d'aquests. \\
 
 \noindent
@@ -90,7 +90,7 @@ Però els servidors registren \textbf{moltes} més coses.
 \noindent
 \textbf{Accés a recursos web} \\ \\
 Després d’un accés a algun recurs, generalment als \textit{\gls{log}s} es poden veure registres d’accessos a recursos web (en vermell),
-com podrien ser fixters \textit{css}, \textit{javascript}, \textit{gifs} \dots
+com podrien ser fitxers \textit{css}, \textit{javascript}, \textit{gifs} \dots
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-web-resource}}
@@ -119,19 +119,19 @@ Al següent exemple podem veure com el mateix accés es repeteix tres vegades (v
 \end{figure}
 
 \begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Divergència relativa]
-    No podem sempre afirmar que peticions amb contingut igual però diferents identificadors provenen d'usuaris diferents.
-    Pot haver-hi darrere un servidor \textit{Proxy} que redirigeixi les peticions, distribuidors de càrrega, etc.
+    No podem sempre afirmar que peticions amb contingut igual, però diferents identificadors provenen d'usuaris diferents.
+    Pot haver-hi darrere un servidor \textit{Proxy} que redirigeixi les peticions, distribuïdors de càrrega, etc.
     \tcblower
-    Cas anàlog als ``iguals emmascarats''~\ref{tcbox:iguals-emmascarats}.
+    Cas anàleg als ``iguals emmascarats''~\ref{tcbox:iguals-emmascarats}.
 \end{tcolorbox}
 
 \noindent
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Counter]
-    Per a futures refèrncies, el projecte Counter~\cite{counter} pot servir com a base per tractar aquesta casuística.
+    Per a futures refèrencies, el projecte Counter~\cite{counter} pot servir com a base per tractar aquesta casuística.
 \end{tcolorbox}
 
 \noindent \\
-Amb la finalitat de d'enfocar l'anàlisi per altres bandes, no s'ha pres cap decisió en vers aquests cassos, i seran tractats com la generalitat.
+Amb la finalitat d'enfocar l'anàlisi per altres bandes, no s'ha pres cap decisió en vers aquests casos, i seran tractats com la generalitat.
 
 \clearpage
 
@@ -156,7 +156,7 @@ Haurem de tenir en compte quins són, i diferenciar-los de la resta. \\
 \textbf{Errors de processament}\label{subsubsection:log-errors} \\
 
 \noindent
-Diem que un \textit{\gls{log}} produeix un error de processament si el seu format difereix abrutment del general (vegeu ~\ref{subsec:log-analysis}).
+Diem que un \textit{\gls{log}} produeix un error de processament si el seu format difereix abruptament del general (vegeu ~\ref{subsec:log-analysis}).
 Diferenciarem entre dos casos:
 
 \begin{itemize}
@@ -164,14 +164,14 @@ Diferenciarem entre dos casos:
     La seva presència és abundant.
     Alguns exemples śon:
     \begin{itemize}
-        \item La direcció \gls{IP} no existeix o és malformada.
-        \item Contigut alterat (a vegades, intencionadament!)
+        \item L'adreça \gls{IP} no existeix o és mal formada.
+        \item Contingut alterat (a vegades, intencionadament!)
     \end{itemize}
     En aquests casos manipularem el registre afectat per homogeneïtzar el conjunt dels \textit{logs}.
     \item \textbf{Errors irreversibles:} alteració en grau superlatiu del cos del \textit{log}.
     Dificulta el seu processament.
     La seva presència és escassa.
-    El resultat d'afegir la lògica necessària per tractar aquests cassos no justifica en cap cas el seu tractament.
+    El resultat d'afegir la lògica necessària per tractar aquests casos no justifica en cap cas el seu tractament.
 
     \begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=No val la pena]\label{tcbox:no-val-la-pena}
     Parlem d'afegir condicions al processament que només s'utilitzarien en el 0,000000287\% dels casos.
@@ -190,7 +190,7 @@ Un cop tenim el \textbf{què} sobre els \textit{\gls{log}s}, passem al \textbf{c
 L'objectiu és proposar una solució que abasti el procés que es durà a terme des de la lectura d’un \textit{\gls{log}} fins a la seva agregació a la base de dades. \\
 
 \noindent
-La nostra premisa és la següent:
+La nostra premissa és la següent:
 \noindent
 \begin{center}
     \texttt{DB.insert(transform(log, Y[])) if filter(log, X[])}
@@ -199,7 +199,7 @@ La nostra premisa és la següent:
 \noindent
 Que es traduiria a:
 \begin{center}
-    Inserta a la base de dades el \textit{\gls{log}} que compleixi cert criteri i fes-ho amb aquest format.
+    Insereix a la base de dades el \textit{\gls{log}} que compleixi cert criteri i fes-ho amb aquest format.
 \end{center}
 
 \begin{figure}[htbp]
@@ -242,7 +242,7 @@ Per exemple:
 
 \noindent
 Les funcions de \texttt{Transformació} poden ser additives, és a dir, un mateix \textit{\gls{log}} pot ser reformat per diverses funcions.
-Si cap transformació és necessaria, no es definirà cap. \\
+Si cap transformació és necessària, no es definirà cap. \\
 
 \noindent
 \textbf{Component \texttt{Bolcat}} \\
@@ -273,7 +273,7 @@ Així mateix, si tenim \(X_1\)..\(X_N\) funcions filtre, i \(Y_1\)..\(Y_N\) func
 \end{itemize}
 
 \noindent
-Finalment, enviaríem al codi els casos d’ús: \(CU_1\), \(CU_2\) des d'un fitxer de configuració/codi que realitzi la feina.
+Finalment, enviaríem al codi els casos d’ús: \(CU_1\), \(CU_2\) des d'un fitxer de configuració/codi que faci la feina.
 
 \clearpage
 
@@ -281,7 +281,7 @@ Finalment, enviaríem al codi els casos d’ús: \(CU_1\), \(CU_2\) des d'un fit
 
 \noindent
 \texttt{Filtre}.
-La interfície del módul filtre requereix que les seves implementacions dispossin d'una funció \texttt{filter}.
+La interfície del mòdul filtre requereix que les seves implementacions disposin d'una funció \texttt{filter}.
 \begin{center}
     \texttt{function filter(Log) -> bool}
 \end{center}
@@ -313,18 +313,18 @@ S'han desenvolupat les següents funcions:
 
 \noindent
 \texttt{Transformació}.
-La interfície del módul filtre requereix que les seves implementacions dispossin d'una funció \texttt{transform}.
-Degut a la variabilitat d'aquestes funcions, la interfície no exigeix en forma de contracte cap funció.
+La interfície del mòdul filtre requereix que les seves implementacions disposin d'una funció \texttt{transform}.
+A causa de la variabilitat d'aquestes funcions, la interfície no exigeix en forma de contracte cap funció.
 
 \noindent \\
-S'han desenvolupat les seguents funcions:
+S'han desenvolupat les següents funcions:
 
 \noindent \\
 \texttt{Transformació}:
 \begin{itemize}
     \item \texttt{ToJSON}: Converteix un \textit{\gls{log}} emmagatzemat en una seqüència de caràcters en un \gls{JSON} estructurat.
     \item \texttt{AddLabel}: Afegeix al JSON un parell clau valor.
-    \item \texttt{AddTimestamp}: Extrau i afegeix el valor de la data i la hora.
+    \item \texttt{AddTimestamp}: Extrau i afegeix el valor de la data i l'hora.
     \item \texttt{RemoveIPv6Address}: Elimina la adreça \gls{IP} en format IPv6 i manté aquella en format IPv4.
     \item \texttt{AddResourceIdLabel}: Afegeix l'identificador del recurs al qual accedeix el \textit{log}, en cas que aquest sigui un accés a un recurs.
     \item \texttt{AddDefaultIpAddress}: Afegeix una adreça \gls{IP} constant a aquells \textit{\gls{log}s} que no en tinguin cap.
