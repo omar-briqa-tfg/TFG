@@ -6,7 +6,7 @@ Aprofitant el que conjunt total de metadades té un volum tractable (648 MB), un
 D’aquesta manera evitem tornar a fer les peticions al servidor en cas que el bolcat falli, o les dades pateixin algun tipus d’alteració o corrupció. \\
 
 \noindent
-L’estructura consisteix en un directori per cada miler de metadades, i deu fitxers amb cen cadascuna, incloses en aquest.
+L’estructura consisteix en un directori per cada miler de metadades, i deu fitxers amb cen cadascun, incloses en aquest.
 
 \begin{verbatim}
   - batch_0_1000
@@ -21,18 +21,18 @@ L’estructura consisteix en un directori per cada miler de metadades, i deu fit
 \noindent \\
 \subsection{Destí: MongoDB}\label{subsec:metadata-db-mongodb}
 
-L'elecció de la base de dades on hi emmagatzemarem les metadades depen de l'estructura d'aquestes.
-Com el servidor \gls{OAI} retorna les dades en format \gls{XML}, i la conversió a un document \gls{JSON} és trivial, utilitzarem MongoDB.
+L'elecció de la base de dades on emmagatzemarem les metadades depén de l'estructura d'aquestes.
+Com el servidor \gls{OAI} retorna les dades en format \gls{XML}, i la conversió a un document \gls{JSON} és quasi trivial, utilitzarem \textit{MongoDB}.
 
 \begin{itemize}
   \item Base de dades no relacional de codi obert, orientada a documents.
-  \item Com alguns camps no són únics com per exemple, el dc.contributor, necessitem d’un gestor que ens ofereixi flexibilitat al seu esquema de dades.
+  \item Com alguns camps no són únics com per exemple, el dc.contributor, necessitem un gestor que ens ofereixi flexibilitat al seu esquema de dades.
   \item Es pot utilitzar com a font de dades i incorporar-la a \textit{Grafana}, a través d’un \gls{plugin}.
 \end{itemize}
 
 \noindent
 Com prèviament hem vist, les metadades s’estructuren de la següent manera: \textit{schema.element.qualifier}.
-Degut a que MongoDB no suporta punts (.) a les seves claus~\cite{mongodb:key-restrictions}, s’ha hagut de fer un petita transformació:
+A causa que MongoDB no suporta punts (.) a les seves claus~\cite{mongodb:key-restrictions}, s’ha hagut de fer una petita transformació:
 
 \begin{center}
   schema\textbf{.}element\textbf{.}qualifier → schema\textbf{-}element\textbf{-}qualifier

@@ -1,15 +1,12 @@
 \chapter{Emmagatzematge de les dades}\label{ch:log-storing}
 
 Les dades ja les tenim processades.
-Però aquestes seràn consultades repetivament.
-Conseqüentment, necessitem un espai per emmagatzemar-les.
-I no només aixó, les hem de poder consultar d'una forma raonablement simple, eficient i consistens. \\
-
-\noindent
+Però com aquestes seran consultades repetidament, necessitem un espai per emmagatzemar-les.
+I no només això, les hem de poder consultar d'una forma raonablement simple, eficient i consistent.
 La resposta sembla ser senzilla: utilitzar bases de dades. \\
 
 \noindent
-L’objectiu principal de l’ús de bases de dades és de disposar d’una eina que ens permeti efectuar operacions com la cerca, indexació i emmagatzemament dels logs.
+L’objectiu principal de l’ús de bases de dades és de disposar d’una eina que ens permeti efectuar operacions com la cerca, indexació i emmagatzemament dels \textit{\gls{log}s}.
 Treballar directament sobre arxius plans no és gens recomanable. \\
 
 \noindent
