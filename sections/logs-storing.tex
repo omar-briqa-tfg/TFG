@@ -87,7 +87,7 @@ Apache SOLR és una plataforma de cerca que es pot utilitzar com a mecanisme d�
 Les seves característiques principals:
 
 \begin{itemize}
-    \item \textbf{Escalabilitat}: basat en un sistema distribuït i basat en rèpliques, és optimitzat per grans volums de dades.
+    \item \textbf{Escalabilitat}: basat en un sistema distribuït i rèpliques, és optimitzat per grans volums de dades.
     \item \textbf{Integració}: la comunicació amb el servei es realitza mitjançant l’\gls{API} de SOLR sobre \gls{HTTP} .
     També suporta diferents modes de desplegament en local.
     \item \textbf{Lucene}: fa servir \textit{Apache Lucene} com a motor de cerca principal.
@@ -104,7 +104,7 @@ Com a contrapartida:
 \clearpage
 
 \noindent
-Altres opcions que no són de codi obert són les següents,  la versió gratuïta que proporcionen és bastant limitada, no hi ha prou documentació a la xarxa són les següents:
+Altres opcions que no són de codi obert són les següents,  la versió gratuïta que proporcionen és bastant limitada o no hi ha prou documentació a la xarxa són les següents:
 
 \begin{itemize}
     \item \textbf{Graylog}~\cite{graylog}
@@ -142,7 +142,7 @@ La primera decisió presa fou donar suport a \textit{Grafana Loki}, amb els moti
 \end{figure}
 
 \noindent \\
-Malauradament, errors durant l’etapa de configuració, concretament XXXXXXXXXX, ens van fer recular i considerar altres opcions.
+Malauradament, errors durant l’etapa de configuració, concretament del paràmetre que defineix el temps màxim d'anterioritat per la cerca dels \textit{\gls{log}s}, ens van fer recular i considerar altres opcions.
 
 \clearpage
 
@@ -182,7 +182,7 @@ Aquesta base de dades, també basada en series temporals, té característiques 
 El procés d’abocament dels \textit{\gls{log}s} consisteix a migrar tots els \textit{\gls{log}s} d’una estructura de fitxers, emmagatzemats en un directori, a un sistema gestor de bases de dades. \\
 
 \noindent
-Els \textit{\gls{log}s} es trobaven emmagatzemats a \texttt{/mnt/working/logsanon}, on hi havia un fitxer comprimit amb tots els registres d’un dia concret. \\
+Els \textit{\gls{log}s} es trobaven emmagatzemats a \texttt{/mnt/working/logsanon}, on hi havia un fitxer comprimit amb tots els registres per cada dia. \\
 
 \noindent
 Per tal de poder fragmentar la tasca, s’ha desenvolupat un petit \textit{script} que descomprimeixi aquests arxius, i el més important, seguint aquesta estructura de fitxers com a ubicació destí:
