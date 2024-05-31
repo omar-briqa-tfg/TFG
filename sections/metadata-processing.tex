@@ -1,10 +1,11 @@
 \section{Metadades}\label{sec:metadata-processing}
 
-Les metadades són el conjunt d'etiquetes presents a qualsevol registre que contenen informació sobre aquest.
+Les metadades són el conjunt d'etiquetes presents als registres d'\gls{UPCommons} que contenen informació sobre aquest.
 Els autors, la descripció del recurs, la data de pujada, el departament responsable, el tipus de document, o més, es troben inclosos. \\
 
 \noindent
-En el nostre cas, a \gls{UPCommons}, aquestes utilitzen el format \gls{DSpace} Intermediate Metadata, \gls{DIM}, que es basa en fer sservir el format Dublin Core incorporant un qualificador, amb la finalitat d'afinar la informació que inclous.
+En el nostre cas, a \gls{UPCommons}, aquestes utilitzen el format \gls{DSpace} Intermediate Metadata, \gls{DIM}.
+Es basa a fer servir el format Dublin Core incorporant un qualificador, amb la finalitat d'afinar la informació que .
 L'estructura és la següent:
 
 \begin{center}
@@ -19,7 +20,7 @@ Per exemple, l'autor principal d'un recurs s'identificaria com:
 \end{center}
 
 \noindent
-Per cada metadada, s'assignen els següent valors:
+Per cada metadada, s'assignen els següents valors:
 
 \begin{itemize}
     \item \textbf{value}: Valor de la metadada.
@@ -58,12 +59,12 @@ Permet accedir a metadades codificades en diferents formats, encara que el més 
 Aquest protocol defineix sis operacions bàsiques~\cite{oai-pmh}:
 
 \begin{itemize}
-    \item \textbf{\texttt{GetRecord}}: Utilitzat per obtenir informació sobre un registre individual.
-    \item \texttt{\textbf{Identify}}: Emprat per aconseguir informació sobre el repositori.
+    \item \textbf{\texttt{GetRecord}}: utilitzat per obtenir informació sobre un registre individual.
+    \item \texttt{\textbf{Identify}}: emprat per aconseguir informació sobre el repositori.
     \item \texttt{\textbf{ListIdentifiers}}: retorna les capçaleres dels registres.
     \item \texttt{\textbf{ListMetadataFormats}}: retorna els formats de metadades disponibles al repositori.
-    \item \texttt{\textbf{ListRecords}}: principal verb per la recol·lecta de metadades, retorna els registres complets.
-    \item \texttt{\textbf{ListSets}}: retorna l’estructura dels sets del repositori.
+    \item \texttt{\textbf{ListRecords}}: verb principal per la recol·lecta de metadades, retorna els registres complets.
+    \item \texttt{\textbf{ListSets}}: retorna l’estructura dels \textit{sets} del repositori.
 \end{itemize}
 
 \clearpage
@@ -71,7 +72,7 @@ Aquest protocol defineix sis operacions bàsiques~\cite{oai-pmh}:
 \subsection{Control de Flux}\label{subsec:flux-control}
 
 Alguns servidors implementen un mecanisme de control de flux per tal de tractar les peticions que retornin llistes incompletes.
-Es basa en utilitzar un identificador anoment \textit{resumptionToken}, que retorni la petició anterior amb la llista incompleta, i sigui paràmetre de la següent petició. \\
+Es basa a utilitzar un identificador anomenat \textit{resumptionToken}, que retorni la petició anterior amb la llista incompleta, i sigui paràmetre de la següent petició. \\
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Finestra lliscant]
     Per comparar-ho amb altres protocols, \gls{TCP}~\cite{tcp} utilitza el valor de la ``finestra lliscant'' per indicar la quantitat de dades que ha d'enviar l'emissor,
@@ -79,8 +80,8 @@ Es basa en utilitzar un identificador anoment \textit{resumptionToken}, que reto
 \end{tcolorbox}
 
 \noindent \\
-El procès s'iterarà fins a obternir la llista completa.
-Podrem identificar el final, ja que:
+El procés s'iterarà fins a obtenir la llista completa.
+Podrem identificar el final, pel fet que:
 
 \begin{itemize}
     \item Aquesta darrera llista té una grandària inferior a les anteriors (acostuma a ser 100 unitats).
@@ -89,7 +90,7 @@ Podrem identificar el final, ja que:
 
 \noindent
 L'objectiu és, altrament que la fragmentació de peticions que demanen quantitats ciclòpiques de dades és més operatiu,
-permet la recuperació del context en cas d'errors de xarxa o d'altre classe.
+permet la recuperació del context en cas d'errors de xarxa o d'altra classe.
 
 \clearpage
 
@@ -97,7 +98,7 @@ permet la recuperació del context en cas d'errors de xarxa o d'altre classe.
 
 L'objectiu és clar, descarregar totes les metadades.
 El protocol està ben definit.
-La llibreria Sickle ens facilita la feina.
+La llibreria Sickle~\cite{Sickle} ens facilita la feina.
 Això resulta en una implementació senzilla:
 
 \begin{enumerate}
@@ -106,7 +107,7 @@ Això resulta en una implementació senzilla:
     \begin{enumerate}
         \item Disposem de la llista (incompleta) de registres de metadades.
         \item Extraiem aquella informació rellevant pel nostre cas d'ús, que són les metadades en format Dublin Core.
-        \item Descartem aquells registres marcats com esborrats, no contenen cap informació.
+        \item Descartem aquells registres marcats com esborrats, ja que no contenen cap informació.
         \item Realitzem l'abocament a la base de dades corresponent.
     \end{enumerate}
     \item Tornem a iterar fins a obtenir la llista completa de les metadades.
