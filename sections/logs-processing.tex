@@ -8,7 +8,7 @@ Ens han proporcionat aquestes dades que corresponen als accessos desde del prime
 
 \subsection{Anàlisi superficial dels \textit{\gls{log}s}}\label{subsec:log-analysis}
 
-El format dels fitxers d'entrada on hi són emmagatzemats els registres, és d'un text pla on es registren tots els \textit{\gls{log}s} corresponents a un dia.
+El format dels fitxers d'entrada on hi són emmagatzemats els registres és d'un text pla on es registren tots els \textit{\gls{log}s} corresponents a un dia.
 Tractant-se de la informació d'accés als recursos d'\gls{UPCommons}, accessibles des de la pàgina web,
 tenim aquesta informació recollida des de la capa d'aplicació, mitjançant els missatges de petició del protocol \gls{HTTP}.
 
@@ -21,8 +21,8 @@ tenim aquesta informació recollida des de la capa d'aplicació, mitjançant els
 
 
 \noindent
-Cada línia present als fitxers de \textit{\gls{log}s} correspon a una petició \gls{HTTP} .
-El format d'aquest és el següent:
+Cada línia present als fitxers dels \textit{\gls{log}s} correspon a una petició \gls{HTTP} .
+El format d'aquesta és el següent:
 
 \noindent \\
 \textbf{Adreça \gls{IP}} \\ \\
@@ -50,7 +50,7 @@ Si bé es pot treballar directament amb aquest valors si segueix el format \gls{
 \textbf{Informació de la petició \gls{HTTP}}~\cite{http} \\
 
 \begin{itemize}
-    \item Mètode de la petició: els més habitals són \texttt{GET}, \texttt{POST} i \texttt{HEAD} .
+    \item Mètode de la petició: els més habituals són \texttt{GET}, \texttt{POST} i \texttt{HEAD} .
     \item Recurs accedit: enllaç al recurs accedit per la petició.
     \item Versió \gls{HTTP}: evolució d'\texttt{HTTP/1.0} fins a \texttt{HTTP/1.1} en el transcurs dels anys.
     \item Codi d'estat que retorna la petició: codi que representa el resultat de la petició.
@@ -64,7 +64,7 @@ El camp del referent indica la ubicació d’on s’ha fet la sol·licitud del r
 
 \noindent \\ \\
 \textbf{User Agent} \\ \\
-Amb l’ajuda d’aquest camp, podrem analitzar l’empremta digital del cercador utilitzat i determinar amb una certa precisió el tipus de dispositiu utilitzat, el sistema operatiu, si l’acció prové d’un usuari o d’una eina automatitzada (bots o serveis de mail)
+Amb l’ajuda d’aquest camp, podrem analitzar l’empremta digital del cercador utilitzat i determinar amb una certa precisió el tipus de dispositiu utilitzat, el sistema operatiu, si l’acció prové d’un usuari o d’una eina automatitzada (\textit{bots} o serveis de correu)
 
 \clearpage
 
@@ -90,7 +90,7 @@ Però els servidors registren \textbf{moltes} més coses.
 \noindent
 \textbf{Accés a recursos web} \\ \\
 Després d’un accés a algun recurs, generalment als \textit{\gls{log}s} es poden veure registres d’accessos a recursos web (en vermell),
-com podrien ser fixters css, javascript, gifs …
+com podrien ser fixters \textit{css}, \textit{javascript}, \textit{gifs} \dots
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-web-resource}}
@@ -109,7 +109,7 @@ Com que aquests registres no ens aporten cap informació valuosa pels nostres ca
 
 \noindent
 Un \textit{\gls{log}} apareix exactament igual a diverses entrades, amb una petita diferència temporal (vermell).
-Al següent exemple podem veure com el mateix accés es repeteix tres vegades (verd i groc),a diferents adreces \gls{IP} (vermell).
+Al següent exemple podem veure com el mateix accés es repeteix tres vegades (verd i groc), a diferents adreces \gls{IP} (vermell).
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-repetitions}}
@@ -186,7 +186,7 @@ Diferenciarem entre dos casos:
 
 \subsection{Disseny tècnic}\label{subsec:logs-technical-design}
 
-Un cop tenim el \textbf{què} sobre els logs, passem al \textbf{com} els processem.
+Un cop tenim el \textbf{què} sobre els \textit{\gls{log}s}, passem al \textbf{com} els processem.
 L'objectiu és proposar una solució que abasti el procés que es durà a terme des de la lectura d’un \textit{\gls{log}} fins a la seva agregació a la base de dades. \\
 
 \noindent
@@ -248,8 +248,8 @@ Si cap transformació és necessaria, no es definirà cap. \\
 \textbf{Component \texttt{Bolcat}} \\
 
 \noindent
-Finalment, al component \texttt{Bolcat} arribarà els \textit{\gls{log}s} desitjats amb el format escollit.
-Ara bé, depenen de la base de dades on es vol fer l’agregació, és possible que s’hagin de fer petits retocs al \textit{\gls{log}} per compatibilitzar amb la base de dades. \\
+Finalment, al component \texttt{Bolcat} arribarà el conjunt de \textit{\gls{log}s} desitjats amb el format escollit.
+Ara bé, depenen de la base de dades on es vol fer l’agregació, és possible que s’hagin de fer petits retocs per compatibilitzar amb la base de dades. \\
 
 \noindent
 \textbf{Processament}
@@ -296,7 +296,7 @@ S'han desenvolupat les següents funcions:
     \item \texttt{AccessResource}: Detecta si el recurs accedit és un recurs d’\gls{UPCommons} a través de l'identificador \gls{handle}.
     \item \texttt{WithIPv6Address}: Detecta si el \textit{\gls{log}} té present l’adreça en versió IPv6.
     \item \texttt{WithoutIpAddress}: Detecta si el \textit{\gls{log}} no té present el camp d'adreça \gls{IP}.
-    \item \texttt{AccessResourceBitstream}: Detecta si el recurs accedit és un recurs d’\gls{UPCommons} a través de l'identificador \gls{bitstream} \gls{UUID}
+    \item \texttt{AccessResourceBitstream}: Detecta si el recurs accedit és un recurs d’\gls{UPCommons} a través de l'identificador \gls{bitstream} \gls{UUID} .
 \end{itemize}
 
 \noindent \\

@@ -1,7 +1,7 @@
 \section{Logs}\label{sec:logs-storing}
 
-El següent conjunt de paràmetres és el que permet agrupar tota la informació present als logs.
-L’evolució durant els anys no ha afectat gaire respecte als paràmetres existents sinó al contingut d’aquests. \\
+El següent conjunt de paràmetres és el que permet agrupar tota la informació present als \textit{\gls{log}s}.
+L’evolució a través dels anys no ha afectat gaire respecte als paràmetres existents sinó al contingut d’aquests. \\
 
 \noindent
 Aquí un exemple d’un \textit{log}:
@@ -25,39 +25,39 @@ Aquí un exemple d’un \textit{log}:
 
 \noindent \\
 Aquesta estructura de dades representa la informació que podem extreure directament dels \textit{\gls{log}s} provenents d'\gls{UPCommons}.
-El resultat del nostre processament d'aquests, altera aquest format per afegir més informació, com veurem més endavant.
+El resultat del nostre processament d'aquests altera aquest format per afegir més informació, com veurem més endavant.
 
 \clearpage
 
 \subsection{Bases de dades candidates}\label{subsec:log-db-options}
 
 \noindent \\
-A continuació llistarem una sèrie d’opcions candidates a ser el sistema gestor de bases de dades on emmagatzemarem tots els logs.
+A continuació llistarem les opcions candidates a ser el sistema gestor de bases de dades on emmagatzemarem tots els logs.
 
 \noindent \\
 La majoria són sistemes d’agregació de logs, que incorporen eines de monitoratge, sistemes d’alertes, visualització, etc.
 És criteri nostre fer-ne ús d’aquests serveis o només continuar amb la base de dades.
 
 \noindent \\
-Com a primeres opcions considerem aquelles que siguin de programari lliure i en les quals puguem instal·lar la base de dades de forma local.
+Com a primeres opcions considerem aquelles que siguin de programari lliure i en les quals puguem instal·lar localment la base de dades.
 
 \noindent \\
 \textbf{Grafana Loki~\cite{loki:main}}\label{subsubsec:log-db-option-loki}
 
 \noindent \\
-\textit{Grafana Labs} proporciona \textit{Loki}, un sistema d’agregació codi obert de \textit{\gls{log}s} basat en Prometheus.
+\textit{Grafana Labs} proporciona \textit{Loki}, un sistema d’agregació de \textit{\gls{log}s} de codi obert, basat en Prometheus.
 És un sistema distribuït i dissenyat per ser escalable.
-Les seves característiques principals:
+Les seves característiques principals són:
 
 \begin{itemize}
-    \item \textbf{Escalabilitat}: disposa de diferents modes de desplegament on pots escollir el que més s’adapti pels teus requisits.
-    \item \textbf{Integració}: suporta diverses implementacions/llibreries de tercers per fer-ne servir, i diversos modes de desplegament en local.
-    \item \textbf{Grafana}: integració per defecte amb \textit{Grafana} com a eina principal d’observabilitat.
+    \item \textbf{Escalabilitat}: Disposa de diferents modes de desplegament on pots escollir el que més s’adapti als teus requisits.
+    \item \textbf{Integració}: Suporta diverses implementacions/llibreries de tercers per fer-ne servir, i diversos modes de desplegament en local.
+    \item \textbf{Grafana}: Integració per defecte amb \textit{Grafana} com a eina principal d’observabilitat.
     \item \textbf{Emmagatzemament}: Loki només indexa les metadades dels \textit{\gls{log}s}~\cite{loki:indexing}, és a dir, només el \textit{\gls{timestamp}} i els \textit{labels} definits.
     El contingut del \textit{\gls{log}} no s’indexa.
-    Utilitzant aquest plantejament, s’aconsegueix reduir la quantitat total de disc necessari.
+    Utilitzant aquest plantejament, s’aconsegueix reduir la quantitat total d'espai de disc necessari.
     \begin{itemize}
-        \item Aquesta característica és bastant interessent si utilitzem aquests labels per afegir informació relacionada amb el recurs accedit per després com a millorar el procés de cerca.
+        \item Aquesta característica és bastant interessant si utilitzem aquests \textit{labels} per afegir informació relacionada amb el recurs accedit per després com a millorar el procés de cerca.
     \end{itemize}
 \end{itemize}
 
@@ -67,15 +67,15 @@ Les seves característiques principals:
 \textbf{Elastic~\cite{elastic}}
 
 \noindent \\
-Elastic, conegut pel seu motor de cerca Elasticsearch, disposa d’una solució de monitoratge de logs.
+Elastic, conegut pel seu motor de cerca Elasticsearch, disposa d’una solució de monitoratge de \textit{\gls{log}s}.
 Les seves característiques principals:
 
 \begin{itemize}
-    \item \textbf{Escalabilitat}: dissenyat per monitorar \textit{\gls{log}s} fins a una escala de petabytes
+    \item \textbf{Escalabilitat}: dissenyat per monitorar \textit{\gls{log}s} fins a una escala de \textit{petabytes}.
     \item \textbf{Integració}: suporta diverses implementacions/llibreries de tercers per fer-ne servir, i modes de desplegament en local.
     \item \textbf{\textit{Logstash}}: mecanisme per centralitzar i transformar les dades per després emmagatzemar-les a qualsevol lloc.
     \item \textbf{\textit{Kibana}}: integració per defecte amb \textit{Elastic Kibana} com a eina principal d’observabilitat.
-    \item \textbf{Categorització}: incorpora una eina per identificar patrons, tendències i anomalies als logs.
+    \item \textbf{Categorització}: incorpora una eina per identificar patrons, tendències i anomalies als \textit{\gls{log}s}.
 \end{itemize}
 
 
