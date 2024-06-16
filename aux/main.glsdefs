@@ -1,0 +1,924 @@
+\glsdefs@newdocentry{apt}%
+{%
+name={apt},%
+sort={apt},%
+type={main},%
+first={apt},%
+firstplural={apts},%
+text={apt},%
+plural={apts},%
+description={Advanced Package Tool},%
+descriptionplural={Advanced Package Tool},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{log}%
+{%
+name={log},%
+sort={log},%
+type={main},%
+first={log},%
+firstplural={logs},%
+text={log},%
+plural={logs},%
+description={Registre d'accés a un servidor, aplicatiu, servei, etc},%
+descriptionplural={Registre d'accés a un servidor, aplicatiu, servei, etc},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ssh}%
+{%
+name={ssh},%
+sort={ssh},%
+type={main},%
+first={ssh},%
+firstplural={sshs},%
+text={ssh},%
+plural={sshs},%
+description={Secure Shell Protocol. Utilitzat per enviar comandes a una màquina remotament a través d'una xarxa insegura},%
+descriptionplural={Secure Shell Protocol. Utilitzat per enviar comandes a una màquina remotament a través d'una xarxa insegura},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{OSTIA}%
+{%
+name={OSTIA},%
+sort={OSTIA},%
+type={main},%
+first={OSTIA},%
+firstplural={OSTIAs},%
+text={OSTIA},%
+plural={OSTIAs},%
+description={Open Science Toolkit Information Access. Denominació de l'eina dissenyada per analitzar i processar les dades d'acces al repositori d'UPCommons},%
+descriptionplural={Open Science Toolkit Information Access. Denominació de l'eina dissenyada per analitzar i processar les dades d'acces al repositori d'UPCommons},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{UPCommons}%
+{%
+name={UPCommons},%
+sort={UPCommons},%
+type={main},%
+first={UPCommons},%
+firstplural={UPCommonss},%
+text={UPCommons},%
+plural={UPCommonss},%
+description={Portal del coneixement obert de la Universistat Politècnica de Catalunya},%
+descriptionplural={Portal del coneixement obert de la Universistat Politècnica de Catalunya},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{OAI}%
+{%
+name={OAI},%
+sort={OAI},%
+type={main},%
+first={OAI},%
+firstplural={OAIs},%
+text={OAI},%
+plural={OAIs},%
+description={Open Archives Initiative, normalment associat amb OAI-PMH},%
+descriptionplural={Open Archives Initiative, normalment associat amb OAI-PMH},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{OAI-PMH}%
+{%
+name={OAI-PMH},%
+sort={OAI-PMH},%
+type={main},%
+first={OAI-PMH},%
+firstplural={OAI-PMHs},%
+text={OAI-PMH},%
+plural={OAI-PMHs},%
+description={Open Archives Initiative Protocol for Metadata Harvesting. Estàndard d’interoperabilitat desenvolupat per l’intercanvi i la difusió de metadades},%
+descriptionplural={Open Archives Initiative Protocol for Metadata Harvesting. Estàndard d’interoperabilitat desenvolupat per l’intercanvi i la difusió de metadades},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{plugin}%
+{%
+name={plugin},%
+sort={plugin},%
+type={main},%
+first={plugin},%
+firstplural={plugins},%
+text={plugin},%
+plural={plugins},%
+description={Complement, extensió},%
+descriptionplural={Complement, extensió},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{Docker}%
+{%
+name={Docker},%
+sort={Docker},%
+type={main},%
+first={Docker},%
+firstplural={Dockers},%
+text={Docker},%
+plural={Dockers},%
+description={Plataforma per la construcció, execució i desenvolupament d'aplicacions basades en contenidors},%
+descriptionplural={Plataforma per la construcció, execució i desenvolupament d'aplicacions basades en contenidors},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{docker-compose}%
+{%
+name={docker-compose},%
+sort={docker-compose},%
+type={main},%
+first={docker-compose},%
+firstplural={docker-composes},%
+text={docker-compose},%
+plural={docker-composes},%
+description={Eina per la definició i execució d'aplicacions multicontenidor},%
+descriptionplural={Eina per la definició i execució d'aplicacions multicontenidor},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{gitignore}%
+{%
+name={gitignore},%
+sort={gitignore},%
+type={main},%
+first={gitignore},%
+firstplural={gitignores},%
+text={gitignore},%
+plural={gitignores},%
+description={Al sistema de control de versions Git, especifica els fitxers intencionalment ignorats},%
+descriptionplural={Al sistema de control de versions Git, especifica els fitxers intencionalment ignorats},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{GitHub}%
+{%
+name={GitHub},%
+sort={GitHub},%
+type={main},%
+first={GitHub},%
+firstplural={GitHubs},%
+text={GitHub},%
+plural={GitHubs},%
+description={Plataforma de desenvolupament col·laboratiu de codi font, emmagatzematge de projectes de programari, control de versions i gestió de codi font},%
+descriptionplural={Plataforma de desenvolupament col·laboratiu de codi font, emmagatzematge de projectes de programari, control de versions i gestió de codi font},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{DSpace}%
+{%
+name={DSpace},%
+sort={DSpace},%
+type={main},%
+first={DSpace},%
+firstplural={DSpaces},%
+text={DSpace},%
+plural={DSpaces},%
+description={Plataforma de codi obert utilitzada per construir i gestionar repositoris digitals},%
+descriptionplural={Plataforma de codi obert utilitzada per construir i gestionar repositoris digitals},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{DIM}%
+{%
+name={DIM},%
+sort={DIM},%
+type={main},%
+first={DIM},%
+firstplural={DIMs},%
+text={DIM},%
+plural={DIMs},%
+description={DSpace Intermediate Metadata},%
+descriptionplural={DSpace Intermediate Metadata},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{TCP}%
+{%
+name={TCP},%
+sort={TCP},%
+type={main},%
+first={TCP},%
+firstplural={TCPs},%
+text={TCP},%
+plural={TCPs},%
+description={Transmission Control Protocol},%
+descriptionplural={Transmission Control Protocol},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{HTTP}%
+{%
+name={HTTP},%
+sort={HTTP},%
+type={main},%
+first={HTTP},%
+firstplural={HTTPs},%
+text={HTTP},%
+plural={HTTPs},%
+description={Hypertext Transfer Protocol},%
+descriptionplural={Hypertext Transfer Protocol},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{IP}%
+{%
+name={IP},%
+sort={IP},%
+type={main},%
+first={IP},%
+firstplural={IPs},%
+text={IP},%
+plural={IPs},%
+description={Internet Protocol},%
+descriptionplural={Internet Protocol},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ISO}%
+{%
+name={ISO},%
+sort={ISO},%
+type={main},%
+first={ISO},%
+firstplural={ISOs},%
+text={ISO},%
+plural={ISOs},%
+description={Internacional Organization for Standardization},%
+descriptionplural={Internacional Organization for Standardization},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{POSIX}%
+{%
+name={POSIX},%
+sort={POSIX},%
+type={main},%
+first={POSIX},%
+firstplural={POSIXs},%
+text={POSIX},%
+plural={POSIXs},%
+description={Portable Operating System Interface X},%
+descriptionplural={Portable Operating System Interface X},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{NAT}%
+{%
+name={NAT},%
+sort={NAT},%
+type={main},%
+first={NAT},%
+firstplural={NATs},%
+text={NAT},%
+plural={NATs},%
+description={Network Address Translation},%
+descriptionplural={Network Address Translation},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{handle}%
+{%
+name={handle},%
+sort={handle},%
+type={main},%
+first={handle},%
+firstplural={handles},%
+text={handle},%
+plural={handles},%
+description={En el context de DSpace, és un identificador persistent utilitzat per referenciar de manera única objectes en repositoris},%
+descriptionplural={En el context de DSpace, és un identificador persistent utilitzat per referenciar de manera única objectes en repositoris},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{CSS}%
+{%
+name={CSS},%
+sort={CSS},%
+type={main},%
+first={CSS},%
+firstplural={CSSs},%
+text={CSS},%
+plural={CSSs},%
+description={Cascading Style Sheets},%
+descriptionplural={Cascading Style Sheets},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{bitstream}%
+{%
+name={bitstream},%
+sort={bitstream},%
+type={main},%
+first={bitstream},%
+firstplural={bitstreams},%
+text={bitstream},%
+plural={bitstreams},%
+description={En el context de DSpace, model que representa un arxiu qualsevol mitjançant un flux de bits},%
+descriptionplural={En el context de DSpace, model que representa un arxiu qualsevol mitjançant un flux de bits},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{UUID}%
+{%
+name={UUID},%
+sort={UUID},%
+type={main},%
+first={UUID},%
+firstplural={UUIDs},%
+text={UUID},%
+plural={UUIDs},%
+description={Universally Unique Identifier},%
+descriptionplural={Universally Unique Identifier},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{JSON}%
+{%
+name={JSON},%
+sort={JSON},%
+type={main},%
+first={JSON},%
+firstplural={JSONs},%
+text={JSON},%
+plural={JSONs},%
+description={JavaScript Object Notation},%
+descriptionplural={JavaScript Object Notation},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{API}%
+{%
+name={API},%
+sort={API},%
+type={main},%
+first={API},%
+firstplural={APIs},%
+text={API},%
+plural={APIs},%
+description={Application Programming Interface},%
+descriptionplural={Application Programming Interface},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{timestamp}%
+{%
+name={timestamp},%
+sort={timestamp},%
+type={main},%
+first={timestamp},%
+firstplural={timestamps},%
+text={timestamp},%
+plural={timestamps},%
+description={Registre de la data i l'hora en què ocorre un esdeveniment},%
+descriptionplural={Registre de la data i l'hora en què ocorre un esdeveniment},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{gzip}%
+{%
+name={gzip},%
+sort={gzip},%
+type={main},%
+first={gzip},%
+firstplural={gzips},%
+text={gzip},%
+plural={gzips},%
+description={Format de fitxer utilitzar per la compressió i decompressió d'arxius},%
+descriptionplural={Format de fitxer utilitzar per la compressió i decompressió d'arxius},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{XML}%
+{%
+name={XML},%
+sort={XML},%
+type={main},%
+first={XML},%
+firstplural={XMLs},%
+text={XML},%
+plural={XMLs},%
+description={Extensible Markup Language},%
+descriptionplural={Extensible Markup Language},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{git}%
+{%
+name={git},%
+sort={git},%
+type={main},%
+first={git},%
+firstplural={gits},%
+text={git},%
+plural={gits},%
+description={Sistema de control de versions},%
+descriptionplural={Sistema de control de versions},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{commit}%
+{%
+name={commit},%
+sort={commit},%
+type={main},%
+first={commit},%
+firstplural={commits},%
+text={commit},%
+plural={commits},%
+description={Registre dels canvis realitzats en una base de codi en sistemes de control de versions com \textit {Git}},%
+descriptionplural={Registre dels canvis realitzats en una base de codi en sistemes de control de versions com \textit {Git}},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{DNS}%
+{%
+name={DNS},%
+sort={DNS},%
+type={main},%
+first={DNS},%
+firstplural={DNSs},%
+text={DNS},%
+plural={DNSs},%
+description={Domain Name System},%
+descriptionplural={Domain Name System},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{URL}%
+{%
+name={URL},%
+sort={URL},%
+type={main},%
+first={URL},%
+firstplural={URLs},%
+text={URL},%
+plural={URLs},%
+description={Uniform Resource Locator, tipus específic d'URI},%
+descriptionplural={Uniform Resource Locator, tipus específic d'URI},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+

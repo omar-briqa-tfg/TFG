@@ -1,0 +1,23 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Exemple del contingut d'un \textit {\gls {log}}.}}{11}{figure.caption.7}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Exemple d'un \textit {\gls {log}} que accedeix a un recurs web, concretament una fulla d'estils \textit {\gls {CSS}} .}}{13}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Exemple d'una cadena de \textit {\gls {log}s} que accedeixen al mateix contingut.}}{14}{figure.caption.9}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Exemple d'un \textit {\gls {log}} d'una cerca a la plataforma.}}{15}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Disseny tècnic del processament dels \textit {logs}.}}{16}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Implementació del processament dels \textit {logs}.}}{19}{figure.caption.12}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Llista parcial de les metadades d'un recurs.}}{21}{figure.caption.13}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Disseny tècnic del processament de les metadades.}}{24}{figure.caption.14}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Exemple del funcionament de la indexació dels paràmetres a \textit {Grafana Loki}.}}{30}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Exemple del funcionament de la indexació dels paràmetres a \textit {InfluxDb}.}}{31}{figure.caption.16}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Configuració del servei d'InfluxDB.}}{49}{figure.caption.23}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Configuració \gls {HTTP} d'\textit {InfluxDB} a \textit {Grafana}.}}{54}{figure.caption.24}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Configuració d'autenticació d'\textit {InfluxDB} a \textit {Grafana}.}}{54}{figure.caption.25}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces Configuració dels detalls d'\textit {InfluxDB} a \textit {Grafana}.}}{55}{figure.caption.26}%
+\contentsline {figure}{\numberline {C.4}{\ignorespaces Finestra principal d'un panell de \textit {Grafana}.}}{56}{figure.caption.27}%
+\contentsline {figure}{\numberline {C.5}{\ignorespaces Esquerra: Personalització dels panells de \textit {Grafana}.Esquerra: Personalització dels panells de \textit {Grafana}. Dreta: Tipus de visualització pels panells de \textit {Grafana}. Dreta: Tipus de visualització pels panells de \textit {Grafana}.}}{57}{figure.caption.28}%
+\addvspace {10\p@ }

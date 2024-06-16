@@ -1,0 +1,82 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 33 items.
+A level-1 auxiliary file: frontmatter/titlepage-epsevg.aux
+Reallocating 'name_of_file' (item size: 1) to 34 items.
+A level-1 auxiliary file: frontmatter/thesis-evaluation.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: chapters/abstract-ca.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: chapters/abstract-es.aux
+Reallocating 'name_of_file' (item size: 1) to 25 items.
+A level-1 auxiliary file: chapters/abstract-en.aux
+Reallocating 'name_of_file' (item size: 1) to 22 items.
+A level-1 auxiliary file: chapters/glossary.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
+A level-1 auxiliary file: chapters/introduction.aux
+Reallocating 'name_of_file' (item size: 1) to 29 items.
+A level-1 auxiliary file: chapters/data-processing.aux
+Reallocating 'name_of_file' (item size: 1) to 26 items.
+A level-1 auxiliary file: chapters/data-storing.aux
+Reallocating 'name_of_file' (item size: 1) to 27 items.
+A level-1 auxiliary file: chapters/data-analysis.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: chapters/conclusion.aux
+Reallocating 'name_of_file' (item size: 1) to 32 items.
+A level-1 auxiliary file: frontmatter/acknowledgments.aux
+Reallocating 'name_of_file' (item size: 1) to 4 items.
+The style file: acm.bst
+Reallocating 'name_of_file' (item size: 1) to 5 items.
+Reallocating 'name_of_file' (item size: 1) to 21 items.
+A level-1 auxiliary file: appendices/ostia.aux
+Reallocating 'name_of_file' (item size: 1) to 34 items.
+A level-1 auxiliary file: appendices/server-description.aux
+Reallocating 'name_of_file' (item size: 1) to 37 items.
+A level-1 auxiliary file: appendices/software-installation.aux
+Reallocating 'name_of_file' (item size: 1) to 30 items.
+A level-1 auxiliary file: appendices/grafana-config.aux
+Reallocating 'name_of_file' (item size: 1) to 32 items.
+A level-1 auxiliary file: appendices/log-push-results.aux
+Database file #1: main.bib
+You've used 23 entries,
+            2253 wiz_defined-function locations,
+            640 strings with 7061 characters,
+and the built_in function-call counts, 5268 in all, are:
+= -- 513
+> -- 181
+< -- 0
++ -- 77
+- -- 54
+* -- 202
+:= -- 883
+add.period$ -- 91
+call.type$ -- 23
+change.case$ -- 96
+chr.to.int$ -- 0
+cite$ -- 23
+duplicate$ -- 184
+empty$ -- 530
+format.name$ -- 54
+if$ -- 1147
+int.to.chr$ -- 0
+int.to.str$ -- 23
+missing$ -- 0
+newline$ -- 140
+num.names$ -- 46
+pop$ -- 189
+preamble$ -- 1
+purify$ -- 73
+quote$ -- 0
+skip$ -- 138
+stack$ -- 0
+substring$ -- 115
+swap$ -- 46
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 92
+warning$ -- 0
+while$ -- 46
+width$ -- 25
+write$ -- 276

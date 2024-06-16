@@ -1,0 +1,153 @@
+\begin{thebibliography}{10}
+
+\bibitem{counter}
+{\sc {COUNTER}}.
+\newblock {COUNTER Metrics}.
+\newblock \url{https://www.countermetrics.org/}, 2024.
+\newblock [En línia; data de consulta: 17-03-2024].
+
+\bibitem{elastic}
+{\sc {Elastic}}.
+\newblock {Elasticsearch}.
+\newblock \url{https://www.elastic.co/}, 2024.
+\newblock [En línia; data de consulta: 16-04-2024].
+
+\bibitem{loki:libraries}
+{\sc {Grafana}}.
+\newblock {Loki third-party clients}.
+\newblock
+  \url{https://grafana.com/docs/loki/latest/send-data/\#third-party-clients},
+  2023.
+\newblock [En línia; data de consulta: 23-04-2024].
+
+\bibitem{loki:code}
+{\sc {Grafana}}.
+\newblock {GitHub. loki}.
+\newblock \url{https://github.com/grafana/loki}, 2024.
+\newblock [En línia; data de consulta: 16-04-2024].
+
+\bibitem{loki:main}
+{\sc {Grafana}}.
+\newblock {Grafana Loki}.
+\newblock \url{https://grafana.com/oss/loki/}, 2024.
+\newblock [En línia; data de consulta: 28-03-2024].
+
+\bibitem{loki:indexing}
+{\sc {Grafana}}.
+\newblock {Grafana Loki. Why use Grafana Loki?}
+\newblock \url{https://grafana.com/oss/loki/}, 2024.
+\newblock [En línia; data de consulta: 15-04-2024].
+
+\bibitem{loki:documentation}
+{\sc {Grafana}}.
+\newblock {Loki documentation}.
+\newblock \url{https://grafana.com/docs/loki/latest/}, 2024.
+\newblock [En línia; data de consulta: 16-04-2024].
+
+\bibitem{graylog}
+{\sc {Graylog}}.
+\newblock {Graylog Open}.
+\newblock \url{https://graylog.org/products/source-available/}, 2024.
+\newblock [En línia; data de consulta: 16-04-2024].
+
+\bibitem{tunel-ssh}
+{\sc Guasch, D., and Vidal, R.}
+\newblock {Túnels SSH}, 2023.
+\newblock { Apunts de l'assignatura Seguretat i Administració de Xarxes,
+  Impartida a l'Escola Politècnica Superior d'Enginyeria de Vilanova i la
+  Geltrú }.
+
+\bibitem{influxdb:code}
+{\sc {InfluxData}}.
+\newblock {GitHub. influxdb}.
+\newblock \url{https://github.com/influxdata/influxdb}, 2024.
+\newblock [En línia; data de consulta: 02-05-2024].
+
+\bibitem{influxdb:libraries}
+{\sc {InfluxData}}.
+\newblock {InfluxDB client libraries}.
+\newblock
+  \url{https://docs.influxdata.com/influxdb/v2/api-guide/client-libraries/},
+  2024.
+\newblock [En línia; data de consulta: 02-05-2024].
+
+\bibitem{influxdb:documentation}
+{\sc {InfluxData}}.
+\newblock {InfluxDB documentation}.
+\newblock \url{https://docs.influxdata.com/influxdb/v2/}, 2024.
+\newblock [En línia; data de consulta: 02-05-2024].
+
+\bibitem{influxdb:python}
+{\sc {InfluxData}}.
+\newblock {InfluxDB python client library}.
+\newblock
+  \url{https://docs.influxdata.com/influxdb/v2/api-guide/client-libraries/python/},
+  2024.
+\newblock [En línia; data de consulta: 03-05-2024].
+
+\bibitem{influxdb:optimizations}
+{\sc {InfluxData}}.
+\newblock {Optimize writes to InfluxDB}.
+\newblock
+  \url{https://docs.influxdata.com/influxdb/v2/write-data/best-practices/optimize-writes/?t=Client+libraries},
+  2024.
+\newblock [En línia; data de consulta: 04-05-2024].
+
+\bibitem{oai-pmh}
+{\sc Lagoze, C., de~Sompel, H.~V., Nelson, M., and Warner, S.}
+\newblock {The Open Archives Initiative Protocol for Metadata Harvesting}.
+\newblock \url{https://www.openarchives.org/OAI/openarchivesprotocol.htm},
+  2015.
+\newblock [En línia; data de consulta: 04-05-2024].
+
+\bibitem{Sickle}
+{\sc {Mathias Loesch}}.
+\newblock {Sickle. OAI-PMH for Humans}.
+\newblock \url{https://sickle.readthedocs.io/en/latest/}, 2015.
+\newblock [En línia; data de consulta: 04-05-2024].
+
+\bibitem{mongodb:key-restrictions}
+{\sc {MongoDB}}.
+\newblock {MongoDB Limits and Thresholds}.
+\newblock
+  \url{https://www.mongodb.com/docs/manual/reference/limits/#Restrictions-on-Field-Names},
+  2024.
+\newblock [En línia; data de consulta: 15-05-2024].
+
+\bibitem{http}
+{\sc {Roy T. Fielding and Mark Nottingham and Julian Reschke}}.
+\newblock {RFC 9112. HTTP/1.1}.
+\newblock \url{https://datatracker.ietf.org/doc/html/rfc9112}, 2022.
+\newblock [En línia; data de consulta: 24-05-2024].
+
+\bibitem{loggly}
+{\sc {Solarwinds}}.
+\newblock {Loggly}.
+\newblock \url{https://www.loggly.com/}, 2024.
+\newblock [En línia; data de consulta: 16-04-2024].
+
+\bibitem{papertrail}
+{\sc {Solarwinds}}.
+\newblock {Papertrail}.
+\newblock \url{https://www.papertrail.com/}, 2024.
+\newblock [En línia; data de consulta: 16-04-2024].
+
+\bibitem{splunk}
+{\sc Splunk}.
+\newblock Splunk.
+\newblock \url{https://www.splunk.com/}, 2024.
+\newblock [En línia; data de consulta: 16-04-2024].
+
+\bibitem{SOLR}
+{\sc {The Apache Software Foundation}}.
+\newblock {Apache SOLR}.
+\newblock \url{https://solr.apache.org/}, 2024.
+\newblock [En línia; data de consulta: 15-04-2024].
+
+\bibitem{tcp}
+{\sc {Wesley Eddy}}.
+\newblock {RFC 9293. Transmission Control Protocol (TCP)}.
+\newblock \url{https://datatracker.ietf.org/doc/html/rfc9293}, 2022.
+\newblock [En línia; data de consulta: 24-05-2024].
+
+\end{thebibliography}
