@@ -1,7 +1,7 @@
 \noindent \\
 \section{Logs}\label{sec:logs-processing}
 
-Com a primer pas per analitzar les dades, treballarem els registres d'accés a la plataforma d'UPCommons.
+Treballarem els registres d'accés a la plataforma d'UPCommons.
 Ens han proporcionat aquestes dades que corresponen als accessos des de del primer dia de l'any 2006 fins al darrer dia del 2023.
 
 \clearpage
@@ -31,9 +31,9 @@ L'agent pot ser:
     \item Un usuari humà.
     \item Un agent automatitzat: robots, scripts, serveis de mail, etc.
 \end{itemize}
-A cause de qüestions de privacitat i protecció de dades, aquest identificador ha sigut modificat en un procés d'anonimització. \\
+Degut a qüestions de privacitat i protecció de dades, aquest identificador ha sigut modificat en un procés d'anonimització. \\
 
-\begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Els iguals emmascarats]\label{tcbox:iguals-emmascarats}
+\begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Els usuaris poden estar darrera d'un NAT]\label{tcbox:iguals-emmascarats}
     No podem sempre afirmar que dues peticions amb el mateix identificador provenen del mateix usuari.
     Pot haver-hi darrere un \gls{NAT}, usuaris compartint dispositiu, etc.
 \end{tcolorbox}
@@ -41,7 +41,8 @@ A cause de qüestions de privacitat i protecció de dades, aquest identificador 
 \noindent \\
 \textbf{Data i hora} \\ \\
 La marca temporal del registre ve definida per la seva data i hora.
-Si bé es pot treballar directament amb aquest valor si segueix el format \gls{ISO}, és preferible utilitzar el format estàndard \gls{POSIX} (nombre de segons no intercalars des de l'1 de gener del 1970)
+Si bé es pot treballar directament amb aquest valor si segueix el format \gls{ISO}, és preferible utilitzar el format estàndard \gls{POSIX} (nombre de segons no intercalars des de l'1 de gener del 1970).
+Aquest format és més simple, les comparacions són més eficients i evitem problemàtiques de diferències temporals en zones geogràfiques.
 
 \clearpage
 
@@ -52,8 +53,9 @@ Si bé es pot treballar directament amb aquest valor si segueix el format \gls{I
     \item Mètode de la petició: els més habituals són \texttt{GET}, \texttt{POST} i \texttt{HEAD} .
     \item Recurs accedit: enllaç al recurs accedit per la petició.
     \item Versió \gls{HTTP}: evolució d'\texttt{HTTP/1.0} fins a \texttt{HTTP/1.1} en el transcurs dels anys.
+    No hi ha presència de registres amb \texttt{HTTP/2.0}.
     \item Codi d'estat que retorna la petició: codi que representa el resultat de la petició.
-    Els més habituals són els \texttt{2XX} (succés), \texttt{4XX} (error del client) i \texttt{5XX} (error del servidor)
+    Els més habituals són els \texttt{2XX} (succés), \texttt{3XX} (redireccions) \texttt{4XX} (error del client) i \texttt{5XX} (error del servidor)
     \item Mida de la resposta: mida en \textit{bytes} del cos de la resposta.
 \end{itemize}
 
@@ -124,7 +126,7 @@ Al següent exemple podem veure com el mateix accés es repeteix tres vegades (v
 
 \noindent
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Counter]
-    Per a futures refèrencies, el projecte Counter~\cite{counter} pot servir com a base per tractar aquesta casuística.
+    Com a línia de treball futur, el projecte Counter~\cite{counter} pot servir com a base per tractar aquesta casuística.
 \end{tcolorbox}
 
 \noindent \\

@@ -104,7 +104,7 @@ Com a contrapartida:
 \clearpage
 
 \noindent
-Altres opcions que no són de codi obert són les següents,  la versió gratuïta que proporcionen és bastant limitada o no hi ha prou documentació a la xarxa són les següents:
+Altres opcions que no són de codi obert, la versió gratuïta que proporcionen és bastant limitada o no hi ha prou documentació a la xarxa són les següents:
 
 \begin{itemize}
     \item \textbf{Graylog}~\cite{graylog}
@@ -127,10 +127,12 @@ La primera decisió presa fou donar suport a \textit{Grafana Loki}, amb els moti
     \item Integració per defecte amb \textit{Grafana} per poder visualitzar els \textit{logs}.
     \item Diverses llibreries~\cite{loki:libraries} ja implementades per enviar \textit{\gls{log}s} a la base de dades.
     \item Com prèviament s’ha mencionat, la indexació és a partir del \textit{\gls{timestamp}} més les metadades.
-    Aquestes darreres poden ser utilitzades per afegir valors que després agilitzaran el processament. \\ \\
-    Com podem veure a la imatge~\ref{fig:loki-indexing}, converteixen un \textit{\gls{log}} semblant als nostres en un altre adaptat al format de loki, on utilitzen com etiqueta el tipus petició (\textit{action}) o el codi d’estat (\textit{status\_code}) \\ \\
-    El nostre cas, en podem afegir uns que indiquin el tipus de \textit{\gls{log}} (cerca, accés a recurs) o marcar-ne alguns que tinguin algun contingut inexacte.
+    Aquestes darreres poden ser utilitzades per afegir valors que després agilitzaran el processament. \\
 \end{itemize}
+
+\noindent
+Com podem veure a la imatge~\ref{fig:loki-indexing}, converteixen un \textit{\gls{log}} semblant als nostres en un altre adaptat al format de loki, on utilitzen com etiqueta el tipus petició (\textit{action}) o el codi d’estat (\textit{status\_code}) \\ \\
+El nostre cas, en podem afegir uns que indiquin el tipus de \textit{\gls{log}} (cerca, accés a recurs) o marcar-ne alguns que tinguin algun contingut inexacte.
 
 \clearpage
 
@@ -195,7 +197,7 @@ Per tal de poder fragmentar la tasca, s’ha desenvolupat un petit \textit{scrip
 D’aquesta manera, podem realitzar l’abocament de manera esglaonada (any per any, mes a mes, etc.) i acotada.
 
 \noindent \\
-La base de dades escollida, com prèviament s’ha documentat~\ref{subsec:log-db-decision}, és \textbf{InfluxDb}.
+La base de dades escollida, com prèviament s’ha documentat (veure~\ref{subsec:log-db-decision}), és \textbf{InfluxDb}.
 Per tal de poder enviar les dades, hem fet ús de la llibreria oficial~\cite{influxdb:python} que ofereix la plataforma pel llenguatge Python.
 
 \clearpage
@@ -269,7 +271,14 @@ La implementació del client d'InfluxDb ha estat optimitzada~\cite{influxdb:opti
 \textbf{Estadístiques} \\ \\
 
 \noindent
-El resultat de l’abocament conclou amb la taula~\ref{tab:logs-table} on es mostren alguns números interessants.
+El resultat de l’abocament conclou amb la següent taula on es mostren alguns números interessants. \\ \\
+Podeu consultar els resultats parcials, dividits per any a l'Annex~\ref{ch:log-push-results}. \\
+
+\input{tables/log-push/total}
+
+\clearpage
+
+\noindent
 Per cada columna, tenim els següents camps:
 
 \begin{itemize}
