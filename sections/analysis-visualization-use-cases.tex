@@ -1,0 +1,84 @@
+\section{Casos d'ús}\label{sec:analysis-visualization-use-cases}
+
+Hem definit uns quants casos d’ús prou representatius que poden servir com a base:
+
+\begin{itemize}
+    \item Recurs més accedit durant un període de temps.
+    \item Accessos amb el seu contingut alterat.
+    \item Condicions d'accés dels accessos a recursos de l'EPSEVG.
+\end{itemize}
+
+\subsection{Recurs més accedit durant un període de temps}\label{subsec:most-accessed-resource}
+
+\textbf{Definició}
+
+\begin{itemize}
+    \item Donat un període de temps, volem saber quin, o quins recursos són els més accedits.
+    \item També volem esbrinar com ha sigut la seva evolució al llarg del temps, es tracta d’un pic puntual que altera les estadístiques, o s’ha mantingut constant?
+    \item Quins paràmetres caracteritzen aquests accessos, vora quines hores es produeixen, mitjançant quins mètodes d’HTTP es realitzen, quin és el codi de resposta més habitual, quin és el User Agent més comú\dots i molts més atributs.
+\end{itemize}
+
+\noindent \\
+\textbf{Anàlisi}
+
+\begin{itemize}
+    \item Per esbrinar quins són els recursos més accedits, treballarem directament sobre la base de dades \textit{InfluxDB} .
+
+    A causa de la gran quantitat de dades que s’han d’analitzar, \textit{Grafana} no podria ser capaç d’afrontar aquesta càrrega computacional.
+
+    \item Per aquest període de temps, consultarem tots els accessos a recursos presents (que ja tenim marcats) i agregarem els seus identificadors.
+
+    En acabar el procés, tindrem un conjunt d’identificadors cadascun amb el seu nombre d’aparicions.
+    Ordenarem aquest conjunt i obtindrem els recursos més accedits.
+\end{itemize}
+
+\clearpage
+
+\noindent \\
+\textbf{Representació}
+
+\begin{itemize}
+    \item Per fer la representació de les dades primerament hem d’escollir una la tipologia de panells que volem utilitzar. Com estem parlant d’un anàlisi al llarg del temps, semblar que una sèrie temporal pot quadrar.
+
+    \item Seleccionarem una gràfica de tipus \textit{Time Series} i afegirem a la part inferior la següent cerca.
+    Concretament, estem cercant a \textit{InfluxDB}:
+    \begin{itemize}
+        \item Període del desembre del 2023.
+        \item Accessos que siguin recursos i el seu \textit{\gls{handle}} (identificador) sigui \texttt{2099.1/18556}, que prèviament haurem determinat.
+        \item Comptem cada accés i els agrupem per cada dia.
+        \item La cerca que utilitzarem és la següent:
+    \end{itemize}
+\end{itemize}
+
+\noindent
+\begin{verbatim}
+from(bucket: "upcommons")
+  |> range(start: 2023-12-01T00:00:00Z, stop: 2023-12-31T23:59:59Z)
+  |> filter(fn: (r) => r["_measurement"] == "tfg")
+  |> filter(fn: (r) => r["_field"] == "recurs")
+  |> filter(fn: (r) => r["_value"] == "2099.1/18556")
+  |> aggregateWindow(every: 1d, fn: count, createEmpty: false)
+  |> yield(name: "count")
+\end{verbatim}
+
+\clearpage
+
+\noindent \\
+\textbf{Resultat}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[width=1.2\textwidth]{figures/most-accessed-resource}}
+    \captionsetup{justification=centering}
+    \caption[Representació del recurs més accedit durant el desembre del 2023.]{Representació del recurs més accedit durant el desembre del 2023. (\textbf{Font}: Elaboració pròpia.)}\label{fig:most-accessed-resource}
+\end{figure}
+
+\begin{itemize}
+    \item Gràcies al fet que les entrades a la base de dades contenen els camps més rellevants, la classificació per cada paràmetre la realitza \textit{Grafana} automàticament.
+    \item Com a conseqüència, per cada combinació del tipus de contingut (\textit{content}), mètode HTTP emprat (\textit{method}) i resposta de la petició (\textit{status\_code}) que accedeixin a aquest recurs tindran el seu seguiment.
+    \item Podem veure com sempre el contingut del registre d’accés és correcte (content = “ok”) i el mètode utilitzat és el GET.
+
+    La resposta de la petició varia entre un \texttt{200} (succés) o un \texttt{301} (indica que el contingut és a una altra ubicació i et redirigeix)
+\end{itemize}
+
+
+
