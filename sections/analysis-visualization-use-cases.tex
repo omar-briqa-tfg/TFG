@@ -15,7 +15,7 @@ Hem definit uns quants casos d'ús prou representatius que poden servir com a ba
 \begin{itemize}
     \item Donat un període de temps, volem saber quin, o quins recursos són els més accedits.
     \item També volem esbrinar com ha sigut la seva evolució al llarg del temps, es tracta d'un pic puntual que altera les estadístiques, o s'ha mantingut constant?
-    \item Quins paràmetres caracteritzen aquests accessos, vora quines hores es produeixen, mitjançant quins mètodes d'\gls{HTTP} es realitzen, quin és el codi de resposta més habitual, quin és el User Agent més comú\dots i molts més atributs.
+    \item Quins paràmetres caracteritzen aquests accessos, vora quines hores es produeixen, mitjançant quins mètodes d'\gls{HTTP} es realitzen, quin és el codi de resposta més habitual, quin és el \textit{User Agent} més comú \dots i molts més atributs.
 \end{itemize}
 
 \noindent \\
@@ -41,7 +41,7 @@ Hem definit uns quants casos d'ús prou representatius que poden servir com a ba
     \item Per fer la representació de les dades primerament hem d'escollir una la tipologia de panells que volem utilitzar.
     Com estem parlant d'un anàlisi al llarg del temps, semblar que una sèrie temporal pot quadrar.
 
-    \item Seleccionarem una gràfica de tipus \textit{Time Series} i afegirem a la part inferior la següent cerca.
+    \item Seleccionarem una gràfica de tipus \texttt{Time Series} i afegirem a la part inferior la següent cerca.
     Concretament, estem cercant a \textit{InfluxDB}:
     \begin{itemize}
         \item Període del desembre del 2023.
@@ -76,7 +76,7 @@ from(bucket: "upcommons")
 \begin{itemize}
     \item Gràcies al fet que les entrades a la base de dades contenen els camps més rellevants, la classificació per cada paràmetre la realitza \textit{Grafana} automàticament.
     \item Com a conseqüència, per cada combinació del tipus de contingut (\textit{content}), mètode \gls{HTTP} emprat (\textit{method}) i resposta de la petició (\textit{status\_code}) que accedeixin a aquest recurs tindran el seu seguiment.
-    \item Podem veure com sempre el contingut del registre d'accés és correcte (content = “ok”) i el mètode utilitzat és el GET.
+    \item Podem veure com sempre el contingut del registre d'accés és correcte (content = “ok”) i el mètode utilitzat és el \texttt{GET}.
 
     La resposta de la petició varia entre un \texttt{200} (succés) o un \texttt{301} (indica que el contingut és a una altra ubicació i et redirigeix)
 \end{itemize}
@@ -90,7 +90,7 @@ from(bucket: "upcommons")
     \item Donat un espai de temps, volem consultar quants accessos s'han produït amb malformacions al seu contingut.
 
     \begin{itemize}
-        \item Les malformacions del contingut del accesos, tal i com vam veure a l'apartat de filtratge dels logs (vegeu~\ref{subsec:log-filter}), corresponen a registres que difereixen molt respecte el format general.
+        \item Les malformacions del contingut del accesos, tal i com vam veure a l'apartat de filtratge dels logs (vegeu filtratge del logs~\ref{subsec:log-filter}), corresponen a registres que difereixen molt respecte el format general.
         \item Durant l'etapa d'anàlisi i emmagatzemmatge dels logs, vam marcar aquells sospitosos amb una etiqueta.
         Concretament, amb content = “diferent”.
     \end{itemize}
@@ -102,7 +102,7 @@ from(bucket: "upcommons")
 \textbf{Anàlisi}
 
 \begin{itemize}
-    \item Treballarem sobre l'eina d'observabilitat Grafana, analitzant aquells accessos a recursos que tinguin alteracions en el seu contingut.
+    \item Treballarem sobre l'eina d'observabilitat \textit{Grafana}, analitzant aquells accessos a recursos que tinguin alteracions en el seu contingut.
 \end{itemize}
 
 \noindent \\
@@ -110,7 +110,7 @@ from(bucket: "upcommons")
 
 \begin{itemize}
     \item Per fer la representació de les dades escollirem una sèrie temporal.
-    \item Seleccionarem una gràfica de tipus Time Series i afegirem a la part inferior la següent cerca.
+    \item Seleccionarem una gràfica de tipus \texttt{Time Series} i afegirem a la part inferior la següent cerca.
     Concretament, estem cercant a \textit{InfluxDB}:
 
     \begin{itemize}
@@ -147,7 +147,7 @@ from(bucket: "upcommons")
 \begin{itemize}
     \item Aquest seria el recompte d'accessos a recursos amb el contingut alterat durant l'any 2023, separats per mètode i codi d'estat.
     \item Vora finals d'any, podem observar com hi ha un pic de peticions que no és gens habitual.
-    Concretament són peticions GET que retornen un 403.
+    Concretament són peticions \texttt{GET} que retornen un 403.
     \item El codi d'estat 403 del protocol \gls{HTTP} que no estat autoritzat per realitzar aquesta petició.
     \item Explorant una mica més, obtenim que aquest pic correspon a una llarga sèrie de peticions que va augmentar considerablement a partir de les 10:30 h de l'11 de novembre del 2023 i hauria acabat quinze minuts després.
     \clearpage
@@ -170,13 +170,13 @@ from(bucket: "upcommons")
 
 \clearpage
 
-\subsection{Condicions d’accés dels accessos a recursos de l’EPSEVG}\label{subsec:acces-conditions}
+\subsection{Condicions d'accés dels accessos a recursos de l'EPSEVG}\label{subsec:acces-conditions}
 
 \textbf{Definició}
 
 \begin{itemize}
-    \item Donat un període de temps, volem saber quines són les condicions d’accés dels recursos de l’EPSEVG consultats.
-    \item Volem analitzar els accessos depenent si són d’accés obert, restringits per l’usuari, per acord de confidencialitat, restringit a la comunitat universitària, etcètera.
+    \item Donat un període de temps, volem saber quines són les condicions d'accés dels recursos de l'EPSEVG consultats.
+    \item Volem analitzar els accessos depenent si són d'accés obert, restringits per l'usuari, per acord de confidencialitat, restringit a la comunitat universitària, etcètera.
 \end{itemize}
 
 \noindent \\
@@ -187,10 +187,10 @@ from(bucket: "upcommons")
     \item Per començar, consultem tots els accessos a recursos durant el període de temps determinat.
     En el nostre cas escollim el dia 2023/12/01.
     \item Per cada accés, consultem la base de dades per obtenir el document de metadades relacionat.
-    En cas d’obtenir resultat, consultem l’etiqueta \textit{dc.audience.mediator} que ens indica el centre docent relacionat amb el recurs.
-    \item Podem obtenir aquest valor pels treballs finals de grau, exàmens, materials docents i vídeos, i d’altres tipologies de manera puntual.
-    \item Seguidament, extraiem el valor de l’etiqueta \textit{dc.rights.access}, que conté la informació sobre les condicions d’accés d’aquell recurs.
-    \item Agrupant l’identificador del recurs, la condició d’accés i la data i hora de la consulta, afegim aquesta informació a una nova taula a \textit{InfluxDB} anomenada \textit{epsevg-rights}.
+    En cas d'obtenir resultat, consultem l'etiqueta \textit{dc.audience.mediator} que ens indica el centre docent relacionat amb el recurs.
+    \item Podem obtenir aquest valor pels treballs finals de grau, exàmens, materials docents i vídeos, i d'altres tipologies de manera puntual.
+    \item Seguidament, extraiem el valor de l'etiqueta \textit{dc.rights.access}, que conté la informació sobre les condicions d'accés d'aquell recurs.
+    \item Agrupant l'identificador del recurs, la condició d'accés i la data i hora de la consulta, afegim aquesta informació a una nova taula a \textit{InfluxDB} anomenada \textit{epsevg-rights}.
 
 \end{itemize}
 
@@ -201,8 +201,8 @@ from(bucket: "upcommons")
 
 \begin{itemize}
     \item Per fer la representació de les dades escollirem una sèrie temporal.
-    \item Seleccionarem una gràfica de tipus Time Series i afegirem a la part inferior la següent cerca.
-    Concretament, estem cercant a InfluxDB:
+    \item Seleccionarem una gràfica de tipus \texttt{Time Series} i afegirem a la part inferior la següent cerca.
+    Concretament, estem cercant a \textit{InfluxDB}:
     \begin{itemize}
         \item Període del 2023/12/01.
         \item Obtenim tota la informació dels accessos de la taula \textit{epsevg-rights}.
@@ -233,21 +233,21 @@ from(bucket: "upcommons")
 \end{figure}
 
 \begin{itemize}
-    \item Les diferents condicions d’accés d’aquest període per accessos a recursos són:
+    \item Les diferents condicions d'accés d'aquest període per accessos a recursos són:
     \begin{itemize}
         \item Vermell: recurs restringit a la comunitat acadèmica de la UPC.
-        \item Verd: recurs d’accés obert.
-        \item Groc: recurs restringit per decisió de l’autor.
+        \item Verd: recurs d'accés obert.
+        \item Groc: recurs restringit per decisió de l'autor.
         \item Blau: recurs restringit per acord de confidencialitat
         \item Taronja: recurs restringit a la comunitat acadèmica del CSUC (Consorci de Serveis Universitaris de Catalunya)
     \end{itemize}
 
-    \item Les condicions d’accés més habituals són aquelles on més usuaris poden accedir.
-    Aquest són l’accés obert i l’accés restringit a la comunitat acadèmica de la UPC .
+    \item Les condicions d'accés més habituals són aquelles on més usuaris poden accedir.
+    Aquest són l'accés obert i l'accés restringit a la comunitat acadèmica de la UPC .
     \item Cal remarcar que tots els exàmens són restringits a la comunitat acadèmica de la UPC .
-    \item Els menys accedits són aquells d’accés restringit a un públic (a vegades nul) petit, sigui per acord de confidencialitat sigui per decisió de l’autor.
+    \item Els menys accedits són aquells d'accés restringit a un públic (a vegades nul) petit, sigui per acord de confidencialitat sigui per decisió de l'autor.
     \clearpage
-    \item Pel cas dels recursos restringits a la comunitat acadèmica del CSUC (al peu de lletra: “Restricted access to UB, UAB, UPC, UPF, UdG, UdL, URV, UOC, BC, UVic, UJI, URL, UIC users”) es tracta d’accessos a llibres bastant antics.
-    \item Dos d’ells tracten principis de desenvolupament sostenible (2099.3/36752 i 2099.3/36834), un altre d’ergonomia (2099.3/36854) i el darrer sobre anàlisi d’antenes (2099.3/36797)
+    \item Pel cas dels recursos restringits a la comunitat acadèmica del CSUC (al peu de lletra: “Restricted access to UB, UAB, UPC, UPF, UdG, UdL, URV, UOC, BC, UVic, UJI, URL, UIC users”) es tracta d'accessos a llibres bastant antics.
+    \item Dos d'ells tracten principis de desenvolupament sostenible (2099.3/36752 i 2099.3/36834), un altre d'ergonomia (2099.3/36854) i el darrer sobre anàlisi d'antenes (2099.3/36797)
 
 \end{itemize}
