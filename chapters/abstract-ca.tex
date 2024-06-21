@@ -1,19 +1,51 @@
 \chapter*{Resum}\label{ch:abstract-ca}
 
+En el context actual de la ciència de dades, cada registre d'esdeveniment és crucial.
+Profunditzar sobre aquesta informació pot proporcionar informació molt valuosa.
+En el nostre cas, se'ns ha donat accés als logs del servidor UPCommons, el portal del coneixement obert de la Universitat Politècnica de Catalunya.
+
 \noindent \\
+Els logs són el registre d'accés, la petjada digital de cada usuari de la plataforma.
+Per cada examen, documentació, treball, vídeo o altre recurs consultat, aquest accés queda enregistrat.
+El nostre objectiu és recopilar totes aquestes dades i convertir-les en informació significativa.
+
+\noindent \\
+Aquest procés consta de tres passos.
+En primer lloc, entendre la semàntica i la sintaxi dels registres.
+Quin tipus d'informació tractarem, on es troba, quina informació inclou, i com ho analitzarem.
+Tot això tenint en compte l'abast de la tasca, tots els registres d'accés des de l'any 2006 fins al 2023, en concret, 1.922.392.760 registres d'entrada.
+
+\noindent \\
+En segon lloc, un cop aclarida la semàntica dels logs, es necessita una solució d'emmagatzematge per dur a terme una anàlisis sobre la informació prèviament estudiada.
+Hem de filtrar i decidir què emmagatzemarem, en quin format s'emmagatze-ma, i el més important, on ho emmagatzemarem.
+
+\noindent \\
+Finalment, hem pogut construir una eina que pugui analitzar i emmagatzemar tots els registres d'accés.
+Podem definir un cas d'ús per analitzar una determinada característica.
+Utilitzant l'eina d'observabilitat Grafana, els resultats es poden representar visualment.
+El valor que proposem és una eina que es pot utilitzar per a diferents finalitats, i un punt de partida per a futures investigacions.
+
+\noindent \\
+Per exemple, podem comprovar quin recurs és el més consultat dins d'un període de temps i representar la seva evolució.
+Si peticions malicioses han infectat el servidor, podem aquesta eina per analitzar els símptomes.
+També relacionar el recurs amb les seves metadades, autor/s, llicència, llengua, etcètera.
+
+\clearpage
 \section*{Paraules clau}\label{sec:keywords-ca}
-%\begin{multicols}{2}
-%    \begin{itemize}
-%        \item Paraula
-%        \item Paraula
-%        \item Paraula
-%        \item Paraula
-%    \end{itemize}
-%    \columnbreak
-%    \begin{itemize}
-%        \item Paraula
-%        \item Paraula
-%        \item Paraula
-%        \item Paraula
-%    \end{itemize}
-%\end{multicols}
+\begin{multicols}{2}
+    \begin{itemize}
+        \item DSpace
+        \item Metadades
+        \item UPCommons
+        \item Registre d’accés
+        \item Anàlisi de dades
+    \end{itemize}
+    \columnbreak
+    \begin{itemize}
+        \item Python
+        \item Grafana
+        \item InfluxDB
+        \item MongoDB
+        \item[]
+    \end{itemize}
+\end{multicols}
