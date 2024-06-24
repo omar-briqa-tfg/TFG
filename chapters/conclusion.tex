@@ -1,2 +1,103 @@
 \chapter*{Conclusions}\label{ch:conclusion}
 \addcontentsline{toc}{chapter}{Conclusions}
+
+Començant per l'anàlisi dels registres d'accés, hem posat el focus en la modularitat del disseny, i no acoblar aquest amb la implementació.
+Principalment, és perquè les decisions del que com s'ha analitzat poden variar si el cas d'ús és totalment diferent.
+
+\noindent \\
+Per exemple, si necessitéssim afegir un paràmetre addicional als \textit{\gls{log}s} per a una anàlisi específica o volem desglossar els camps del User Agent, aquestes decisions no tindran conseqüències negatives ni efectes ``dominó'' en altres parts del sistema.
+
+\noindent \\
+Per això mateix no hem explicat al detall com s'ha fet, per exemple, per extraure l'adreça IP dels \textit{\gls{log}s}, o com extraiem la versió d'\gls{HTTP} emprada.
+Les decisions d'implementació són molt variades.
+En canvi, definir els paràmetres i la semàntica d'un \textit{\gls{log}} proporciona informació més rellevant.
+
+\noindent \\
+Definint els passos a partir de l'anàlisi dels \textit{\gls{log}s}, hem tractat i emmagatzemat tots els registres excepte aquells que són d'accessos a recursos web.
+Això ha resultat en poder descartar i no emmagatzemar un 22\% del \textit{\gls{log}s} (430.789.238 registres).
+
+\noindent \\
+L'evolució del nombre de \textit{\gls{log}s} al llarg dels anys es manté creixent de forma estable.
+Cal destacar, però, que de l'any 2012 amb 80 milions d'accessos a \gls{UPCommons}, el 2013 hi va haver 33 milions.
+Aquesta alteració va continuar l'any següent amb 28 milions d'accessos, però tornà a la tendència habitual l'any següent.
+
+\noindent \\
+Abocar els registres a una base de dades de sèries temporals ens permet explotar totes les seves funcionalitats per dur a terme anàlisis temporals detallats.
+Hem planificat aquest procés per enviar les dades en tandes a InfluxDB.
+
+\noindent \\
+Com a resultat, hem processat 1.922.392.760 entrades de \textit{\gls{log}s} en un temps d'aproximadament 33 hores, mitjançant un procés completament automatitzat.
+Un possible punt de treball futur és poder paral·lelitzar aquest procés, pel fet que els \textit{\gls{log}s} són independents entre si.
+Sistemes com Hadoop o Spark estan especialitzats en aquests processos.
+
+\noindent \\
+Utilitzem el protocol OAI-PMH, i la llibreria Sickle.
+La complexitat d'aquest protocol fa possible utilitzar peticions d'\gls{HTTP} directes contra el servidor OAI, ometent l'ús de llibreries externes.
+Com les metadades són obtingudes en format XML, el pas de la conversió a un document JSON és directe.
+Aquest ha sigut el motiu principal per utilitzar una base de dades basada en documents.
+
+\noindent \\
+Els camps de les metadades poden ser de múltiple valor, l’autor, les paraules clau, la matèria relacionada amb el recurs, un altre argument a favor de l’ús de bases de dades basada en documents, gràcies a la seva flexibilitat en l’esquema de dades.
+Comparat amb el número de \textit{\gls{log}s}, l'abocament és molt més ràpid.
+Hem afegit 242.555 entrades en 38 segons a la base de dades MongoDB.
+
+\noindent \\
+Tot aquest processament s'ha dut a terme en el servidor específic pel desenvolupament del projecte.
+Allà disposem de tots els \textit{\gls{log}s} emmagatzemats en sistema de fitxers, a més de tenir-los a la base de dades.
+El mateix passa amb les metadades.
+Això significa que els processos d'abocament s'han fet de manera “interna”.
+El fet de disposar la base de dades en una altra ubicació, ja sigui en un altre servidor intern fora de la xarxa local, o en un servei al núvol, té certes implicacions.
+
+\noindent \\
+S'ha de tenir controlada la capacitat de xarxa, adaptar els clients de cada servei al límit de peticions per segon, el nombre màxim d'unitats d'escriptura, i altres opcions.
+Una configuració inapropiada podria resultar en errors de processament, i si estem parlant d'automatitzar la tasca, el temps d'abocament podria augmentar dràsticament.
+En el pitjor cas, si estem utilitzant algun servei que necessiti subscripció econòmica, la factura final ens augmentarà.
+
+\noindent \\
+Com ja hem vist als diferents casos d'ús, els paràmetres escollits per processar els \textit{\gls{log}s} i emmagatzemar-los ens han permès dur algun tipus d'anàlisis de forma immediata.
+
+\noindent \\
+Aquests són aquells que utilitzen els camps dels \textit{\gls{log}s}, ja que les cerques estan optimitzades gràcies a la indexació.
+El desenvolupament d'aquells casos d'ús relacionats amb el codi d'estat, si el contingut del \textit{\gls{log}} és correcte o diferent de l'habitual, el tipus de petició d'\gls{HTTP} es processen veloçment.
+L'exemple el tenim amb el segon cas d'ús on analitzem els registres d'accés que tenen el seu contingut alterat de tot l'any 2023.
+
+\noindent \\
+Després tenim aquells casos d'ús on hem d'analitzar els camps dels \textit{\gls{log}s}.
+Aquests valors són molt diversos, i no els podem indexar.
+Són per exemple, el valor complet del log, o l'identificador del recurs que s'ha accedit.
+
+\noindent \\
+Com a conseqüència, aquesta anàlisi es basarà majoritàriament en un recorregut complet de totes les dades per obtenir-ne resultats.
+El temps de processament és directament proporcional a la quantitat total de \textit{\gls{log}s} processats.
+L'exemple el tenim amb el segon cas d'ús on analitzem els registres d'accés que tenen el seu contingut mal format de tot l'any 2023.
+
+\noindent \\
+No és casualitat que només analitzem al primer cas d'ús, que es basa a obtenir el recurs més accedit, el primer mes del 2023.
+Aquest procés triga 30 vegades més que el segon cas d'ús, encara que estiguem tractant d'11 vegades menys dades (un vs\. dotze mesos d'accessos).
+
+\noindent \\
+El tercer tipus de cas d'ús consisteix a relacionar els recursos amb les seves metadades.
+En aquesta etapa analitzem específicament els registres d'accés a recursos d'\gls{UPCommons} per relacionar-los amb les seves metadades.
+Aquests casos es basen a cercar a MongoDB el valor d'aquestes metadades.
+
+\noindent \\
+L'exemple mostra un cas en què hem filtrat els recursos pel centre docent on s'han adscrit, per després obtenir-ne la tipologia d'accés del recurs.
+Com era d'esperar, la majoria d'accessos eren a recursos d'accés obert o restringit a la comunitat acadèmica, ja que aquests són els que poden accedir la majoria d'usuaris d'\gls{UPCommons}.
+
+\noindent \\
+Aquesta recopilació de dades s'ha fet consultant tots els accessos a la base de dades dels \textit{\gls{log}s}, i per cada un d'ells consultant la base de dades de les metadades.
+Caldria valorar l'opció de centralitzar aquesta informació en una mateixa font de dades.
+Una tasca gens trivial, ja que tractem de dos tipus diferents de dades, amb propòsits diferents.
+
+\noindent \\
+La solució presa és realitzar l'anàlisi programàticament i afegir els resultats a InfluxDB, en cas de ser una anàlisi temporal.
+I després consumir aquesta informació amb Grafana.
+
+\noindent \\
+Grafana ens ha permès analitzar visualment aquests casos, obtenint informació de les nostres fonts de dades.
+Aquesta eina és la més recomanada degut al seu ús popular, tant en la versió gratuïta com en la seva versió “Cloud”.
+La gran majoria de bases de dades que utilitzaríem per emmagatzemar els \textit{\gls{log}s} i les metadades tenen suport per a Grafana.
+
+\noindent \\
+Arribats a aquest punt, hem vist com a partir d'analitzar els registres d'accés a \gls{UPCommons}, entendre el funcionament de les metadades dels recursos, afegir aquesta informació a un gestor de bases de dades, hem pogut desenvolupar uns casos d'ús base que demostren que aquesta eina pot donar suport per analitzar les diferents casuístiques proposades per l'usuari de l'eina.
+
