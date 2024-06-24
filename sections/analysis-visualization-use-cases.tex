@@ -147,8 +147,11 @@ from(bucket: "upcommons")
 \begin{itemize}
     \item Aquest seria el recompte d'accessos a recursos amb el contingut alterat durant l'any 2023, separats per mètode i codi d'estat.
     \item Vora finals d'any (a la part dreta de la figura~\ref{fig:log-altered}), podem observar com hi ha un pic de peticions que no és gens habitual.
-    Concretament són peticions \texttt{GET} que retornen un 403.
-    \item El codi d'estat 403 del protocol \gls{HTTP} que no estat autoritzat per realitzar aquesta petició.
+    \begin{itemize}
+        \item Concretament són peticions \texttt{GET} que retornen un 403.
+        \item Conjuntament, hi va haver peticions massives que retornen un codi d'estat correcte, 200.
+    \end{itemize}
+    \item El codi d'estat 403 del protocol \gls{HTTP} indica que no estas autoritzat per realitzar aquesta petició.
     \item Explorant una mica més, obtenim que aquest pic correspon a una llarga sèrie de peticions que va augmentar considerablement a partir de les 10:30 h de l'11 de novembre del 2023 i hauria acabat quinze minuts després.
     \clearpage
     \begin{figure}[htbp]
@@ -157,6 +160,11 @@ from(bucket: "upcommons")
         \caption[Pic de peticions del tipus \texttt{GET} que retornen un codi \texttt{403}.]{Pic de peticions del tipus \texttt{GET} que retornen un codi \texttt{403}. (\textbf{Font}: Elaboració pròpia.)}\label{fig:possible-attacks}
     \end{figure}
     \item Per consultar el contingut d'aquestes peticions ens redirigim a \textit{InfluxDB} i consultem les hores i els paràmetres prèviament determinats.
+    \item El diagrama temporal de la figura~\ref{fig:possible-attacks} mostra el següent:
+    \begin{itemize}
+        \item De les primeres peticions que es van enviar, només unes poques van ser bloquejades, d'aquí ve el màxim de peticions amb un codi 200 de resposta, de la figura~\ref{fig:log-altered}.
+        \item Minuts més tard, totes les peticions es van començar a rebutjar.
+    \end{itemize}
     \item El patró que segueix és consultar un recurs i afegir paràmetres d'\gls{HTTP} amb valors maliciosos.
     Els més habituals que s'han utilitzat són filter i range.
     La majoria d'aquests registres intenten executar un sleep.
