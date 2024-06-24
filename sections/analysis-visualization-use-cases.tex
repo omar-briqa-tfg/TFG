@@ -168,11 +168,11 @@ from(bucket: "upcommons")
     \item El patró que segueix és consultar un recurs i afegir paràmetres d'\gls{HTTP} amb valors maliciosos.
     Els més habituals que s'han utilitzat són filter i range.
     La majoria d'aquests registres intenten executar un sleep.
-    \item Un exemple, la comparació de dues comandes que retornen el mateix resultat sempre és certa (en vermell), i s'intenta executar un sleep per endarrerir la resposta certs segons. \\
+    \item Un exemple, la comparació de dues comandes que retornen el mateix resultat sempre és certa (\texttt{now()} i \texttt{sysdate()} a la figura~\ref{fig:log-attack-example}), i s'intenta executar un \texttt{sleep} per endarrerir la resposta certs segons. \\
     \begin{figure}[htbp]
         \centerline{\includegraphics[width=\textwidth]{figures/log-attack}}
         \captionsetup{justification=centering}
-        \caption[Exemple d'un intent d'atac a través d'un accés a un recurs.]{Exemple d'un intent d'atac a través d'un accés a un recurs. (\textbf{Font}: UPCommons.)}\label{fig:most-log-attack}
+        \caption[Exemple d'un intent d'atac a través d'un accés a un recurs.]{Exemple d'un intent d'atac a través d'un accés a un recurs. (\textbf{Font}: UPCommons.)}\label{fig:log-attack-example}
     \end{figure}
 \end{itemize}
 
