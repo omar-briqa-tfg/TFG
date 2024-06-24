@@ -26,8 +26,8 @@ Ara passem a la configuració.
 
 \clearpage
 
-\noindent \\
-Per l’apartat d’HTTP definirem l’\gls{URL} del servei.
+\noindent
+Per l’apartat d’HTTP (figura~\ref{fig:grafana-influxdb-http}) definirem l’\gls{URL} del servei.
 Com el servei \gls{DNS} de la xarxa de Docker ja resol el servei pel seu nom, l’hem de definir per \textbf{influxdb}.
 Utilitzar \textbf{localhost} podria errar durant l’intent de connexió.
 
@@ -42,13 +42,12 @@ Pel que fa a l’autenticació, afegirem les nostres credencials d’\textbf{Inf
 La paraula clau \textbf{configured} indica que la contrasenya ja ha sigut introduïda, i no que aquesta sigui ``configured''.
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[width=\textwidth]{figures/grafana-influxdb-auth}}
+    \centerline{\includegraphics[width=0.9\textwidth]{figures/grafana-influxdb-auth}}
     \captionsetup{justification=centering}
     \caption[Configuració d'autenticació d'\textit{InfluxDB} a \textit{Grafana}.]{Configuració d'autenticació d'\textit{InfluxDB} a \textit{Grafana}. (\textbf{Font}: Aplicatiu \textit{Grafana} del servidor de treball.)}\label{fig:grafana-influxdb-auth}
 \end{figure}
 
 \clearpage
-
 \noindent
 Finalment, completarem els detalls d’InfluxDB, que són l’organització i els altres paràmetres definits durant la configuració d’\textit{InfluxDB}.
 El \textit{token} és el clau que utilitzarem com autenticació a l’hora de realització de consultes.
