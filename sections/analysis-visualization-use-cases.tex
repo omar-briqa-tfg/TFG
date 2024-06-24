@@ -146,7 +146,7 @@ from(bucket: "upcommons")
 
 \begin{itemize}
     \item Aquest seria el recompte d'accessos a recursos amb el contingut alterat durant l'any 2023, separats per mètode i codi d'estat.
-    \item Vora finals d'any, podem observar com hi ha un pic de peticions que no és gens habitual.
+    \item Vora finals d'any (a la part dreta de la figura~\ref{fig:log-altered}), podem observar com hi ha un pic de peticions que no és gens habitual.
     Concretament són peticions \texttt{GET} que retornen un 403.
     \item El codi d'estat 403 del protocol \gls{HTTP} que no estat autoritzat per realitzar aquesta petició.
     \item Explorant una mica més, obtenim que aquest pic correspon a una llarga sèrie de peticions que va augmentar considerablement a partir de les 10:30 h de l'11 de novembre del 2023 i hauria acabat quinze minuts després.
@@ -229,7 +229,7 @@ from(bucket: "upcommons")
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/access-rights-epsevg}}
     \captionsetup{justification=centering}
-    \caption[Condicions d'accés dels accessos a recursos de l'EPSEVG el primer de desembre del 2023.]{Condicions d'accés dels accessos a recursos de l'EPSEVG el primer de desembre del 2023. (\textbf{Font}: Elaboració pròpia.)}\label{fig:log-altered}
+    \caption[Condicions d'accés dels accessos a recursos de l'EPSEVG el primer de desembre del 2023.]{Condicions d'accés dels accessos a recursos de l'EPSEVG el primer de desembre del 2023. (\textbf{Font}: Elaboració pròpia.)}\label{fig:log-access-type}
 \end{figure}
 
 \begin{itemize}
