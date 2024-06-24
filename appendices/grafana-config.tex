@@ -1,10 +1,10 @@
 \chapter{Configuració de \textit{Grafana}}\label{ch:grafana-config}
 
-Grafana és la nostra eina principal observabilitat, i que ens permetrà visualitzar els nostres casos d’ús.
-Per poder fer-la servir l’haurem de configurar per tal que aquesta consumeixi de la nostra base de dades principal, \textit{InfluxDB} .
+Grafana és la nostra eina principal observabilitat, i que ens permetrà visualitzar els nostres casos d'ús.
+Per poder fer-la servir l'haurem de configurar per tal que aquesta consumeixi de la nostra base de dades principal, \textit{InfluxDB} .
 
 \noindent \\
-Malauradament, aquesta eina no incorpora suport directe amb \textit{MongoDB}, per tant, l’anàlisi general sobre les metadades s’haurà de fer per separat. \\ \\
+Malauradament, aquesta eina no incorpora suport directe amb \textit{MongoDB}, per tant, l'anàlisi general sobre les metadades s'haurà de fer per separat. \\ \\
 
 \section*{Connexió amb InfluxDB}\label{sec:influxdb-grafana-connection}
 
@@ -27,9 +27,9 @@ Ara passem a la configuració.
 \clearpage
 
 \noindent
-Per l’apartat d’HTTP (figura~\ref{fig:grafana-influxdb-http}) definirem l’\gls{URL} del servei.
-Com el servei \gls{DNS} de la xarxa de Docker ja resol el servei pel seu nom, l’hem de definir per \textbf{influxdb}.
-Utilitzar \textbf{localhost} podria errar durant l’intent de connexió.
+Per l'apartat d'HTTP (figura~\ref{fig:grafana-influxdb-http}) definirem l'\gls{URL} del servei.
+Com el servei \gls{DNS} de la xarxa de Docker ja resol el servei pel seu nom, l'hem de definir per \textbf{influxdb}.
+Utilitzar \textbf{localhost} podria errar durant l'intent de connexió.
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/grafana-influxdb-http}}
@@ -38,7 +38,7 @@ Utilitzar \textbf{localhost} podria errar durant l’intent de connexió.
 \end{figure}
 
 \noindent \\
-Pel que fa a l’autenticació (figura~\ref{fig:grafana-influxdb-auth}), afegirem les nostres credencials d’\textbf{InfluxDB}.
+Pel que fa a l'autenticació (figura~\ref{fig:grafana-influxdb-auth}), afegirem les nostres credencials d'\textbf{InfluxDB}.
 La paraula clau \textbf{configured} indica que la contrasenya ja ha sigut introduïda, i no que aquesta sigui ``configured''.
 
 \begin{figure}[htbp]
@@ -49,13 +49,13 @@ La paraula clau \textbf{configured} indica que la contrasenya ja ha sigut introd
 
 \clearpage
 \noindent
-Finalment, completarem els detalls d’InfluxDB (figura~\ref{fig:grafana-influxdb-details}), que són l’organització i els altres paràmetres definits durant la configuració d’\textit{InfluxDB}.
-El \textit{token} és el clau que utilitzarem com autenticació a l’hora de realització de consultes.
+Finalment, completarem els detalls d'InfluxDB (figura~\ref{fig:grafana-influxdb-details}), que són l'organització i els altres paràmetres definits durant la configuració d'\textit{InfluxDB}.
+El \textit{token} és el clau que utilitzarem com autenticació a l'hora de realització de consultes.
 
 \noindent \\
 Aquest \textit{token} es genera a la interfície de la base de dades.
-Hem de tenir en compte d’assignar els permisos de lectura/escriptura correctes.
-D’altra manera, no podrem realitzar les consultes pertinents.
+Hem de tenir en compte d'assignar els permisos de lectura/escriptura correctes.
+D'altra manera, no podrem realitzar les consultes pertinents.
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/grafana-influxdb-details}}
@@ -77,12 +77,12 @@ Els passos són:
 \end{center}
 
 \noindent
-Has d’escollir la font de dades.
-Apareixerà l0InfluxdDB que prèviament s’ha configurat.
+Has d'escollir la font de dades.
+Apareixerà l'\textit{InfluxDB} que prèviament s'ha configurat.
 Seguidament emeregeixen tres finestres principals, adaptables en mida.
 
 \noindent \\
-La finestra central mostrarà la representació de les dades.
+La finestra central de la figura~\ref{fig:grafana-main-panel} mostrarà la representació de les dades.
 A la part inferior, hi ha un editor on es pot introduir la cerca a \textit{InfluxDB} .
 Un cop introduïda, s'emmagatzema i s'executa automàticament.
 
@@ -95,9 +95,9 @@ Un cop introduïda, s'emmagatzema i s'executa automàticament.
 \clearpage
 
 \noindent
-A la part dreta es troba una finestra per personalitzar el panell, tant colors, llegenda, estils, etcètera.
-L’opció més important es troba a la part superior, on pots definir el tipus de representació: sèrie temporal, diagrama de barres, intensitat de colors, histogrames, i infinites més opcions.
-Sempre que s’adaptin les dades per cada tipus de representació, endavant!
+A la part dreta (figura~\ref{fig:grafana-panel-visualization}) es troba una finestra per personalitzar el panell, tant colors, llegenda, estils, etcètera.
+L'opció més important es troba a la part superior, on pots definir el tipus de representació: sèrie temporal, diagrama de barres, intensitat de colors, histogrames, i infinites més opcions.
+Sempre que s'adaptin les dades per cada tipus de representació, endavant!
 
 \begin{figure}[h]
     \centering
