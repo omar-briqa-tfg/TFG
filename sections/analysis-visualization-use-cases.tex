@@ -195,7 +195,10 @@ from(bucket: "upcommons")
     \item Per començar, consultem tots els accessos a recursos durant el període de temps determinat.
     En el nostre cas escollim el dia 2023/12/01.
     \item Per cada accés, consultem la base de dades per obtenir el document de metadades relacionat.
-    En cas d'obtenir resultat, consultem l'etiqueta \textit{dc.audience.mediator} que ens indica el centre docent relacionat amb el recurs.
+    En cas d'obtenir resultat, consultem l'etiqueta que ens indica el centre docent relacionat amb el recurs: \textit{dc.audience.mediator}.
+    \begin{itemize}
+        \item Analitzem només aquells que estiguin relacionats amb l'EPSEVG, és a dir, que el contingut de l'etiqueta sigui ``Escola Politècnica Superior d'Enginyeria de Vilanova i la Geltrú''.
+    \end{itemize}
     \item Podem obtenir aquest valor pels treballs finals de grau, exàmens, materials docents i vídeos, i d'altres tipologies de manera puntual.
     \item Seguidament, extraiem el valor de l'etiqueta \textit{dc.rights.access}, que conté la informació sobre les condicions d'accés d'aquell recurs.
     \item Agrupant l'identificador del recurs, la condició d'accés i la data i hora de la consulta, afegim aquesta informació a una nova taula a \textit{InfluxDB} anomenada \textit{epsevg-rights}.
