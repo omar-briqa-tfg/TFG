@@ -12,12 +12,15 @@ El format dels fitxers d'entrada on hi són emmagatzemats els registres és d'un
 Tractant-se de la informació d'accés als recursos d'\gls{UPCommons}, accessibles des de la pàgina web,
 tenim aquesta informació recollida des de la capa d'aplicació, mitjançant els missatges de petició del protocol \gls{HTTP}.
 
+\noindent \\
+A la figura~\ref{fig:example-log} es pot observar l'estructura d'un \textit{\gls{log}}.
+En ordre, està format per l'adreça \gls{IP}, la data i hora, la informació sobre la petició \gls{HTTP}, el referent i el \textit{User Agent}.
+
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=1\textwidth]{figures/example-log}}
     \captionsetup{justification=centering}
     \caption[Exemple del contingut d'un \textit{\gls{log}}.]{Exemple del contingut d'un \textit{\gls{log}}. (\textbf{Font}: \gls{UPCommons}.)}\label{fig:example-log}
 \end{figure}
-
 
 \noindent
 Cada línia present als fitxers dels \textit{\gls{log}s} correspon a una petició \gls{HTTP} .
@@ -38,15 +41,15 @@ Degut a qüestions de privacitat i protecció de dades, aquest identificador ha 
     Pot haver-hi darrere un \gls{NAT}, usuaris compartint dispositiu, etc.
 \end{tcolorbox}
 
+\clearpage
+
 \noindent \\
 \textbf{Data i hora} \\ \\
 La marca temporal del registre ve definida per la seva data i hora.
 Si bé es pot treballar directament amb aquest valor si segueix el format \gls{ISO}, és preferible utilitzar el format estàndard \gls{POSIX} (nombre de segons no intercalars des de l'1 de gener del 1970).
 Aquest format és més simple, les comparacions són més eficients i evitem problemàtiques de diferències temporals en zones geogràfiques.
 
-\clearpage
-
-\noindent
+\noindent \\
 \textbf{Informació de la petició \gls{HTTP}}~\cite{http} \\
 
 \begin{itemize}
