@@ -1,6 +1,6 @@
 \section{Casos d'ús}\label{sec:analysis-visualization-use-cases}
 
-Hem definit uns quants casos d'ús prou representatius que poden servir com a exemple:
+Hem definit els següents casos d'ús:
 
 \begin{itemize}
     \item Recurs més accedit durant un període de temps.
@@ -14,7 +14,8 @@ Hem definit uns quants casos d'ús prou representatius que poden servir com a ex
 
 \begin{itemize}
     \item Donat un període de temps, volem saber quin, o quins recursos són els més accedits.
-    \item També volem esbrinar com ha sigut la seva evolució al llarg del temps, es tracta d'un pic puntual que altera les estadístiques, o s'ha mantingut constant?
+    \item També volem esbrinar com ha sigut la seva evolució al llarg del temps.
+    Es tracta d'un pic puntual que altera les estadístiques, o s'ha mantingut constant?
     \item Quins paràmetres caracteritzen aquests accessos, vora quines hores es produeixen, mitjançant quins mètodes d'\gls{HTTP} es realitzen, quin és el codi de resposta més habitual, quin és el \textit{User Agent} més comú \dots i molts més atributs.
 \end{itemize}
 
@@ -38,13 +39,13 @@ Hem definit uns quants casos d'ús prou representatius que poden servir com a ex
 \textbf{Representació}
 
 \begin{itemize}
-    \item Per fer la representació de les dades primerament hem d'escollir una la tipologia de panells que volem utilitzar.
+    \item Per fer la representació de les dades primerament hem d'escollir la tipologia de panells que volem utilitzar.
     Com estem parlant d'un anàlisi al llarg del temps, semblar que una sèrie temporal pot quadrar.
 
     \item Seleccionarem una gràfica de tipus \texttt{Time Series} i afegirem a la part inferior la següent cerca.
     Concretament, estem cercant a \textit{InfluxDB}:
     \begin{itemize}
-        \item Període del desembre del 2023.
+        \item Període: desembre del 2023.
         \item Accessos que siguin recursos i el seu \textit{\gls{handle}} (identificador) sigui \texttt{2099.1/18556}, que prèviament haurem determinat.
         \item Comptem cada accés i els agrupem per cada dia.
         \item La cerca que utilitzarem és la següent:
@@ -146,7 +147,7 @@ from(bucket: "upcommons")
 
 \begin{itemize}
     \item Aquest seria el recompte d'accessos a recursos amb el contingut alterat durant l'any 2023, separats per mètode i codi d'estat.
-    \item Vora finals d'any (a la part dreta de la figura~\ref{fig:log-altered}), podem observar com hi ha un pic de peticions que no és gens habitual.
+    \item Vora finals d'any (a la part dreta de la figura~\ref{fig:log-altered}), podem observar com hi ha un pic de peticions que no és gens habitual (punt vermell).
     \begin{itemize}
         \item Concretament són peticions \texttt{GET} que retornen un 403.
         \item Conjuntament, hi va haver peticions massives que retornen un codi d'estat correcte, 200.
@@ -166,9 +167,9 @@ from(bucket: "upcommons")
         \item Minuts més tard, totes les peticions es van començar a rebutjar.
     \end{itemize}
     \item El patró que segueix és consultar un recurs i afegir paràmetres d'\gls{HTTP} amb valors maliciosos.
-    Els més habituals que s'han utilitzat són filter i range.
-    La majoria d'aquests registres intenten executar un sleep.
-    \item Un exemple, la comparació de dues comandes que retornen el mateix resultat sempre és certa (\texttt{now()} i \texttt{sysdate()} a la figura~\ref{fig:log-attack-example}), i s'intenta executar un \texttt{sleep} per endarrerir la resposta certs segons. \\
+    Els més habituals que s'han utilitzat són \texttt{filter} i \texttt{range}.
+    La majoria d'aquests registres intenten executar un \texttt{sleep} per endarrerir la resposta certs segons.
+    \item Un exemple, la comparació de dues comandes que retornen el mateix resultat sempre és certa (\texttt{now()} i \texttt{sysdate()} a la figura~\ref{fig:log-attack-example}), i s'intenta executar un \texttt{sleep}. \\
     \begin{figure}[htbp]
         \centerline{\includegraphics[width=\textwidth]{figures/log-attack}}
         \captionsetup{justification=centering}
@@ -184,7 +185,7 @@ from(bucket: "upcommons")
 
 \begin{itemize}
     \item Donat un període de temps, volem saber quines són les condicions d'accés dels recursos de l'EPSEVG consultats.
-    \item Volem analitzar els accessos depenent si són d'accés obert, restringits per l'usuari, per acord de confidencialitat, restringit a la comunitat universitària, etcètera.
+    \item Volem analitzar dels registres aquells que siguin accessos a recursos de l'EPSEVG, i determinar si aquests són d'accés obert, restringits per l'usuari, per acord de confidencialitat, restringit a la comunitat universitària, etcètera.
 \end{itemize}
 
 \noindent \\
@@ -256,7 +257,7 @@ from(bucket: "upcommons")
     \item Les condicions d'accés més habituals són aquelles on més usuaris poden accedir.
     Aquest són l'accés obert i l'accés restringit a la comunitat acadèmica de la UPC.
     \item Cal remarcar que tots els exàmens són restringits a la comunitat acadèmica de la UPC.
-    \item Els menys accedits són aquells d'accés restringit a un públic (a vegades nul) petit, sigui per acord de confidencialitat sigui per decisió de l'autor.
+    \item Els menys accedits són aquells d'accés restringit a un públic petit (a vegades nul), sigui per acord de confidencialitat sigui per decisió de l'autor.
     \clearpage
     \item Pel cas dels recursos restringits a la comunitat acadèmica del CSUC (al peu de lletra: “Restricted access to UB, UAB, UPC, UPF, UdG, UdL, URV, UOC, BC, UVic, UJI, URL, UIC users”) es tracta d'accessos a llibres bastant antics.
     \item Dos d'ells tracten principis de desenvolupament sostenible (2099.3/36752 i 2099.3/36834), un altre d'ergonomia (2099.3/36854) i el darrer sobre anàlisi d'antenes (2099.3/36797)
