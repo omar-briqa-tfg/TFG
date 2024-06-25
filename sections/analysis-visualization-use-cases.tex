@@ -22,7 +22,7 @@ Hem definit uns quants casos d'ús prou representatius que poden servir com a ba
 \textbf{Anàlisi}
 
 \begin{itemize}
-    \item Per esbrinar quins són els recursos més accedits, treballarem directament sobre la base de dades \textit{InfluxDB} .
+    \item Per esbrinar quins són els recursos més accedits, treballarem directament sobre la base de dades \textit{InfluxDB}.
 
     A causa de la gran quantitat de dades que s'han d'analitzar, \textit{Grafana} no podria ser capaç d'afrontar aquesta càrrega computacional.
 
@@ -191,7 +191,7 @@ from(bucket: "upcommons")
 \textbf{Anàlisi}
 
 \begin{itemize}
-    \item Per obtenir aquestes dades treballarem tant amb la base de dades dels \textit{\gls{log}s} \textit{InluxDB} com amb les metadades, a \textit{MongoDB} .
+    \item Per obtenir aquestes dades treballarem tant amb la base de dades dels \textit{\gls{log}s} \textit{InluxDB} com amb les metadades, a \textit{MongoDB}.
     \item Per començar, consultem tots els accessos a recursos durant el període de temps determinat.
     En el nostre cas escollim el dia 2023/12/01.
     \item Per cada accés, consultem la base de dades per obtenir el document de metadades relacionat.
@@ -254,8 +254,8 @@ from(bucket: "upcommons")
     \end{itemize}
 
     \item Les condicions d'accés més habituals són aquelles on més usuaris poden accedir.
-    Aquest són l'accés obert i l'accés restringit a la comunitat acadèmica de la UPC .
-    \item Cal remarcar que tots els exàmens són restringits a la comunitat acadèmica de la UPC .
+    Aquest són l'accés obert i l'accés restringit a la comunitat acadèmica de la UPC.
+    \item Cal remarcar que tots els exàmens són restringits a la comunitat acadèmica de la UPC.
     \item Els menys accedits són aquells d'accés restringit a un públic (a vegades nul) petit, sigui per acord de confidencialitat sigui per decisió de l'autor.
     \clearpage
     \item Pel cas dels recursos restringits a la comunitat acadèmica del CSUC (al peu de lletra: “Restricted access to UB, UAB, UPC, UPF, UdG, UdL, URV, UOC, BC, UVic, UJI, URL, UIC users”) es tracta d'accessos a llibres bastant antics.

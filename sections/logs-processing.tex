@@ -23,7 +23,7 @@ En ordre, està format per l'adreça \gls{IP}, la data i hora, la informació so
 \end{figure}
 
 \noindent
-Cada línia present als fitxers dels \textit{\gls{log}s} correspon a una petició \gls{HTTP} .
+Cada línia present als fitxers dels \textit{\gls{log}s} correspon a una petició \gls{HTTP}.
 El format d'aquesta és el següent:
 
 \noindent \\
@@ -53,7 +53,7 @@ Aquest format és més simple, les comparacions són més eficients i evitem pro
 \textbf{Informació de la petició \gls{HTTP}}~\cite{http} \\
 
 \begin{itemize}
-    \item Mètode de la petició: els més habituals són \texttt{GET}, \texttt{POST} i \texttt{HEAD} .
+    \item Mètode de la petició: els més habituals són \texttt{GET}, \texttt{POST} i \texttt{HEAD}.
     \item Recurs accedit: enllaç al recurs accedit per la petició.
     \item Versió \gls{HTTP}: evolució d'\texttt{HTTP/1.0} fins a \texttt{HTTP/1.1} en el transcurs dels anys.
     No hi ha presència de registres amb \texttt{HTTP/2.0}.
@@ -68,7 +68,7 @@ El camp del referent indica la ubicació d’on s’ha fet la sol·licitud del r
 
 \noindent \\ \\
 \textbf{User Agent} \\ \\
-Amb l’ajuda d’aquest camp, podrem analitzar l’empremta digital del cercador utilitzat i determinar amb una certa precisió el tipus de dispositiu utilitzat, el sistema operatiu, si l’acció prové d’un usuari o d’una eina automatitzada (\textit{bots} o serveis de correu)
+Amb l’ajuda d’aquest camp, podrem analitzar l’empremta digital del cercador utilitzat i determinar amb una certa precisió el tipus de dispositiu utilitzat, el sistema operatiu, si l’acció prové d’un usuari o d’una eina automatitzada (\textit{bots} o serveis de correu).
 
 \clearpage
 
@@ -99,7 +99,7 @@ com podrien ser fitxers \textit{css}, \textit{javascript}, \textit{gifs} \dots
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-web-resource}}
     \captionsetup{justification=centering}
-    \caption[Exemple d'un \textit{\gls{log}} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}} .]{Exemple d'un \textit{\gls{log}} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}} . (\textbf{Font}: \gls{UPCommons}.)}\label{fig:log-web-resource}
+    \caption[Exemple d'un \textit{\gls{log}} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}}.]{Exemple d'un \textit{\gls{log}} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}}. (\textbf{Font}: \gls{UPCommons}.)}\label{fig:log-web-resource}
 \end{figure}
 
 \noindent \\
@@ -258,7 +258,7 @@ Ara bé, depenen de la base de dades on es vol fer l’agregació, és possible 
 Així mateix, si tenim \(X_1\)..\(X_N\) funcions filtre, i \(Y_1\)..\(Y_N\) funcions de transformació, i dos casos d’ús, podem definir el comportament desitjat de la següent manera:
 
 \begin{itemize}
-    \item \textbf{Cas d'ús \#1}: processa tots els logs, canvia el format de la data i envia'ls a una base de dades PostgreSQL .
+    \item \textbf{Cas d'ús \#1}: processa tots els logs, canvia el format de la data i envia'ls a una base de dades PostgreSQL.
     \begin{itemize}
         \item \texttt{Filtre:} -
         \item \texttt{Transformació:} \(Y_1\)
@@ -296,7 +296,7 @@ S'han desenvolupat les següents funcions:
     \item \texttt{AccessResource}: Detecta si el recurs accedit és un recurs d’\gls{UPCommons} a través de l'identificador \gls{handle}.
     \item \texttt{WithIPv6Address}: Detecta si el \textit{\gls{log}} té present l’adreça en versió IPv6.
     \item \texttt{WithoutIpAddress}: Detecta si el \textit{\gls{log}} no té present el camp d'adreça \gls{IP}.
-    \item \texttt{AccessResourceBitstream}: Detecta si el recurs accedit és un recurs d’UPCom-mons a través de l'identificador \gls{bitstream} \gls{UUID} .
+    \item \texttt{AccessResourceBitstream}: Detecta si el recurs accedit és un recurs d’UPCom-mons a través de l'identificador \gls{bitstream} \gls{UUID}.
 \end{itemize}
 
 \noindent \\
