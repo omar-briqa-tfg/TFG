@@ -1,43 +1,43 @@
 \chapter*{Introducció}\label{ch:introduction}
 \addcontentsline{toc}{chapter}{Introducció}
 
-L’objectiu d’aquest projecte és desenvolupar una eina que, a partir de l’anàlisi dels registres d’accés de la plataforma UPCommons, converteixi aquesta informació d’un nivell tècnic a un conjunt de dades més comprensibles.
+L'objectiu d'aquest projecte és desenvolupar una eina que, a partir de l'anàlisi dels registres d'accés de la plataforma \gls{UPCommons}, converteixi aquesta informació d'un nivell tècnic a un conjunt de dades més comprensibles.
 En altres paraules, volem donar sentit i estructura als \textit{\gls{log}s} per extreure informació valuosa.
 
 \noindent \\
-La nostra recerca inclou els accessos de divuit anys, que abasten des de l’any 2006 fins al 2023, amb registres procedents des de qualsevol ubicació, donat que es tracta d’una plataforma en línia.
-Aquests registres consisteixen principalment en consultes de recursos d’UPCommons, malgrat que hi ha més tipus d’accessos: cerques, comandes del servidor internes, redireccions, i molt més.
+La nostra recerca inclou els accessos de divuit anys, que abasten des de l'any 2006 fins al 2023, amb registres procedents des de qualsevol ubicació, donat que es tracta d'una plataforma en línia.
+Aquests registres consisteixen principalment en consultes de recursos d'\gls{UPCommons}, malgrat que hi ha més tipus d'accessos: cerques, comandes del servidor internes, redireccions, i molt més.
 
 \noindent \\
 Analitzar aquest conjunt de dades representa un gran repte.
-El funcionament intern d’UPCommons i els seus recursos, la gran quantitat d’entrades a processar i els mètodes de processament van ser incerteses inicials, però que respondrem al llarg d’aquest projecte.
+El funcionament intern d'\gls{UPCommons} i els seus recursos, la gran quantitat d'entrades a processar i els mètodes de processament van ser incerteses inicials, però que respondrem al llarg d'aquest projecte.
 La tasca de desenvolupar una eina que després pot ser de gran ajuda per a moltes persones és un factor de motivació.
 
 \noindent \\
 Hem fragmentat el nostre projecte en tres etapes ben diferenciades.
-La primera se centra en l’anàlisi dels registres d’accés.
-Definirem clarament què esperem d’un \textit{\gls{log}}, quin contingut ha de contenir i quina informació ha de proporcionar.
+La primera se centra en l'anàlisi dels registres d'accés.
+Definirem clarament què esperem d'un \textit{\gls{log}}, quin contingut ha de contenir i quina informació ha de proporcionar.
 
 \noindent \\
-Seguidament, emmagatzemarem aquesta informació a una base de dades de sèries temporals, InfluxDB, ja que els \textit{\gls{log}s} són registres d’esdeveniments que ocorren en marques de temps específiques.
-A més a més, descarregarem totes les metadades dels recursos d’UPCommons d’un servidor OAI (Open Archives Initiative) a una base de dades basada en documents, MongoDB.
+Seguidament, emmagatzemarem aquesta informació a una base de dades de sèries temporals, InfluxDB, ja que els \textit{\gls{log}s} són registres d'esdeveniments que ocorren en marques de temps específiques.
+A més a més, descarregarem totes les metadades dels recursos d'\gls{UPCommons} d'un servidor OAI (Open Archives Initiative) a una base de dades basada en documents, MongoDB.
 
 \noindent \\
-Finalment, amb les dades processades i emmagatzemades en un gestor de bases de dades, procedirem a definir uns casos d’ús que serviran de base i demostraran la proposta de valor de la nostra eina.
-Com a eina de suport, utilitzarem el programari d’observabilitat Grafana.
+Finalment, amb les dades processades i emmagatzemades en un gestor de bases de dades, procedirem a definir uns casos d'ús que serviran de base i demostraran la proposta de valor de la nostra eina.
+Com a eina de suport, utilitzarem el programari d'observabilitat Grafana.
 
 \noindent \\
 Aquesta descomposició conceptual també ens ha facilitat modular les tasques al llarg del temps.
-El primer mes de treball va servir com a presa de contacte, així com una anàlisi general i definició de l’abast del projecte.
-Després, els mesos d’abril, maig i juny van ser enfocats en l’anàlisi i el processament de les dades, l’emmagatzemament de les dades i la definició dels casos d’ús, respectivament.
+El primer mes de treball va servir com a presa de contacte, així com una anàlisi general i definició de l'abast del projecte.
+Després, els mesos d'abril, maig i juny van ser enfocats en l'anàlisi i el processament de les dades, l'emmagatzemament de les dades i la definició dels casos d'ús, respectivament.
 
 \noindent \\
-Per documentar-nos, hem utilitzat dos documents interns proporcionats pels nostres col·laboradors d’UPCommons.
-El primer descriu el funcionament d’aquest servidor, la seva evolució i el funcionament del registre dels accessos.
-El segon tracta de les metadades d’UPCommons, les quals enriqueixen i completen la informació dels recursos.
+Per documentar-nos, hem utilitzat dos documents interns proporcionats pels nostres col·laboradors d'\gls{UPCommons}.
+El primer descriu el funcionament d'aquest servidor, la seva evolució i el funcionament del registre dels accessos.
+El segon tracta de les metadades d'\gls{UPCommons}, les quals enriqueixen i completen la informació dels recursos.
 A més, hem revisat detalladament la documentació de cada servei i programari utilitzats per analitzar les seves característiques.
 
 \noindent \\
-Elaborar informes periòdics per documentar el progrés, les accions realitzades, els obstacles i els punts d’actuació ha estat el procediment principal de treball.
-Respecte al codi, s’ha desenvolupat seguint les pràctiques recomanades de l’enginyeria de programari i del cicle de vida del desenvolupament del programari.
-El repositori es troba públicament a GitHub sota una llicència MIT.
+Elaborar informes periòdics per documentar el progrés, les accions realitzades, els obstacles i els punts d'actuació ha estat el procediment principal de treball.
+Respecte al codi, s'ha desenvolupat seguint les pràctiques recomanades de l'enginyeria de programari i del cicle de vida del desenvolupament del programari.
+El repositori es troba públicament a \textit{\gls{GitHub}} sota una llicència MIT.
