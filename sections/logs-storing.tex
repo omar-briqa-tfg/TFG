@@ -255,7 +255,7 @@ La implementació del client d'InfluxDb ha estat optimitzada~\cite{influxdb:opti
 \begin{itemize}
     \item \texttt{batching}: El mode d'escriptura emprat és el \textit{batching}.
     Consisteix a agrupar els elements (\textit{\gls{log}s}) en tandes, i després enviar una petició d'escriptura.
-    A causa del volum de dades que tractem, evitem enviar una petició per cada \textit{log}, alleugerint la càrrega computacional.
+    D'aquesta manera evitem enviar una petició per cada \textit{log}, alleugerint la càrrega computacional.
     \begin{tcolorbox}[colback=red!5!white, colframe=red!75!black, title=Sobrecàrrega]
     En cas de disposar de la base de dades en algun servei de \textit{cloud}, aquest problema s'agreujaria, incrementant la latència.
     \end{tcolorbox}
@@ -268,7 +268,7 @@ La implementació del client d'InfluxDb ha estat optimitzada~\cite{influxdb:opti
     \end{itemize}
     \item \texttt{tags}: El diccionari que conté les etiquetes amb informació rellevant del \textit{\gls{log}} s’ha ordenat alfabèticament a partir de les claus.
     \item \texttt{\gls{timestamp}}: Enviem el \textit{\gls{log}} amb la marca temporal amb precisió de l’orde dels nanosegons, format que utilitza \textbf{InfluxDb}.
-    \item \texttt{\gls{gzip}}: comprimint les dades podem accelerar el procés d’escriptura fins a cinc vegades, tal com indica la guia d'optimització d'InfluxDb~\cite{influxdb:optimizations}
+    \item \texttt{\gls{gzip}}: comprimint les dades podem accelerar el procés d’escriptura fins a cinc vegades, tal com indica la guia d'optimització d'InfluxDb~\cite{influxdb:optimizations}.
 \end{itemize}
 
 \clearpage
