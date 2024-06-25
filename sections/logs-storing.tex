@@ -49,13 +49,14 @@ Les seves característiques principals són:
 
 \begin{itemize}
     \item \textbf{Escalabilitat}: Disposa de diferents modes de desplegament on pots escollir el que més s’adapti als teus requisits.
-    \item \textbf{Integració}: Suporta diverses implementacions/llibreries de tercers per fer-ne servir, i diversos modes de desplegament en local.
+    \item \textbf{Integració}: Suporta diverses implementacions/llibreries de tercers, i diversos modes de desplegament en local.
     \item \textbf{Grafana}: Integració per defecte amb \textit{Grafana} com a eina principal d’observabilitat.
     \item \textbf{Emmagatzemament}: Loki només indexa les metadades dels \textit{\gls{log}s}~\cite{loki:indexing}, és a dir, només el \textit{\gls{timestamp}} i els \textit{labels} definits.
     El contingut del \textit{\gls{log}} no s’indexa.
     Utilitzant aquest plantejament, s’aconsegueix reduir la quantitat total d'espai de disc necessari.
     \begin{itemize}
-        \item Aquesta característica és bastant interessant si utilitzem aquests \textit{labels} per afegir informació relacionada amb el recurs accedit per a després com a millorar el procés de cerca.
+        \item Aquesta característica és bastant interessant si utilitzem aquests \textit{labels} per afegir informació relacionada amb el recurs accedit.
+        Això pot ser útil a l'hora d'optimitzar el procés de cerca.
     \end{itemize}
 \end{itemize}
 
@@ -66,7 +67,7 @@ Les seves característiques principals són:
 
 \noindent \\
 Elastic, conegut pel seu motor de cerca Elasticsearch, disposa d’una solució de monitoratge de \textit{\gls{log}s}.
-Les seves característiques principals:
+Les seves característiques principals són:
 
 \begin{itemize}
     \item \textbf{Escalabilitat}: dissenyat per monitorar \textit{\gls{log}s} fins a una escala de \textit{petabytes}.
@@ -82,10 +83,10 @@ Les seves característiques principals:
 
 \noindent \\
 Apache SOLR és una plataforma de cerca que es pot utilitzar com a mecanisme d’emmagatzemament de documents. 
-Les seves característiques principals:
+Les seves característiques principals són:
 
 \begin{itemize}
-    \item \textbf{Escalabilitat}: basat en un sistema distribuït i rèpliques, és optimitzat per grans volums de dades.
+    \item \textbf{Escalabilitat}: basat en un sistema distribuït i rèpliques, està optimitzat per grans volums de dades.
     \item \textbf{Integració}: la comunicació amb el servei es realitza mitjançant l’\gls{API} de SOLR sobre \gls{HTTP}.
     També suporta diferents modes de desplegament en local.
     \item \textbf{Lucene}: fa servir \textit{Apache Lucene} com a motor de cerca principal.
@@ -95,14 +96,14 @@ Les seves característiques principals:
 Com a contrapartida:
 
 \begin{itemize}
-    \item \textbf{Visualització}: no disposa d’un sistema de visualització de dades per defecte, així perque caldria emprar-ne un de tercers.
+    \item \textbf{Visualització}: no disposa d’un sistema de visualització de dades per defecte, així per què caldria emprar-ne un de tercers.
 \end{itemize}
 
 
 \clearpage
 
 \noindent
-Altres opcions que no són de codi obert, la versió gratuïta que proporcionen és bastant limitada o no hi ha prou documentació a la xarxa són les següents:
+Altres opcions que hem descartat perquè o bé no són de codi obert, la versió gratuïta que proporcionen és bastant limitada o no hi ha prou documentació a la xarxa són les següents:
 
 \begin{itemize}
     \item \textbf{Graylog}~\cite{graylog}
@@ -115,7 +116,7 @@ Altres opcions que no són de codi obert, la versió gratuïta que proporcionen 
 \subsection{Decisió}\label{subsec:log-db-decision}
 
 \noindent
-La primera decisió presa fou donar suport a \textit{Grafana Loki}, amb els motius que llistarem a continuació:
+La primera decisió presa fou triar \textit{Grafana Loki}, amb els motius que llistarem a continuació:
 
 \begin{itemize}
     \item Base de dades de codi obert compatible per diferents plataformes.
@@ -141,7 +142,7 @@ El nostre cas, en podem afegir uns que indiquin el tipus de \textit{\gls{log}} (
 \end{figure}
 
 \noindent \\
-Malauradament, errors durant l’etapa de configuració, concretament del paràmetre que defineix el temps màxim d'anterioritat per la cerca dels \textit{\gls{log}s}, ens van fer recular i considerar altres opcions.
+Malauradament, alguns problemes durant l’etapa de configuració, concretament del paràmetre que defineix el temps màxim d'anterioritat per la cerca dels \textit{\gls{log}s}, ens van fer recular i considerar altres opcions.
 
 \clearpage
 
