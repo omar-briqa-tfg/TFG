@@ -78,7 +78,7 @@ Un cop entenem l'estructura dels \textit{logs}, el següent pas és dur a terme 
 Esmentarem diferents casos trobats durant el processament d'aquests. \\
 
 \noindent
-El cas principal és aquell \textit{\gls{log}} que incorpori informació sobre un accés a un recurs, o una cerca.
+El cas principal, com hem vist a la figura~\ref{fig:example-log}, és aquell \textit{\gls{log}} que incorpora informació sobre un accés a un recurs, o una cerca.
 Els podrem identificar perquè:
 
 \begin{itemize}
@@ -89,9 +89,16 @@ Els podrem identificar perquè:
 
 \noindent
 Però els servidors registren \textbf{moltes} més coses.
-És feina nostra decidir què fer en cada cas. \\
+A continuació llistarem diversos casos i la decisió presa en el seu processament.
 
-\noindent
+\begin{itemize}
+    \item Accés a recursos web.
+    \item Repeticions.
+    \item Cerques.
+    \item Errors de processament.
+\end{itemize}
+
+\noindent \\
 \textbf{Accés a recursos web} \\ \\
 Després d’un accés a algun recurs, generalment als \textit{\gls{log}s} es poden veure registres d’accessos a recursos web (a la figura~\ref{fig:log-web-resource}, en vermell),
 com podrien ser fitxers \textit{css}, \textit{javascript}, \textit{gifs} \dots
