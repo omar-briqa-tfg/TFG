@@ -149,14 +149,13 @@ La primera decisió presa fou triar \textit{Grafana Loki}, amb els motius que ll
     \item Integració per defecte amb \textit{Grafana} per poder visualitzar els \textit{logs}.
     \item Diverses llibreries~\cite{loki:libraries} ja implementades per enviar \textit{\gls{log}s} a la base de dades.
     \item Com prèviament s’ha mencionat, la indexació és a partir del \textit{\gls{timestamp}} més les metadades.
-    Aquestes darreres poden ser utilitzades per afegir valors que després agilitzaran el processament. \\
+    Aquestes darreres poden ser utilitzades per afegir valors que després agilitzaran el processament.
 \end{itemize}
 
 \noindent
 Com podem veure a la imatge~\ref{fig:loki-indexing}, converteixen un \textit{\gls{log}} semblant als nostres en un altre adaptat al format de loki, on utilitzen com etiqueta el tipus petició (\textit{action}) o el codi d’estat (\textit{status\_code}) \\ \\
 El nostre cas, en podem afegir uns que indiquin el tipus de \textit{\gls{log}} (cerca, accés a recurs) o marcar-ne alguns que tinguin algun contingut inexacte.
 
-\clearpage
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=1\textwidth]{figures/loki-indexing}}
@@ -167,7 +166,7 @@ El nostre cas, en podem afegir uns que indiquin el tipus de \textit{\gls{log}} (
 \noindent
 Malauradament, alguns problemes durant l’etapa de configuració, concretament del paràmetre que defineix el temps màxim d'anterioritat per la cerca dels \textit{\gls{log}s}, ens van fer recular i considerar altres opcions.
 
-\noindent \\\\
+\noindent \\
 La següent opció que vam triar, i la definitiva, és InfluxDB.
 Les característiques d'aquesta base de dades complien els nostres requisits.
 
