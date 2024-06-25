@@ -1,8 +1,12 @@
 \chapter*{Conclusions}\label{ch:conclusion}
 \addcontentsline{toc}{chapter}{Conclusions}
 
+El projecte ha assolit plenament l'objectiu inicial: transformar dels registres d'accés amb un format específic del programari d'\gls{UPCommons} a un conjunt de dades comprensibles.
+Mitjançant l'eina desenvolupada, aquesta transformació proporciona una visió detallada dels diferents casos definits pels usuaris, generant diversos informes específics.
+
+\noindent \\
 Començant per l'anàlisi dels registres d'accés, hem posat el focus en la modularitat del disseny, i no acoblar aquest amb la implementació.
-Principalment, és perquè les decisions del que com s'ha analitzat poden variar si el cas d'ús és totalment diferent.
+Principalment, és perquè les decisions del com s'ha analitzat poden variar si el cas d'ús és totalment diferent.
 
 \noindent \\
 Per exemple, si necessitéssim afegir un paràmetre addicional als \textit{\gls{log}s} per a una anàlisi específica o volem desglossar els camps del User Agent, aquestes decisions no tindran conseqüències negatives ni efectes ``dominó'' en altres parts del sistema.
@@ -19,7 +23,7 @@ Això ha resultat en poder descartar i no emmagatzemar un 22\% del \textit{\gls{
 \noindent \\
 L'evolució del nombre de \textit{\gls{log}s} al llarg dels anys es manté creixent de forma estable.
 Cal destacar, però, que de l'any 2012 amb 80 milions d'accessos a \gls{UPCommons}, el 2013 hi va haver 33 milions.
-Aquesta alteració va continuar l'any següent amb 28 milions d'accessos, però tornà a la tendència habitual l'any següent.
+Aquesta disminució del nombre d'accessos va continuar l'any següent amb 28 milions d'accessos, però tornà a la tendència habitual l'any següent.
 
 \noindent \\
 Abocar els registres a una base de dades de sèries temporals ens permet explotar totes les seves funcionalitats per dur a terme anàlisis temporals detallats.
@@ -37,7 +41,8 @@ Com les metadades són obtingudes en format XML, el pas de la conversió a un do
 Aquest ha sigut el motiu principal per utilitzar una base de dades basada en documents.
 
 \noindent \\
-Els camps de les metadades poden ser de múltiple valor, l’autor, les paraules clau, la matèria relacionada amb el recurs, un altre argument a favor de l’ús de bases de dades basada en documents, gràcies a la seva flexibilitat en l’esquema de dades.
+Els camps de les metadades poden ser de múltiple valor com per exemple l’autor, les paraules clau, la matèria relacionada amb el recurs, etcètera.
+Aquest és un altre argument a favor de l’ús de bases de dades basades en documents, gràcies a la seva flexibilitat en l’esquema de dades.
 Comparat amb el número de \textit{\gls{log}s}, l'abocament és molt més ràpid.
 Hem afegit 242.555 entrades en 38 segons a la base de dades MongoDB.
 
@@ -46,9 +51,9 @@ Tot aquest processament s'ha dut a terme en el servidor específic pel desenvolu
 Allà disposem de tots els \textit{\gls{log}s} emmagatzemats en sistema de fitxers, a més de tenir-los a la base de dades.
 El mateix passa amb les metadades.
 Això significa que els processos d'abocament s'han fet de manera “interna”.
-El fet de disposar la base de dades en una altra ubicació, ja sigui en un altre servidor intern fora de la xarxa local, o en un servei al núvol, té certes implicacions.
 
 \noindent \\
+El fet de disposar la base de dades en una altra ubicació, ja sigui en un altre servidor intern fora de la xarxa local, o en un servei al núvol, té certes implicacions.
 S'ha de tenir controlada la capacitat de xarxa, adaptar els clients de cada servei al límit de peticions per segon, el nombre màxim d'unitats d'escriptura, i altres opcions.
 Una configuració inapropiada podria resultar en errors de processament, i si estem parlant d'automatitzar la tasca, el temps d'abocament podria augmentar dràsticament.
 En el pitjor cas, si estem utilitzant algun servei que necessiti subscripció econòmica, la factura final ens augmentarà.
@@ -88,8 +93,6 @@ Com era d'esperar, la majoria d'accessos eren a recursos d'accés obert o restri
 Aquesta recopilació de dades s'ha fet consultant tots els accessos a la base de dades dels \textit{\gls{log}s}, i per cada un d'ells consultant la base de dades de les metadades.
 Caldria valorar l'opció de centralitzar aquesta informació en una mateixa font de dades.
 Una tasca gens trivial, ja que tractem de dos tipus diferents de dades, amb propòsits diferents.
-
-\noindent \\
 La solució presa és realitzar l'anàlisi programàticament i afegir els resultats a InfluxDB, en cas de ser una anàlisi temporal.
 I després consumir aquesta informació amb Grafana.
 
