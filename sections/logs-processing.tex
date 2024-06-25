@@ -53,7 +53,7 @@ Si bé es pot treballar directament amb aquest valor si segueix el format \gls{I
 Aquest format és més simple, les comparacions són més eficients i evitem problemàtiques de diferències temporals en zones geogràfiques.
 
 \noindent \\
-\textbf{Informació de la petició \gls{HTTP}}~\cite{http} \\
+\textbf{Informació de la petició \gls{HTTP}}~\cite{http}
 
 \begin{itemize}
     \item Mètode de la petició: els més habituals són \texttt{GET}, \texttt{POST} i \texttt{HEAD}.
@@ -71,13 +71,13 @@ El camp del referent indica la ubicació d’on s’ha fet la sol·licitud del r
 
 \noindent \\ \\
 \textbf{User Agent} \\ \\
-Amb l’ajuda d’aquest camp, podrem analitzar l’empremta digital del cercador utilitzat i determinar amb una certa precisió el tipus de dispositiu utilitzat, el sistema operatiu, si l’acció prové d’un usuari o d’una eina automatitzada (\textit{bots} o serveis de correu).
+Amb l’ajuda d’aquest camp, podrem analitzar l’empremta digital del cercador utilitzat i determinar amb una certa precisió el tipus de dispositiu utilitzat, el sistema operatiu o si l’acció prové d’un usuari o d’una eina automatitzada (\textit{bots} o serveis de correu).
 
 \clearpage
 
 \subsection{Filtratge dels \textit{\gls{log}s}}\label{subsec:log-filter}
 
-Un cop entenem l'estructura dels \textit{logs}, el següent pas és dur a terme un anàlisi preliminar del seu contingut.
+Un cop entenem l'estructura dels \textit{logs}, el següent pas és dur a terme una anàlisi preliminar del seu contingut.
 Esmentarem diferents casos trobats durant el processament d'aquests. \\
 
 \noindent
@@ -85,9 +85,9 @@ El cas principal, com hem vist a la figura~\ref{fig:example-log}, és aquell \te
 Els podrem identificar perquè:
 
 \begin{itemize}
-    \item Porten l’identificador \gls{handle}.
+    \item Porten l’identificador \textit{\gls{handle}}.
     \item Contenen referències a algun domini d’\gls{UPCommons}.
-    \item En cas ser una cerca a la plataforma, porten l’etiqueta amb alguna paraula clau com \textit{discover}, \textit{browse} \dots
+    \item En cas ser una cerca a la plataforma, porten l’etiqueta amb alguna paraula clau com \textit{discover}, \textit{browse}\dots
 \end{itemize}
 
 \noindent
@@ -151,7 +151,7 @@ Amb la finalitat d'enfocar l'anàlisi per altres bandes, no s'ha pres cap decisi
 \noindent
 Als \textit{\gls{log}s} hi són presents cerques dins de la plataforma \gls{UPCommons}.
 Detectem aquests casos ja que la comanda és una paraula clau de cerca.
-A l'exemple de la figura~\ref{fig:log-search} s'utilitza \textit{browse}, però n'hi ha d'altres com \textit{discover}, \textit{search} \dots \\
+A l'exemple de la figura~\ref{fig:log-search} s'utilitza \textit{browse}, però n'hi ha d'altres com \textit{discover}, \textit{search}\dots \\
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-search}}
@@ -184,7 +184,7 @@ Diferenciarem entre dos casos:
     La seva presència és escassa.
     El resultat d'afegir la lògica necessària per tractar aquests casos no justifica en cap cas el seu tractament.
 
-    Per aquests motius, aquests casos es descartaran.
+    Per aquests motius, aquests casos es \textbf{descartaran}.
     El nombre total de registres descartats es troba documentat al Capítol~\ref{ch:log-storing}, a la taula~\ref{tab:logs-table}.
 \end{itemize}
 
