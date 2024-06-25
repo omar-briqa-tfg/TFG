@@ -306,15 +306,12 @@ Per cada columna, tenim els següents camps:
     \item Accés a recursos d'\gls{UPCommons}:
     \begin{itemize}
         \item Aquells registres que accedeixen a recursos d’UPCommons. 
-        Es té en compte els següents dos casos:
-        \begin{itemize}
-            \item Contenen l’identificador \gls{handle} present.
-            \item Content el \gls{bitstream} \gls{UUID} present.
-        \end{itemize}
+        Són aquells on l'identificador del recurs sigui present.
+        Aquest pot ser o bé l'identificador \textit{\gls{handle}} o el \textit{\gls{bitstream}} \gls{UUID}.
     \end{itemize}
     \item Cerques a \gls{UPCommons}:
     \begin{itemize}
-        \item Aquells registres que cerquen a través de la plataforma d’\gls{UPCommons}.
+        \item Aquells registres de cerques a la plataforma d’\gls{UPCommons}.
     \end{itemize}
     \item Accés a recursos web descartats:
     \begin{itemize}
@@ -322,7 +319,7 @@ Per cada columna, tenim els següents camps:
     \end{itemize}
     \item Altres tipus de \textit{logs}:
     \begin{itemize}
-        \item Aquells registres que no concorden amb cap característica prèvia-ment mencionada.
+        \item Aquells registres que no concorden amb cap característica prèviament mencionada.
         No són ni recursos \gls{UPCommons}, ni cerques, ni tampoc recursos web.
     \end{itemize}
     \item Errors de processament:
