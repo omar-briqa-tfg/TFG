@@ -118,7 +118,7 @@ Com que aquests registres no ens aporten cap informació valuosa pels nostres ca
 \textbf{Repeticions} \\
 
 \noindent
-Un \textit{\gls{log}} apareix exactament igual a diverses entrades, amb una petita diferèn-cia temporal.
+Un \textit{\gls{log}} apareix exactament igual a diverses entrades, amb una petita diferència temporal.
 A la figura~\ref{fig:log-repetitions} podem veure com el mateix accés es repeteix tres vegades (verd i groc), a diferents adreces \gls{IP} (vermell).
 
 \begin{figure}[htbp]
@@ -157,7 +157,7 @@ A l'exemple de la figura~\ref{fig:log-search} s'utilitza \textit{browse}, però 
 \end{figure}
 
 \noindent
-El procediment general no canvia respecta aquest cas.
+El procediment general no canvia respecte a aquest cas.
 Haurem de tenir en compte quins són, i diferenciar-los de la resta. \\
 
 \noindent
@@ -172,7 +172,7 @@ Diferenciarem entre dos casos:
     La seva presència és abundant.
     Alguns exemples śon:
     \begin{itemize}
-        \item L'adreça \gls{IP} no existeix o és mal formada.
+        \item L'adreça \gls{IP} no existeix o està mal formada.
         \item Contingut alterat (a vegades, intencionadament!)
     \end{itemize}
     En aquests casos manipularem el registre afectat per homogeneïtzar el conjunt dels \textit{logs}.
@@ -181,14 +181,15 @@ Diferenciarem entre dos casos:
     La seva presència és escassa.
     El resultat d'afegir la lògica necessària per tractar aquests casos no justifica en cap cas el seu tractament.
 
-    \begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=No val la pena]\label{tcbox:no-val-la-pena}
-    Parlem d'afegir condicions al processament que només s'utilitzarien en el 0,000000287\% dels casos.
-    \tcblower 552 \textit{\gls{log}s} de 1.922.392.760
-    \end{tcolorbox}
-
     Per aquests motius, aquests casos es descartaran.
-    El nombre total de registres descartats es troba documentat a la taula~\ref{tab:logs-table}.
+    El nombre total de registres descartats es troba documentat al Capítol~\ref{ch:log-storing}, a la taula~\ref{tab:logs-table}.
 \end{itemize}
+
+\noindent
+\begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=No val la pena]\label{tcbox:no-val-la-pena}
+Parlem d'afegir condicions al processament que només s'utilitzarien en el 0,000000287\% dels casos.
+\tcblower 552 \textit{\gls{log}s} de 1.922.392.760
+\end{tcolorbox}
 
 \clearpage
 
@@ -256,7 +257,7 @@ Si cap transformació és necessària, no es definirà cap. \\
 
 \noindent
 Finalment, al component \texttt{Bolcat} arribarà el conjunt de \textit{\gls{log}s} desitjats amb el format escollit.
-Ara bé, depenen de la base de dades on es vol fer l’agregació, és possible que s’hagin de fer petits retocs per compatibilitzar amb la base de dades. \\
+Ara bé, depenent de la base de dades on es vol fer l’agregació, és possible que s’hagin de fer petits retocs per compatibilitat amb la base de dades. \\
 
 \noindent
 \textbf{Processament}
@@ -311,8 +312,8 @@ S'han desenvolupat les següents funcions:
 \begin{itemize}
     \item \texttt{InfluxDbForwarder}:
     \begin{itemize}
-        \item Adaptar el \textit{\gls{log}} en format JSON al format específic de la base de dades.
-        \item Enviar el \textit{\gls{log}} a la base de dades.
+        \item Adapta el \textit{\gls{log}} en format JSON al format específic de la base de dades.
+        \item Envia el \textit{\gls{log}} a la base de dades.
     \end{itemize}
 \end{itemize}
 
