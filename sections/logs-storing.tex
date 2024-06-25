@@ -277,7 +277,18 @@ La implementació del client d'InfluxDb ha estat optimitzada~\cite{influxdb:opti
 \textbf{Estadístiques} \\ \\
 
 \noindent
-El resultat de l’abocament conclou amb la següent taula~\ref{tab:logs-table} on es mostren alguns números interessants. \\ \\
+El resultat de l’abocament conclou amb la següent taula~\ref{tab:logs-table} on es mostren alguns números interessants.
+
+\begin{itemize}
+    \item El nombre d'errors de processament irreversibles és sorprenentment baix.
+    Això és degut al fet que la plataforma registra els \textit{\gls{log}s} de forma correcta, i que l'eina que hem dissenyat els processa correctament.
+    \item A partir del 2015, el nombre d'accessos a \gls{UPCommons} respecte del total dels \textit{\gls{log}s} es manté entre un 60\% i un 70\%.
+    Abans, aquest valor és més irregular.
+    \item L'abocament total ha trigat un total de 1977 minuts, que correspon a aproximadament 33 hores.
+    De mitjana, cada \textit{\gls{log}} tarda 61 \(\mu s\) (microsegons).
+\end{itemize}
+
+\noindent \\
 Podeu consultar els resultats parcials, dividits per any a l'Annex~\ref{ch:log-push-results}. \\
 
 \input{tables/log-push/total}
