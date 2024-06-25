@@ -32,14 +32,17 @@ Identificador de xarxa que indica l'agent que ha realitzat la petició.
 L'agent pot ser:
 \begin{itemize}
     \item Un usuari humà.
-    \item Un agent automatitzat: robots, scripts, serveis de mail, etc.
+    \item Un agent automatitzat: robots, scripts, serveis de mail, etc. \\
 \end{itemize}
-Degut a qüestions de privacitat i protecció de dades, aquest identificador ha sigut modificat en un procés d'anonimització. \\
 
 \begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Els usuaris poden estar darrera d'un NAT]\label{tcbox:iguals-emmascarats}
     No podem sempre afirmar que dues peticions amb el mateix identificador provenen del mateix usuari.
     Pot haver-hi darrere un \gls{NAT}, usuaris compartint dispositiu, etc.
 \end{tcolorbox}
+
+\noindent \\
+A causa de qüestions de privacitat i protecció de dades, aquest identificador ha sigut modificat en un procés d'anonimització.
+Trobareu més informació respecte a aquest procés a l'annex~\ref{ch:log-anonymization}. \\
 
 \clearpage
 
