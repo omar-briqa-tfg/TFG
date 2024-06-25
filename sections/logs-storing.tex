@@ -99,10 +99,31 @@ Com a contrapartida:
     \item \textbf{Visualització}: no disposa d’un sistema de visualització de dades per defecte, així per què caldria emprar-ne un de tercers.
 \end{itemize}
 
-
 \clearpage
 
-\noindent
+\noindent \\
+\textbf{InfluxDB~\cite{influxdb}}
+
+\noindent \\
+\textit{InfluxData} proporciona \textit{InfluxDB}, una base de dades basada en series temporals.
+Les seves característiques principals són:
+
+\begin{itemize}
+    \item Base de dades de codi obert compatible per diferents plataformes.
+    \item És una eina ben documentada~\cite{influxdb:documentation}.
+    \item Té una gran quantitat d’usuaris actius.
+    El repositori de codi~\cite{influxdb:code} és mantingut activament i de forma actual.
+    \item Integració per defecte amb Grafana per poder visualitzar els \textit{logs}.
+    \begin{itemize}
+        \item Aquest és un dels punts que ens van fer considerar aquesta opció, ja que va ser recomanada pel mateix aplicatiu de Grafana.
+    \end{itemize}
+    \item Diverses llibreries~\cite{influxdb:libraries} ja implementades per enviar \textit{\gls{log}s} a la base de dades.
+    \begin{itemize}
+        \item En el nostre cas emprar \textit{influxdb-client}~\cite{influxdb:python} pel llenguatge \textit{Python}.
+    \end{itemize}
+\end{itemize}
+
+\noindent \\
 Altres opcions que hem descartat perquè o bé no són de codi obert, la versió gratuïta que proporcionen és bastant limitada o no hi ha prou documentació a la xarxa són les següents:
 
 \begin{itemize}
@@ -111,6 +132,8 @@ Altres opcions que hem descartat perquè o bé no són de codi obert, la versió
     \item \textbf{Loggly}~\cite{loggly}
     \item \textbf{Splunk}~\cite{splunk}
 \end{itemize}
+
+\clearpage
 
 \noindent \\
 \subsection{Decisió}\label{subsec:log-db-decision}
@@ -141,31 +164,16 @@ El nostre cas, en podem afegir uns que indiquin el tipus de \textit{\gls{log}} (
     \caption[Exemple del funcionament de la indexació dels paràmetres a \textit{Grafana Loki}.]{Exemple del funcionament de la indexació dels paràmetres a \textit{Grafana Loki}. (\textbf{Font}: \url{https://medium.com/geekculture/pushing-logs-to-loki-without-using-promtail-fc31dfdde3c6})}\label{fig:loki-indexing}
 \end{figure}
 
-\noindent \\
+\noindent
 Malauradament, alguns problemes durant l’etapa de configuració, concretament del paràmetre que defineix el temps màxim d'anterioritat per la cerca dels \textit{\gls{log}s}, ens van fer recular i considerar altres opcions.
 
-\clearpage
+\noindent \\\\
+La següent opció que vam triar, i la definitiva, és InfluxDB.
+Les característiques d'aquesta base de dades complien els nostres requisits.
 
-\noindent
-La següent opció és \textit{InfluxDb}.
-Aquesta base de dades, també basada en series temporals, té característiques similars a l’anterior:
-
-\begin{itemize}
-    \item Base de dades de codi obert compatible per diferents plataformes.
-    \item És una eina ben documentada~\cite{influxdb:documentation}.
-    \item Té una gran quantitat d’usuaris actius.
-    El repositori de codi~\cite{influxdb:code} és mantingut activament i de forma actual.
-    \item Integració per defecte amb Grafana per poder visualitzar els \textit{logs}.
-    \begin{itemize}
-        \item Aquest és un dels punts que ens van fer considerar aquesta opció, ja que va ser recomanada pel mateix aplicatiu de Grafana.
-    \end{itemize}
-    \item Diverses llibreries~\cite{influxdb:libraries} ja implementades per enviar \textit{\gls{log}s} a la base de dades.
-    \begin{itemize}
-        \item En el nostre cas emprar \textit{influxdb-client}~\cite{influxdb:python} pel llenguatge \textit{Python}.
-    \end{itemize}
-    \item En aquest cas, però, la indexació és a partir dels \textit{tags} (``tag set'' a la figura~\ref{fig:loki-indexing}).
-    Utilitzarem aquest camp per afegir valors freqüents, que poden ser agrupats i fàcilment indexats.
-\end{itemize}
+\noindent \\
+En aquest cas, però, la indexació és a partir dels \textit{tags} (``tag set'' a la figura~\ref{fig:loki-indexing}).
+Utilitzarem aquest camp per afegir valors freqüents, que poden ser agrupats i fàcilment indexats.
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=1\textwidth]{figures/influxdb-indexing}}
