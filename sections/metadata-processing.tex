@@ -5,7 +5,7 @@ Els autors, la descripció del recurs, la data de pujada, el departament respons
 
 \noindent
 En el nostre cas, a \gls{UPCommons}, aquestes utilitzen el format \gls{DSpace} Intermediate Metadata, \gls{DIM}.
-Es basa a fer servir el format Dublin Core incorporant un qualificador, amb la finalitat d'afinar la informació que inclou.
+Es basa a fer servir el format \gls{Dublin Core} incorporant un qualificador, amb la finalitat d'afinar la informació que inclou.
 L'estructura és la següent:
 
 \begin{center}
@@ -27,7 +27,7 @@ Per cada metadada, s'assignen els següents valors:
     \item \textbf{language}: Idioma.
     És habitual trobar-lo a les descripcions / resums dels registres, encara que a vegades no està ben introduït.
     \item \textbf{authority}: Codi que relaciona la metadada amb un sistema d'autoritats que permet obtenir més dades.
-    \item \textbf{qualifier}: Un nivell de confiança associat a l'autoritat.
+    \item \textbf{confidence}: Un nivell de confiança associat a l'autoritat.
 \end{itemize}
 
 \clearpage
@@ -52,7 +52,7 @@ La figura~\ref{fig:metadata-example} mostra algunes metadades extretes d'un recu
 El protocol \gls{OAI-PMH} (Open Archive Initiative-Protocol for Metadata Harvesting) és un estàndard d'interoperabilitat desenvolupat per l'intercanvi i la difusió de metadades. \\
 
 \noindent
-Permet accedir a metadades codificades en diferents formats, encara que el més habitual és el Dublin Core. \\
+Permet accedir a metadades codificades en diferents formats, encara que el més habitual és el \gls{Dublin Core}. \\
 
 \noindent
 Aquest protocol defineix sis operacions bàsiques~\cite{oai-pmh}:
@@ -105,7 +105,7 @@ Això resulta en una implementació senzilla:
     \item Demanem les metadades:
     \begin{enumerate}
         \item Disposem de la llista (incompleta) de registres de metadades.
-        \item Extraiem aquella informació rellevant pel nostre cas d'ús, que són les metadades en format Dublin Core.
+        \item Extraiem aquella informació rellevant pel nostre cas d'ús, que són les metadades en format \gls{Dublin Core}.
         \item Descartem aquells registres marcats com esborrats, ja que no contenen cap informació.
         \item Realitzem l'abocament a la base de dades corresponent.
     \end{enumerate}
