@@ -40,7 +40,7 @@ Hem definit els següents casos d'ús:
 
 \begin{itemize}
     \item Per fer la representació de les dades primerament hem d'escollir la tipologia de panells que volem utilitzar.
-    Com estem parlant d'un anàlisi al llarg del temps, semblar que una sèrie temporal pot quadrar.
+    Com estem parlant d'una anàlisi al llarg del temps, semblar que una sèrie temporal pot quadrar.
 
     \item Seleccionarem una gràfica de tipus \texttt{Time Series} i afegirem a la part inferior la següent cerca.
     Concretament, estem cercant a \textit{InfluxDB}:
@@ -79,7 +79,7 @@ from(bucket: "upcommons")
     \item Com a conseqüència, per cada combinació del tipus de contingut (\textit{content}), mètode \gls{HTTP} emprat (\textit{method}) i resposta de la petició (\textit{status\_code}) que accedeixin a aquest recurs tindran el seu seguiment.
     \item Podem veure a la llegenda de la figura~\ref{fig:most-accessed-resource}, com sempre el contingut del registre d'accés és correcte (content = “ok”) i el mètode utilitzat és el \texttt{GET}.
 
-    La resposta de la petició varia entre un \texttt{200} (succés) o un \texttt{301} (indica que el contingut és a una altra ubicació i et redirigeix)
+    La resposta de la petició varia entre un \texttt{200} (succés) o un \texttt{301} (indica que el contingut és a una altra ubicació i et redirigeix).
 \end{itemize}
 
 \clearpage
@@ -91,8 +91,8 @@ from(bucket: "upcommons")
     \item Donat un espai de temps, volem consultar quants accessos s'han produït amb malformacions al seu contingut.
 
     \begin{itemize}
-        \item Les malformacions del contingut del accesos, tal i com vam veure a l'apartat de filtratge dels logs (vegeu filtratge del logs~\ref{subsec:log-filter}), corresponen a registres que difereixen molt respecte el format general.
-        \item Durant l'etapa d'anàlisi i emmagatzemmatge dels logs, vam marcar aquells sospitosos amb una etiqueta.
+        \item Les malformacions del contingut del accessos, tal com vam veure a l'apartat de filtratge dels logs (vegeu filtratge del logs~\ref{subsec:log-filter}), corresponen a registres que difereixen molt respecte el format general.
+        \item Durant l'etapa d'anàlisi i emmagatzematge dels logs, vam marcar aquells sospitosos amb una etiqueta.
         Concretament, amb content = “diferent”.
     \end{itemize}
 
@@ -152,7 +152,7 @@ from(bucket: "upcommons")
         \item Concretament són peticions \texttt{GET} que retornen un 403.
         \item Conjuntament, hi va haver peticions massives que retornen un codi d'estat correcte, 200.
     \end{itemize}
-    \item El codi d'estat 403 del protocol \gls{HTTP} indica que no estas autoritzat per realitzar aquesta petició.
+    \item El codi d'estat 403 del protocol \gls{HTTP} indica que no estàs autoritzat per realitzar aquesta petició.
     \item Explorant una mica més, obtenim que aquest pic correspon a una llarga sèrie de peticions que va augmentar considerablement a partir de les 10:30 h de l'11 de novembre del 2023 i hauria acabat quinze minuts després.
     \clearpage
     \begin{figure}[htbp]
@@ -260,6 +260,6 @@ from(bucket: "upcommons")
     \item Els menys accedits són aquells d'accés restringit a un públic petit (a vegades nul), sigui per acord de confidencialitat sigui per decisió de l'autor.
     \clearpage
     \item Pel cas dels recursos restringits a la comunitat acadèmica del CSUC (al peu de lletra: “Restricted access to UB, UAB, UPC, UPF, UdG, UdL, URV, UOC, BC, UVic, UJI, URL, UIC users”) es tracta d'accessos a llibres bastant antics.
-    \item Dos d'ells tracten principis de desenvolupament sostenible (2099.3/36752 i 2099.3/36834), un altre d'ergonomia (2099.3/36854) i el darrer sobre anàlisi d'antenes (2099.3/36797)
+    \item Dos d'ells tracten principis de desenvolupament sostenible (\texttt{2099.3/36752} i \texttt{2099.3/36834}), un altre d'ergonomia (\texttt{2099.3/36854}) i el darrer sobre anàlisi d'antenes (\texttt{2099.3/36797})
 
 \end{itemize}

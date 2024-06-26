@@ -6,7 +6,7 @@ Mitjançant l'eina desenvolupada, aquesta transformació proporciona una visió 
 
 \noindent \\
 Començant per l'anàlisi dels registres d'accés, hem posat el focus en la modularitat del disseny, i no acoblar aquest amb la implementació.
-Principalment, és perquè les decisions del com s'ha analitzat poden variar si el cas d'ús és totalment diferent.
+Principalment, és perquè les decisions de com s'ha analitzat poden variar si el cas d'ús és totalment diferent.
 
 \noindent \\
 Per exemple, si necessitéssim afegir un paràmetre addicional als \textit{\gls{log}s} per a una anàlisi específica o volem desglossar els camps del User Agent, aquestes decisions no tindran conseqüències negatives ni efectes ``dominó'' en altres parts del sistema.
@@ -93,7 +93,7 @@ Com era d'esperar, la majoria d'accessos eren a recursos d'accés obert o restri
 Aquesta recopilació de dades s'ha fet consultant tots els accessos a la base de dades dels \textit{\gls{log}s}, i per cada un d'ells consultant la base de dades de les metadades.
 Caldria valorar l'opció de centralitzar aquesta informació en una mateixa font de dades.
 Una tasca gens trivial, ja que tractem de dos tipus diferents de dades, amb propòsits diferents.
-La solució presa és realitzar l'anàlisi programàticament i afegir els resultats a InfluxDB, en cas de ser una anàlisi temporal.
+La solució presa és dur a terme l'anàlisi programàticament i afegir els resultats a InfluxDB, en cas de ser una anàlisi temporal.
 I després consumir aquesta informació amb Grafana.
 
 \noindent \\

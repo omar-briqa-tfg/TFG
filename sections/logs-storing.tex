@@ -203,7 +203,7 @@ Per tal de poder fragmentar la tasca, s’ha desenvolupat un petit \textit{scrip
 D’aquesta manera, podem realitzar l’abocament de manera esglaonada (any per any, mes a mes, etc.) i acotada.
 
 \noindent \\
-La base de dades escollida, com prèviament s’ha documentat (veure~\ref{subsec:log-db-decision}), és \textbf{InfluxDb}.
+La base de dades escollida, com prèviament s’ha documentat (vegeu~\ref{subsec:log-db-decision}), és \textbf{InfluxDb}.
 Per tal de poder enviar les dades, hem fet ús de la llibreria oficial~\cite{influxdb:python} que ofereix la plataforma pel llenguatge Python.
 
 \clearpage
@@ -221,7 +221,7 @@ Esquematitzant-ho, i amb el suport de la figura~\ref{fig:influxdb-indexing}, tra
         \item \textbf{content}: format del contingut, pot ser:
         \begin{itemize}
             \item \texttt{ok}: el format del \textit{\gls{log}} és l'esperat.
-            \item \texttt{diferent}: el format del \textit{\gls{log}} no és l'esperat però s'ha pogut tractar.
+            \item \texttt{diferent}: el format del \textit{\gls{log}} no és l'esperat, però s'ha pogut tractar.
             \item \texttt{error}: error de processament.
         \end{itemize}
         Vegeu errors de processament~\ref{subsubsection:log-errors}.
