@@ -1,7 +1,7 @@
 \chapter{Configuració de \textit{Grafana}}\label{ch:grafana-config}
 
 Grafana és la nostra eina principal observabilitat, i que ens permetrà visualitzar els nostres casos d'ús.
-Per poder fer-la servir l'haurem de configurar per tal que aquesta consumeixi de la nostra base de dades principal, \textit{InfluxDB}.
+Per poder fer-la servir l'haurem de configurar per tal que aquesta consumeixi de la nostra base de dades principal, InfluxDB.
 
 \noindent \\
 Malauradament, aquesta eina no incorpora suport directe amb \textit{MongoDB}, per tant, l'anàlisi general sobre les metadades s'haurà de fer per separat. \\ \\
@@ -10,7 +10,7 @@ Malauradament, aquesta eina no incorpora suport directe amb \textit{MongoDB}, pe
 
 \noindent
 Per afegir una font de dades a Grafana a les darreres versions es realitza a través de la pestanya \textit{Connections}.
-Seguidament,  escollirem \textit{InfluxDB} a l'apartat de ``Add new connections'', on podrem escollir diferents fonts de dades (\textit{data sources}). \\
+Seguidament,  escollirem InfluxDB a l'apartat de ``Add new connections'', on podrem escollir diferents fonts de dades (\textit{data sources}). \\
 
 \noindent
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Llenguatge de cerca]
@@ -34,7 +34,7 @@ Utilitzar \textbf{localhost} podria errar durant l'intent de connexió.
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/grafana-influxdb-http}}
     \captionsetup{justification=centering}
-    \caption[Configuració HTTP d'\textit{InfluxDB} a \textit{Grafana}.]{Configuració HTTP d'\textit{InfluxDB} a \textit{Grafana}. (\textbf{Font}: Aplicatiu \textit{Grafana} del servidor de treball.)}\label{fig:grafana-influxdb-http}
+    \caption[Configuració HTTP d'InfluxDB a \textit{Grafana}.]{Configuració HTTP d'InfluxDB a \textit{Grafana}. (\textbf{Font}: Aplicatiu \textit{Grafana} del servidor de treball.)}\label{fig:grafana-influxdb-http}
 \end{figure}
 
 \noindent \\
@@ -44,12 +44,12 @@ La paraula clau \textbf{configured} indica que la contrasenya ja ha sigut introd
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=0.9\textwidth]{figures/grafana-influxdb-auth}}
     \captionsetup{justification=centering}
-    \caption[Configuració d'autenticació d'\textit{InfluxDB} a \textit{Grafana}.]{Configuració d'autenticació d'\textit{InfluxDB} a \textit{Grafana}. (\textbf{Font}: Aplicatiu \textit{Grafana} del servidor de treball.)}\label{fig:grafana-influxdb-auth}
+    \caption[Configuració d'autenticació d'InfluxDB a \textit{Grafana}.]{Configuració d'autenticació d'InfluxDB a \textit{Grafana}. (\textbf{Font}: Aplicatiu \textit{Grafana} del servidor de treball.)}\label{fig:grafana-influxdb-auth}
 \end{figure}
 
 \clearpage
 \noindent
-Finalment, completarem els detalls d'InfluxDB (figura~\ref{fig:grafana-influxdb-details}), que són l'organització i els altres paràmetres definits durant la configuració d'\textit{InfluxDB}.
+Finalment, completarem els detalls d'InfluxDB (figura~\ref{fig:grafana-influxdb-details}), que són l'organització i els altres paràmetres definits durant la configuració d'InfluxDB.
 El \textit{token} és el clau que utilitzarem com autenticació a l'hora de realització de consultes.
 
 \noindent \\
@@ -60,7 +60,7 @@ D'altra manera, no podrem realitzar les consultes pertinents.
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/grafana-influxdb-details}}
     \captionsetup{justification=centering}
-    \caption[Configuració dels detalls d'\textit{InfluxDB} a \textit{Grafana}.]{Configuració dels detalls d'\textit{InfluxDB} a \textit{Grafana}. (\textbf{Font}: Aplicatiu \textit{Grafana} del servidor de treball.)}\label{fig:grafana-influxdb-details}
+    \caption[Configuració dels detalls d'InfluxDB a \textit{Grafana}.]{Configuració dels detalls d'InfluxDB a \textit{Grafana}. (\textbf{Font}: Aplicatiu \textit{Grafana} del servidor de treball.)}\label{fig:grafana-influxdb-details}
 \end{figure}
 
 \clearpage
@@ -78,13 +78,13 @@ Els passos són:
 
 \noindent
 Has d'escollir la font de dades.
-Apareixerà l'\textit{InfluxDB} que prèviament s'ha configurat.
+Apareixerà l'InfluxDB que prèviament s'ha configurat.
 Seguidament emergeixen tres finestres principals, adaptables en mida.
 
 \noindent \\
 La finestra central de la figura~\ref{fig:grafana-main-panel} mostrarà la representació de les dades.
 La finestra central de la figura~\ref{fig:grafana-main-panel} mostrarà la representació de les dades.
-A la part inferior, hi ha un editor on es pot introduir la cerca a \textit{InfluxDB}.
+A la part inferior, hi ha un editor on es pot introduir la cerca a InfluxDB.
 Un cop introduïda, s'emmagatzema i s'executa automàticament.
 
 \begin{figure}[htbp]

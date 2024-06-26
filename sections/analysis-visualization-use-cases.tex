@@ -23,7 +23,7 @@ Hem definit els següents casos d'ús:
 \textbf{Anàlisi}
 
 \begin{itemize}
-    \item Per esbrinar quins són els recursos més accedits, treballarem directament sobre la base de dades \textit{InfluxDB}.
+    \item Per esbrinar quins són els recursos més accedits, treballarem directament sobre la base de dades InfluxDB.
 
     A causa de la gran quantitat de dades que s'han d'analitzar, \textit{Grafana} no podria ser capaç d'afrontar aquesta càrrega computacional.
 
@@ -43,7 +43,7 @@ Hem definit els següents casos d'ús:
     Com estem parlant d'una anàlisi al llarg del temps, semblar que una sèrie temporal pot quadrar.
 
     \item Seleccionarem una gràfica de tipus \texttt{Time Series} i afegirem a la part inferior la següent cerca.
-    Concretament, estem cercant a \textit{InfluxDB}:
+    Concretament, estem cercant a InfluxDB:
     \begin{itemize}
         \item Període: desembre del 2023.
         \item Accessos que siguin recursos i el seu \textit{\gls{handle}} (identificador) sigui \texttt{2099.1/18556}, que prèviament haurem determinat.
@@ -112,7 +112,7 @@ from(bucket: "upcommons")
 \begin{itemize}
     \item Per fer la representació de les dades escollirem una sèrie temporal.
     \item Seleccionarem una gràfica de tipus \texttt{Time Series} i afegirem a la part inferior la següent cerca.
-    Concretament, estem cercant a \textit{InfluxDB}:
+    Concretament, estem cercant a InfluxDB:
 
     \begin{itemize}
         \item Període del 2023.
@@ -160,7 +160,7 @@ from(bucket: "upcommons")
         \captionsetup{justification=centering}
         \caption[Pic de peticions del tipus \texttt{GET} que retornen un codi \texttt{403}.]{Pic de peticions del tipus \texttt{GET} que retornen un codi \texttt{403}. (\textbf{Font}: Elaboració pròpia.)}\label{fig:possible-attacks}
     \end{figure}
-    \item Per consultar el contingut d'aquestes peticions ens redirigim a \textit{InfluxDB} i consultem les hores i els paràmetres prèviament determinats.
+    \item Per consultar el contingut d'aquestes peticions ens redirigim a InfluxDB i consultem les hores i els paràmetres prèviament determinats.
     \item El diagrama temporal de la figura~\ref{fig:possible-attacks} mostra el següent:
     \begin{itemize}
         \item De les primeres peticions que es van enviar, només unes poques van ser bloquejades, d'aquí ve el màxim de peticions amb un codi 200 de resposta, de la figura~\ref{fig:log-altered}.
@@ -202,7 +202,7 @@ from(bucket: "upcommons")
     \end{itemize}
     \item Podem obtenir aquest valor pels treballs finals de grau, exàmens, materials docents i vídeos, i d'altres tipologies de manera puntual.
     \item Seguidament, extraiem el valor de l'etiqueta \textit{dc.rights.access}, que conté la informació sobre les condicions d'accés d'aquell recurs.
-    \item Agrupant l'identificador del recurs, la condició d'accés i la data i hora de la consulta, afegim aquesta informació a una nova taula a \textit{InfluxDB} anomenada \textit{epsevg-rights}.
+    \item Agrupant l'identificador del recurs, la condició d'accés i la data i hora de la consulta, afegim aquesta informació a una nova taula a InfluxDB anomenada \textit{epsevg-rights}.
 
 \end{itemize}
 
@@ -214,7 +214,7 @@ from(bucket: "upcommons")
 \begin{itemize}
     \item Per fer la representació de les dades escollirem una sèrie temporal.
     \item Seleccionarem una gràfica de tipus \texttt{Time Series} i afegirem a la part inferior la següent cerca.
-    Concretament, estem cercant a \textit{InfluxDB}:
+    Concretament, estem cercant a InfluxDB:
     \begin{itemize}
         \item Període del 2023/12/01.
         \item Obtenim tota la informació dels accessos de la taula \textit{epsevg-rights}.
