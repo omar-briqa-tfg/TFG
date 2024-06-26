@@ -5,7 +5,7 @@ Els autors, la descripció del recurs, la data de pujada, el departament respons
 
 \noindent
 En el nostre cas, a \gls{UPCommons}, aquestes utilitzen el format \gls{DSpace} Intermediate Metadata, \gls{DIM}.
-Es basa a fer servir el format Dublin Core incorporant un qualificador, amb la finalitat d'afinar la informació que .
+Es basa a fer servir el format \gls{Dublin Core} incorporant un qualificador, amb la finalitat d'afinar la informació que inclou.
 L'estructura és la següent:
 
 \begin{center}
@@ -27,13 +27,13 @@ Per cada metadada, s'assignen els següents valors:
     \item \textbf{language}: Idioma.
     És habitual trobar-lo a les descripcions / resums dels registres, encara que a vegades no està ben introduït.
     \item \textbf{authority}: Codi que relaciona la metadada amb un sistema d'autoritats que permet obtenir més dades.
-    \item \textbf{qualifier}: Un nivell de confiança associat a l'autoritat.
+    \item \textbf{confidence}: Un nivell de confiança associat a l'autoritat.
 \end{itemize}
 
 \clearpage
 
 \noindent
-A continuació es mostren algunes metadades extretes d'un recurs, on es pot contemplar tant el format de les metadades, com els valors. \\
+La figura~\ref{fig:metadata-example} mostra algunes metadades extretes d'un recurs, on es pot contemplar tant el format de les metadades, com els valors. \\
 
 \begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Metadades]
     Al web només hi apareix el \textbf{\textit{value}} o el \textbf{\textit{language}} de la metadada, els altres camps s'emmagatzemen internament.
@@ -52,7 +52,7 @@ A continuació es mostren algunes metadades extretes d'un recurs, on es pot cont
 El protocol \gls{OAI-PMH} (Open Archive Initiative-Protocol for Metadata Harvesting) és un estàndard d'interoperabilitat desenvolupat per l'intercanvi i la difusió de metadades. \\
 
 \noindent
-Permet accedir a metadades codificades en diferents formats, encara que el més habitual és el Dublin Core. \\
+Permet accedir a metadades codificades en diferents formats, encara que el més habitual és el \gls{Dublin Core}. \\
 
 \noindent
 Aquest protocol defineix sis operacions bàsiques~\cite{oai-pmh}:
@@ -88,8 +88,7 @@ Podrem identificar el final, pel fet que:
 \end{itemize}
 
 \noindent
-L'objectiu és, altrament que la fragmentació de peticions que demanen grans volums de dades és més operatiu,
-permet la recuperació del context en cas d'errors de xarxa o d'altra classe.
+L'objectiu d'aquesta funcionalitat és permetre la recuperació del context en cas d'errors de xarxa o d'altra classe.
 
 \clearpage
 
@@ -101,19 +100,22 @@ La llibreria Sickle~\cite{Sickle} ens facilita la feina.
 Això resulta en una implementació senzilla:
 
 \begin{enumerate}
-    \item Connectar-se al servidor \gls{OAI} .
+    \item Connectar-se al servidor \gls{OAI}.
     \item Demanem les metadades:
     \begin{enumerate}
         \item Disposem de la llista (incompleta) de registres de metadades.
-        \item Extraiem aquella informació rellevant pel nostre cas d'ús, que són les metadades en format Dublin Core.
+        \item Extraiem aquella informació rellevant pel nostre cas d'ús, que són les metadades en format \gls{Dublin Core}.
         \item Descartem aquells registres marcats com esborrats, ja que no contenen cap informació.
         \item Realitzem l'abocament a la base de dades corresponent.
     \end{enumerate}
     \item Tornem a iterar fins a obtenir la llista completa de les metadades.
 \end{enumerate}
 
+\noindent
+La figura~\ref{fig:metadata-processing-workflow} il·lusta els passos anteriors en forma de diagrama.
+
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=1\textwidth]{figures/metadata-processing}}
     \captionsetup{justification=centering}
-    \caption[Disseny tècnic del processament de les metadades.]{Disseny tècnic del processament de les metadades. (\textbf{Font}: Elaboració pròpia.)}\label{fig:log-analysis}
+    \caption[Disseny tècnic del processament de les metadades.]{Disseny tècnic del processament de les metadades. (\textbf{Font}: Elaboració pròpia.)}\label{fig:metadata-processing-workflow}
 \end{figure}

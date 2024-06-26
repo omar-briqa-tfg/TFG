@@ -5,7 +5,7 @@ El procés de desenvolupament s’ha dut a terme emprant un servidor preparat pe
 \begin{itemize}
     \item \textbf{Processador:}
     \begin{itemize}
-        \item quatre cores
+        \item quatre \textit{cores}
     \end{itemize}
     \item \textbf{Emmagatzemament:}
     \begin{itemize}
@@ -29,7 +29,7 @@ Les tasques principals realitzades són:
     \item Desenvolupament del codi d’\gls{OSTIA}, utilitzant el sistema de control de versions git.
     \item Anàlisis dels \textit{\gls{log}s} d’\gls{UPCommons}, amb registres des del 2006 fins al 2023.
     \item Processament i abocament dels \textit{\gls{log}s} a la base de dades InfluxDB, ubicada al mateix servidor.
-    \item Descàrrega de totes les metadades del servidor \gls{OAI} sbivdev1.
+    \item Descàrrega de totes les metadades del servidor \gls{OAI}.
     \item Anàlisis, processament i abocament de les metadades a una base de dades \textit{MongoDB}.
     \item Anàlisi del conjunt de les dades, amb el suport l’eina \textit{Grafana}.
 \end{itemize}
@@ -81,7 +81,7 @@ Aquest fitxer acostuma a tenir aquesta estructura:
 \clearpage
 
 \noindent
-A l'exemple següent es troba la configuració específica per la base de dades InfluxDB.
+La figura~\ref{fig:docker-compose-influxdb} mostra la configuració específica per la base de dades \textit{InfluxDB}.
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/docker-compose-influxdb}}
@@ -91,7 +91,7 @@ A l'exemple següent es troba la configuració específica per la base de dades 
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Fitxers de configuració]
     Habitualment aquests fitxers solen incloure credencials privades d'aquests serveis.
-    Com a bona pràctica, afegeix el sufix \textit{.env} al fitxer i no el pugis a \textit{\gls{GitHub}}, omitin-lo mitjançant el fitxer \textit{.\gls{gitignore}}.
+    Com a bona pràctica, afegeix el sufix \textit{.env} al fitxer i no el pugis a \textit{\gls{GitHub}}, ometin-lo mitjançant el fitxer \textit{.\gls{gitignore}}.
 \end{tcolorbox}
 \vspace{1em}
 
@@ -133,7 +133,7 @@ En un altre terminal:
 \end{verbatim}
 
 \noindent \\
-\section*{Instal·lació de software}\label{sec:software-installation}
+\section*{Instal·lació de \textit{software}}\label{sec:software-installation}
 
 El treball diari al servidor requereix de la instal·lació d'alguns paquets, alguns on la seva instal·lació és trivial utilitzant un gestor de paquets com \textit{\textit{apt}}, però d'altres en necessiten d'una instal·lació i configuració més curosa, com veurem amb \textit{\gls{Docker}}.
 

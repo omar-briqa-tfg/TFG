@@ -21,8 +21,12 @@ L’estructura consisteix en un directori per cada miler de metadades, i deu fit
 \noindent \\
 \subsection{Destí: MongoDB}\label{subsec:metadata-db-mongodb}
 
-L'elecció de la base de dades on emmagatzemarem les metadades depén de l'estructura d'aquestes.
-Com el servidor \gls{OAI} retorna les dades en format \gls{XML}, i la conversió a un document \gls{JSON} és quasi trivial, utilitzarem \textit{MongoDB}:
+L'elecció de la base de dades on emmagatzemarem les metadades depèn de l'estructura d'aquestes.
+Com el servidor \gls{OAI} retorna les dades en format \gls{XML}, i la conversió a un document \gls{JSON} és quasi trivial, utilitzarem \textit{MongoDB}.
+
+\noindent \\
+MongoDB és una base de dades que ofereix un model de dades flexible, escalabilitat horitzontal i suport per a transaccions.
+Les seves característiques principals són:
 
 \begin{itemize}
   \item Base de dades no relacional de codi obert, orientada a documents.
@@ -46,7 +50,7 @@ L'abocament de les metadades s'ha dut a terme en dues fases:
 
 \begin{enumerate}
   \item Descàrrega i l'emmagatzematge al sistema, concretament a \\ \texttt{/mnt/working/metadata}.
-  \item Consumir d'aquest directori ha sigut la font per injectar les dades \\ a MongoDB .
+  \item Consumir d'aquest directori ha sigut la font per injectar les dades a \\ MongoDB.
 \end{enumerate}
 
 \noindent \\

@@ -1,8 +1,8 @@
 \noindent \\
 \section{Logs}\label{sec:logs-processing}
 
-Treballarem els registres d'accés a la plataforma d'UPCommons.
-Ens han proporcionat aquestes dades que corresponen als accessos des de del primer dia de l'any 2006 fins al darrer dia del 2023.
+Treballarem els registres d'accés a la plataforma d'\gls{UPCommons}.
+Ens han proporcionat aquestes dades que corresponen als accessos des del primer dia de l'any 2006 fins al darrer dia del 2023.
 
 \clearpage
 
@@ -12,15 +12,18 @@ El format dels fitxers d'entrada on hi són emmagatzemats els registres és d'un
 Tractant-se de la informació d'accés als recursos d'\gls{UPCommons}, accessibles des de la pàgina web,
 tenim aquesta informació recollida des de la capa d'aplicació, mitjançant els missatges de petició del protocol \gls{HTTP}.
 
+\noindent \\
+A la figura~\ref{fig:example-log} es pot observar l'estructura d'un \textit{\gls{log}}.
+En ordre, està format per l'adreça \gls{IP}, la data i hora, la informació sobre la petició \gls{HTTP}, el referent i el \textit{User Agent}.
+
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=1\textwidth]{figures/example-log}}
     \captionsetup{justification=centering}
     \caption[Exemple del contingut d'un \textit{\gls{log}}.]{Exemple del contingut d'un \textit{\gls{log}}. (\textbf{Font}: \gls{UPCommons}.)}\label{fig:example-log}
 \end{figure}
 
-
 \noindent
-Cada línia present als fitxers dels \textit{\gls{log}s} correspon a una petició \gls{HTTP} .
+Cada línia present als fitxers dels \textit{\gls{log}s} correspon a una petició \gls{HTTP}.
 El format d'aquesta és el següent:
 
 \noindent \\
@@ -29,14 +32,19 @@ Identificador de xarxa que indica l'agent que ha realitzat la petició.
 L'agent pot ser:
 \begin{itemize}
     \item Un usuari humà.
-    \item Un agent automatitzat: robots, scripts, serveis de mail, etc.
+    \item Un agent automatitzat: robots, scripts, serveis de mail, etc. \\
 \end{itemize}
-Degut a qüestions de privacitat i protecció de dades, aquest identificador ha sigut modificat en un procés d'anonimització. \\
 
-\begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Els usuaris poden estar darrera d'un NAT]\label{tcbox:iguals-emmascarats}
+\begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Els usuaris poden estar darrere d'un NAT]\label{tcbox:iguals-emmascarats}
     No podem sempre afirmar que dues peticions amb el mateix identificador provenen del mateix usuari.
     Pot haver-hi darrere un \gls{NAT}, usuaris compartint dispositiu, etc.
 \end{tcolorbox}
+
+\noindent \\
+A causa de qüestions de privacitat i protecció de dades, aquest identificador ha sigut modificat en un procés d'anonimització.
+Trobareu més informació respecte a aquest procés a l'annex~\ref{ch:log-anonymization}. \\
+
+\clearpage
 
 \noindent \\
 \textbf{Data i hora} \\ \\
@@ -44,13 +52,11 @@ La marca temporal del registre ve definida per la seva data i hora.
 Si bé es pot treballar directament amb aquest valor si segueix el format \gls{ISO}, és preferible utilitzar el format estàndard \gls{POSIX} (nombre de segons no intercalars des de l'1 de gener del 1970).
 Aquest format és més simple, les comparacions són més eficients i evitem problemàtiques de diferències temporals en zones geogràfiques.
 
-\clearpage
-
-\noindent
-\textbf{Informació de la petició \gls{HTTP}}~\cite{http} \\
+\noindent \\
+\textbf{Informació de la petició \gls{HTTP}}~\cite{http}
 
 \begin{itemize}
-    \item Mètode de la petició: els més habituals són \texttt{GET}, \texttt{POST} i \texttt{HEAD} .
+    \item Mètode de la petició: els més habituals són \texttt{GET}, \texttt{POST} i \texttt{HEAD}.
     \item Recurs accedit: enllaç al recurs accedit per la petició.
     \item Versió \gls{HTTP}: evolució d'\texttt{HTTP/1.0} fins a \texttt{HTTP/1.1} en el transcurs dels anys.
     No hi ha presència de registres amb \texttt{HTTP/2.0}.
@@ -65,38 +71,45 @@ El camp del referent indica la ubicació d’on s’ha fet la sol·licitud del r
 
 \noindent \\ \\
 \textbf{User Agent} \\ \\
-Amb l’ajuda d’aquest camp, podrem analitzar l’empremta digital del cercador utilitzat i determinar amb una certa precisió el tipus de dispositiu utilitzat, el sistema operatiu, si l’acció prové d’un usuari o d’una eina automatitzada (\textit{bots} o serveis de correu)
+Amb l’ajuda d’aquest camp, podrem analitzar l’empremta digital del cercador utilitzat i determinar amb una certa precisió el tipus de dispositiu utilitzat, el sistema operatiu o si l’acció prové d’un usuari o d’una eina automatitzada (\textit{bots} o serveis de correu).
 
 \clearpage
 
 \subsection{Filtratge dels \textit{\gls{log}s}}\label{subsec:log-filter}
 
-Un cop entenem l'estructura dels \textit{logs}, el següent pas és dur a terme un anàlisi preliminar del seu contingut.
+Un cop entenem l'estructura dels \textit{logs}, el següent pas és dur a terme una anàlisi preliminar del seu contingut.
 Esmentarem diferents casos trobats durant el processament d'aquests. \\
 
 \noindent
-El cas principal és aquell \textit{\gls{log}} que incorpori informació sobre un accés a un recurs, o una cerca.
+El cas principal, com hem vist a la figura~\ref{fig:example-log}, és aquell \textit{\gls{log}} que incorpora informació sobre un accés a un recurs, o una cerca.
 Els podrem identificar perquè:
 
 \begin{itemize}
-    \item Porten l’identificador \gls{handle}.
+    \item Porten l’identificador \textit{\gls{handle}}.
     \item Contenen referències a algun domini d’\gls{UPCommons}.
-    \item En cas ser una cerca a la plataforma, porten l’etiqueta amb alguna paraula clau com \textit{discover}, \textit{browse} \dots
+    \item En cas ser una cerca a la plataforma, porten l’etiqueta amb alguna paraula clau com \textit{discover}, \textit{browse}\dots
 \end{itemize}
 
 \noindent
 Però els servidors registren \textbf{moltes} més coses.
-És feina nostra decidir què fer en cada cas. \\
+A continuació llistarem diversos casos identificats i la decisió presa en el seu processament.
 
-\noindent
+\begin{itemize}
+    \item Accés a recursos web.
+    \item Repeticions.
+    \item Cerques.
+    \item Errors de processament.
+\end{itemize}
+
+\noindent \\
 \textbf{Accés a recursos web} \\ \\
-Després d’un accés a algun recurs, generalment als \textit{\gls{log}s} es poden veure registres d’accessos a recursos web (en vermell),
+Després d’un accés a algun recurs, generalment als \textit{\gls{log}s} es poden veure registres d’accessos a recursos web (a la figura~\ref{fig:log-web-resource}, en vermell),
 com podrien ser fitxers \textit{css}, \textit{javascript}, \textit{gifs} \dots
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-web-resource}}
     \captionsetup{justification=centering}
-    \caption[Exemple d'un \textit{\gls{log}} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}} .]{Exemple d'un \textit{\gls{log}} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}} . (\textbf{Font}: \gls{UPCommons}.)}\label{fig:log-web-resource}
+    \caption[Exemple d'un \textit{\gls{log}} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}}.]{Exemple d'un \textit{\gls{log}} que accedeix a un recurs web, concretament una fulla d'estils \textit{\gls{CSS}}. (\textbf{Font}: \gls{UPCommons}.)}\label{fig:log-web-resource}
 \end{figure}
 
 \noindent \\
@@ -108,8 +121,8 @@ Com que aquests registres no ens aporten cap informació valuosa pels nostres ca
 \textbf{Repeticions} \\
 
 \noindent
-Un \textit{\gls{log}} apareix exactament igual a diverses entrades, amb una petita diferèn-cia temporal (vermell).
-Al següent exemple podem veure com el mateix accés es repeteix tres vegades (verd i groc), a diferents adreces \gls{IP} (vermell).
+Un \textit{\gls{log}} apareix exactament igual a diverses entrades, amb una petita diferència temporal.
+A la figura~\ref{fig:log-repetitions} podem veure com el mateix accés es repeteix tres vegades (verd i groc), a diferents adreces \gls{IP} (vermell).
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-repetitions}}
@@ -120,8 +133,6 @@ Al següent exemple podem veure com el mateix accés es repeteix tres vegades (v
 \begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=Divergència relativa]
     No podem sempre afirmar que peticions amb contingut igual, però diferents identificadors provenen d'usuaris diferents.
     Pot haver-hi darrere un servidor \textit{Proxy} que redirigeixi les peticions, distribuïdors de càrrega, etc.
-    \tcblower
-    Cas anàleg als ``iguals emmascarats''~\ref{tcbox:iguals-emmascarats}.
 \end{tcolorbox}
 
 \noindent
@@ -138,7 +149,9 @@ Amb la finalitat d'enfocar l'anàlisi per altres bandes, no s'ha pres cap decisi
 \textbf{Cerques} \\
 
 \noindent
-Als \textit{\gls{log}s} hi són presents cerques dins de la plataforma \gls{UPCommons}. \\
+Als \textit{\gls{log}s} hi són presents cerques dins de la plataforma \gls{UPCommons}.
+Detectem aquests casos, ja que la comanda és una paraula clau de cerca.
+A l'exemple de la figura~\ref{fig:log-search} s'utilitza \textit{browse}, però n'hi ha d'altres com \textit{discover}, \textit{search}\dots \\
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-search}}
@@ -147,7 +160,7 @@ Als \textit{\gls{log}s} hi són presents cerques dins de la plataforma \gls{UPCo
 \end{figure}
 
 \noindent
-El procediment general no canvia respecta aquest cas.
+El procediment general no canvia respecte a aquest cas.
 Haurem de tenir en compte quins són, i diferenciar-los de la resta. \\
 
 \noindent
@@ -162,7 +175,7 @@ Diferenciarem entre dos casos:
     La seva presència és abundant.
     Alguns exemples śon:
     \begin{itemize}
-        \item L'adreça \gls{IP} no existeix o és mal formada.
+        \item L'adreça \gls{IP} no existeix o està mal formada.
         \item Contingut alterat (a vegades, intencionadament!)
     \end{itemize}
     En aquests casos manipularem el registre afectat per homogeneïtzar el conjunt dels \textit{logs}.
@@ -171,14 +184,15 @@ Diferenciarem entre dos casos:
     La seva presència és escassa.
     El resultat d'afegir la lògica necessària per tractar aquests casos no justifica en cap cas el seu tractament.
 
-    \begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=No val la pena]\label{tcbox:no-val-la-pena}
-    Parlem d'afegir condicions al processament que només s'utilitzarien en el 0,000000287\% dels casos.
-    \tcblower 552 \textit{\gls{log}s} de 1.922.392.760
-    \end{tcolorbox}
-
-    Per aquests motius, aquests casos es descartaran.
-    El nombre total de registres descartats es troba documentat a la taula~\ref{tab:logs-table}.
+    Per aquests motius, aquests casos es \textbf{descartaran}.
+    El nombre total de registres descartats es troba documentat al Capítol~\ref{ch:log-storing}, a la taula~\ref{tab:logs-table}.
 \end{itemize}
+
+\noindent
+\begin{tcolorbox}[colback=green!5!white, colframe=green!50!black, title=No val la pena]\label{tcbox:no-val-la-pena}
+Parlem d'afegir condicions al processament que només s'utilitzarien en el 0,000000287\% dels casos.
+\tcblower 552 \textit{\gls{log}s} de 1.922.392.760
+\end{tcolorbox}
 
 \clearpage
 
@@ -207,7 +221,7 @@ Que es traduiria a:
 \end{figure}
 
 \noindent
-Aquest disseny modular té tres components principals: \\
+El disseny proposat a la figura~\ref{fig:log-processing} té tres components principals: \\
 
 \noindent
 \textbf{Component \texttt{Filtre}} \\
@@ -246,7 +260,7 @@ Si cap transformació és necessària, no es definirà cap. \\
 
 \noindent
 Finalment, al component \texttt{Bolcat} arribarà el conjunt de \textit{\gls{log}s} desitjats amb el format escollit.
-Ara bé, depenen de la base de dades on es vol fer l’agregació, és possible que s’hagin de fer petits retocs per compatibilitzar amb la base de dades. \\
+Ara bé, depenent de la base de dades on es vol fer l’agregació, és possible que s’hagin de fer petits retocs per compatibilitat amb la base de dades. \\
 
 \noindent
 \textbf{Processament}
@@ -255,7 +269,7 @@ Ara bé, depenen de la base de dades on es vol fer l’agregació, és possible 
 Així mateix, si tenim \(X_1\)..\(X_N\) funcions filtre, i \(Y_1\)..\(Y_N\) funcions de transformació, i dos casos d’ús, podem definir el comportament desitjat de la següent manera:
 
 \begin{itemize}
-    \item \textbf{Cas d'ús \#1}: processa tots els logs, canvia el format de la data i envia'ls a una base de dades PostgreSQL .
+    \item \textbf{Cas d'ús \#1}: processa tots els logs, canvia el format de la data i envia'ls a una base de dades PostgreSQL.
     \begin{itemize}
         \item \texttt{Filtre:} -
         \item \texttt{Transformació:} \(Y_1\)
@@ -293,7 +307,7 @@ S'han desenvolupat les següents funcions:
     \item \texttt{AccessResource}: Detecta si el recurs accedit és un recurs d’\gls{UPCommons} a través de l'identificador \gls{handle}.
     \item \texttt{WithIPv6Address}: Detecta si el \textit{\gls{log}} té present l’adreça en versió IPv6.
     \item \texttt{WithoutIpAddress}: Detecta si el \textit{\gls{log}} no té present el camp d'adreça \gls{IP}.
-    \item \texttt{AccessResourceBitstream}: Detecta si el recurs accedit és un recurs d’UPCom-mons a través de l'identificador \gls{bitstream} \gls{UUID} .
+    \item \texttt{AccessResourceBitstream}: Detecta si el recurs accedit és un recurs d’UPCom-mons a través de l'identificador \gls{bitstream} \gls{UUID}.
 \end{itemize}
 
 \noindent \\
@@ -301,8 +315,8 @@ S'han desenvolupat les següents funcions:
 \begin{itemize}
     \item \texttt{InfluxDbForwarder}:
     \begin{itemize}
-        \item Adaptar el \textit{\gls{log}} en format JSON al format específic de la base de dades.
-        \item Enviar el \textit{\gls{log}} a la base de dades.
+        \item Adapta el \textit{\gls{log}} en format JSON al format específic de la base de dades.
+        \item Envia el \textit{\gls{log}} a la base de dades.
     \end{itemize}
 \end{itemize}
 
@@ -327,7 +341,10 @@ S'han desenvolupat les següents funcions:
     \item \texttt{AddDefaultIpAddress}: Afegeix una adreça \gls{IP} constant a aquells \textit{\gls{log}s} que no en tinguin cap.
 \end{itemize}
 
-\noindent \\
+\noindent
+Un cop definides les funcions individualment, el procés global per processar els \textit{\gls{log}s} es descriu amb el diagrama de la figura~\ref{fig:log-processing-workflow}.
+
+\noindent
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=1.1\textwidth]{figures/log-processing-workflow}}
     \captionsetup{justification=centering}
