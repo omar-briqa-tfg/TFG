@@ -12,13 +12,13 @@ Tot el procés de desenvolupament es fa sobre aquesta, deixant la branca princip
 
 \noindent \\
 Per no divergir gaire amb la branca principal, un cop s'acaba la característica que es vol implementar, es disposa a fer la fusió.
-Aquest procés es sol fer mitjançant una petició (al context de git, \textit{Pull Request}), ja que com a bona pràctica, la branca prinicpal està protegida per tal d'evitar a tot preu la introducció d'errors, \textit{bugs}, etc.
+Aquest procés se sol fer mitjançant una petició (al context de git, \textit{Pull Request}), ja que com a bona pràctica, la branca principal està protegida per tal d'evitar a tot preu la introducció d'errors, \textit{bugs}, etc.
 
 \noindent \\
-Aquesta petició per afegir el nou codi habitualment es revisada per altres membres de l'equip de desenvolupadors, els contribuïdors a l'eina, responsables \dots
+Aquesta petició per afegir el nou codi habitualment és revisada per altres membres de l'equip de desenvolupadors, els contribuïdors a l'eina, responsables \dots
 
 \noindent \\
-En el nostre cas, la feina ha estat feta individualment, per tant no tenim aquests segons punts de vista.
+En el nostre cas, la feina ha estat feta individualment, per tant, no tenim aquests segons punts de vista.
 Malgrat això, el procés s'ha dut a terme igualment per dos motius:
 
 \begin{itemize}
@@ -59,7 +59,7 @@ El propòsit individual és:
     \item \texttt{README.md}: per norma general, fitxer informatiu principal als repositoris de \textit{\gls{GitHub}}.
     \item \texttt{Makefile}: fitxer d'automatització de comandes.
     L'utilitzarem per generar la documentació, comprimir el codi principal, crear la imatge de \textit{\gls{Docker}}, etc.
-    \item \texttt{Pipfile}: fitxer que defineix les dependències(amb la versió específica) necessàries pel funcioanment de l'eina.
+    \item \texttt{Pipfile}: fitxer que defineix les dependències (amb la versió específica) necessàries per al funcionament de l'eina.
     \item \texttt{pre-commit-config.yaml}: fitxer de configuració que imposa unes normes que s'han de complir abans d'enviar un \textit{\gls{commit}}.
 \end{itemize}
 
@@ -71,12 +71,13 @@ Per altra banda, tenim la següent estructura:
 \begin{verbatim}
     - config
     - doc
-    - lib
     - scripts
     - src
       |-- logs
       |-- metadata
       |-- queries
+      |-- dashboards
+    - test
 \end{verbatim}
 
 \noindent \\
@@ -89,10 +90,6 @@ El propòsit de cada directori és:
     \item \texttt{doc}: Documentació del codi.
     Classes, mètodes, comentaris, excepcions, etc.
     Inclou una eina per generar manualment aquesta documentació.
-    \item \texttt{lib}: Dependències necessàries pel funcionament de l'eina.
-    \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Interoperabilitat]
-        Com menys dependències externes tingui un programari, aquest serà més versàtil, operable i multiplataforma.
-    \end{tcolorbox}
     \item \texttt{scripts}: Conjunt de \textit{scripts} que ajuden a automatitzar certes tasques.
     No formen part del codi principal de l'eina, però sí que en complementen aquesta.
     \item \texttt{src}: Directori principal de codi.
@@ -103,6 +100,8 @@ El propòsit de cada directori és:
         \item \texttt{logs}: processament i emmagatzematge dels \textit{logs}.
         \item \texttt{metadata}: processament i emmagatzematge de les metadades.
         \item \texttt{queries}: anàlisi de les dades.
+        \item \texttt{dashboards}: panells de Grafana en format \gls{JSON}.
     \end{itemize}
+    \item \texttt{test}: Directori que conté proves del funcionament de l'eina.
 \end{itemize}
 

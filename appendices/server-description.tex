@@ -5,7 +5,7 @@ El procés de desenvolupament s’ha dut a terme emprant un servidor preparat pe
 \begin{itemize}
     \item \textbf{Processador:}
     \begin{itemize}
-        \item quatre cores
+        \item quatre \textit{cores}
     \end{itemize}
     \item \textbf{Emmagatzemament:}
     \begin{itemize}
@@ -29,7 +29,7 @@ Les tasques principals realitzades són:
     \item Desenvolupament del codi d’\gls{OSTIA}, utilitzant el sistema de control de versions git.
     \item Anàlisis dels \textit{\gls{log}s} d’\gls{UPCommons}, amb registres des del 2006 fins al 2023.
     \item Processament i abocament dels \textit{\gls{log}s} a la base de dades InfluxDB, ubicada al mateix servidor.
-    \item Descàrrega de totes les metadades del servidor \gls{OAI} sbivdev1.
+    \item Descàrrega de totes les metadades del servidor \gls{OAI}.
     \item Anàlisis, processament i abocament de les metadades a una base de dades \textit{MongoDB}.
     \item Anàlisi del conjunt de les dades, amb el suport l’eina \textit{Grafana}.
 \end{itemize}
@@ -91,7 +91,7 @@ La figura~\ref{fig:docker-compose-influxdb} mostra la configuració específica 
 
 \begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Fitxers de configuració]
     Habitualment aquests fitxers solen incloure credencials privades d'aquests serveis.
-    Com a bona pràctica, afegeix el sufix \textit{.env} al fitxer i no el pugis a \textit{\gls{GitHub}}, omitin-lo mitjançant el fitxer \textit{.\gls{gitignore}}.
+    Com a bona pràctica, afegeix el sufix \textit{.env} al fitxer i no el pugis a \textit{\gls{GitHub}}, ometin-lo mitjançant el fitxer \textit{.\gls{gitignore}}.
 \end{tcolorbox}
 \vspace{1em}
 
