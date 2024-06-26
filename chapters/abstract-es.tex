@@ -1,19 +1,55 @@
 \chapter*{Resumen}\label{ch:abstract-es}
 
+En el contexto actual de la ciencia de datos, cada registro de un acontecimiento es crucial.
+Profundizar sobre esta información puede proporcionar información muy valiosa.
+En nuestro caso, se nos ha dado acceso a los \textit{logs} del servidor UPCommons, el portal de acceso abierto al conocimiento de la Universitat Politècnica de Catalunya.
+
 \noindent \\
+Los \textit{logs} son el registro de acceso, la huella digital de cada usuario de la plataforma.
+Por cada examen, documentación, trabajo, vídeo u otro recurso consultado, este acceso queda registrado.
+Nuestro objetivo es recopilar todos estos datos y convertirlos en información significativa.
+
+\noindent \\
+Este proceso consta de tres pasos.
+En primer lugar, entender la semántica y la sintaxis de los registros.
+Qué tipo de información trataremos, donde se encuentra, qué información incluye, y como lo analizaremos.
+Todo esto teniendo en cuenta el tamaño de la tarea, todos los registros de acceso desde el año 2006 hasta el 2023, en concreto, 1.922.392.760 registros de entrada.
+
+\noindent \\
+En segundo lugar, una vez aclarada la semántica de los \textit{logs}, se necesita una solución de almacenamiento para llevar a cabo un análisis sobre la información previamente estudiada.
+Tenemos que filtrar y decidir qué almacenaremos, en qué formato se almacena, y lo más importante, donde lo almacenaremos.
+
+\noindent \\
+Finalmente, hemos podido construir una herramienta de código abierto que puede analizar y almacenar todos los registros de acceso.
+Podemos definir un caso de uso para analizar una determinada característica.
+Utilizando la herramienta de observabilidad Grafana, los resultados se pueden representar visualmente.
+
+\noindent \\
+Por ejemplo, podemos comprobar qué recurso es lo más consultado dentro de un periodo de tiempo y representar su evolución.
+Si peticiones maliciosas han infectado el servidor, podemos utilizar esta herramienta para analizar los síntomas.
+También relacionar el recurso con sus metadatos, autor/s, licencia, lengua, etcétera.
+
+\noindent \\
+El valor que proponemos es una herramienta que se puede utilizar para diferentes objetivos, y un punto de partida para futuras investigaciones.
+
+\clearpage
 \section*{Palabras clave}\label{sec:keywords-es}
-%\begin{multicols}{2}
-%    \begin{itemize}
-%        \item Palabra
-%        \item Palabra
-%        \item Palabra
-%        \item Palabra
-%    \end{itemize}
-%    \columnbreak
-%    \begin{itemize}
-%        \item Palabra
-%        \item Palabra
-%        \item Palabra
-%        \item Palabra
-%    \end{itemize}
-%\end{multicols}
+\begin{multicols}{3}
+    \begin{itemize}
+        \item DSpace
+        \item Metadatos
+        \item UPCommons
+    \end{itemize}
+    \columnbreak
+    \begin{itemize}
+        \item Registro de acceso
+        \item Análisis de datos
+        \item Python
+    \end{itemize}
+    \columnbreak
+    \begin{itemize}
+        \item Grafana
+        \item InfluxDB
+        \item MongoDB
+    \end{itemize}
+\end{multicols}
