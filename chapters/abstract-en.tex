@@ -1,19 +1,55 @@
 \chapter*{Abstract}\label{ch:abstract-en}
 
+In the current context of data science, every record of an event is crucial.
+Investigating this information can yield valuable information.
+We have been granted access to the logs of the UPCommons server, which is the portal for the global access to the UPC knowledge.
+
 \noindent \\
+Logs are the access logs, which contain the fingerprints of each user on the platform.
+This access is recorded for each exam, document, video or other resource that is consulted.
+Our objective is to gather all of this data and transform it into valuable information.
+
+\noindent \\
+There are three steps involved in this process.
+Firstly, comprehend the semantics and syntax of the registers.
+What type of information will we process, where it is located, what information it includes, and how we will analyze it.
+All this, taking into account the size of the task, includes all access records from 2006 to 2023, which represents 1.922.392.760 input records.
+
+\noindent \\
+Secondly, once the semantics of the logs have been clarified, a storage solution is needed to perform an analysis of previously studied information.
+We have to filter and decide what we will store, in what format it will be stored, and most importantly, where we will store it.
+
+\noindent \\
+We have finally created an open source tool that can analyze and store all access logs.
+We can define a use case to analyze a specific characteristic.
+By using the Grafana observability tool, results can be shown visually.
+
+\noindent \\
+For instance, we can examine which resource is most frequently consulted and represent its progression.
+If malicious requests have infected the server, we can use this tool to analyze the symptoms.
+Also, relate the resource to its metadata, author/s, license, language, and other relevant information.
+
+\noindent \\
+The value we propose is a tool that can be used for various purposes, and it provides a starting point for future research.
+
+\clearpage
 \section*{Keywords}\label{sec:keywords-en}
-%\begin{multicols}{2}
-%    \begin{itemize}
-%        \item Keyword
-%        \item Keyword
-%        \item Keyword
-%        \item Keyword
-%    \end{itemize}
-%    \columnbreak
-%    \begin{itemize}
-%        \item Keyword
-%        \item Keyword
-%        \item Keyword
-%        \item Keyword
-%    \end{itemize}
-%\end{multicols}
+\begin{multicols}{3}
+    \begin{itemize}
+        \item DSpace
+        \item Metadata
+        \item UPCommons
+    \end{itemize}
+    \columnbreak
+    \begin{itemize}
+        \item Access log
+        \item Data analysis
+        \item Python
+    \end{itemize}
+    \columnbreak
+    \begin{itemize}
+        \item Grafana
+        \item InfluxDB
+        \item MongoDB
+    \end{itemize}
+\end{multicols}
