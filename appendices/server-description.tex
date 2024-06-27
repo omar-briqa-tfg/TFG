@@ -5,7 +5,7 @@ El procés de desenvolupament s’ha dut a terme emprant un servidor preparat pe
 \begin{itemize}
     \item \textbf{Processador:}
     \begin{itemize}
-        \item quatre \textit{cores}
+        \item quatre \textit{cores}.
     \end{itemize}
     \item \textbf{Emmagatzemament:}
     \begin{itemize}
@@ -30,7 +30,7 @@ Les tasques principals realitzades són:
     \item Anàlisis dels \textit{\gls{log}s} d’\gls{UPCommons}, amb registres des del 2006 fins al 2023.
     \item Processament i abocament dels \textit{\gls{log}s} a la base de dades InfluxDB, ubicada al mateix servidor.
     \item Descàrrega de totes les metadades del servidor \gls{OAI}.
-    \item Anàlisis, processament i abocament de les metadades a una base de dades \textit{MongoDB}.
+    \item Anàlisis, processament i abocament de les metadades a una base de dades MongoDB, ubicada al mateix servidor.
     \item Anàlisi del conjunt de les dades, amb el suport l’eina \textit{Grafana}.
 \end{itemize}
 
@@ -52,7 +52,7 @@ Els principals serveis utilitzats durant la realització del projecte han sigut:
     \item \textbf{MongoDB}
     \begin{itemize}
         \item Base de dades utilitzada per l’emmagatzematge de les metadades.
-        \item El mateix servei no ofereix cap interfície gràfica, així perquè afegim el suport de mongodb-expres.
+        \item El mateix servei no ofereix cap interfície gràfica, així perquè afegim el suport de \textit{mongodb-expres}.
     \end{itemize}
     \item \textbf{Grafana}
     \begin{itemize}
@@ -72,7 +72,7 @@ Aquest fitxer acostuma a tenir aquesta estructura:
 \begin{itemize}
     \item Definició del nom del servei.
     \item Imatge de \textit{\gls{Docker}} que es vol utilitzar.
-    \item Els ports, definint el port de la màquina host i el del contenidor.
+    \item Els ports, definint el port de la màquina \textit{host} i el del contenidor.
     \item El fitxer de configuració del servei.
     \item La xarxa interna del servei de \textit{\gls{Docker}} que adoptarà el servei.
     \item Altres opcions.
@@ -168,7 +168,7 @@ $ sudo apt-get install -y apt-transport-https ca-certificates \
 \end{verbatim}
 
 \noindent \\
-Descarreguem, convertim a format binari i emmagatzemem la clau GPG oficial de \textit{\gls{Docker}}
+Descarreguem, convertim a format binari i emmagatzemem la clau GPG oficial de \textit{\gls{Docker}}.
 \begin{verbatim}
 $ curl -fsSL https://download.docker.com/linux/debian/gpg \
     | sudo gpg --dearmor \
