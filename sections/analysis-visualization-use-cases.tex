@@ -16,7 +16,7 @@ Hem definit els següents casos d'ús:
     \item Donat un període de temps, volem saber quin, o quins recursos són els més accedits.
     \item També volem esbrinar com ha sigut la seva evolució al llarg del temps.
     Es tracta d'un pic puntual que altera les estadístiques, o s'ha mantingut constant?
-    \item Quins paràmetres caracteritzen aquests accessos, vora quines hores es produeixen, mitjançant quins mètodes d'\gls{HTTP} es realitzen, quin és el codi de resposta més habitual, quin és el \textit{User Agent} més comú \dots i molts més atributs.
+    \item Quins paràmetres caracteritzen aquests accessos, vora quines hores es produeixen, mitjançant quins mètodes d'\gls{HTTP} es realitzen, quin és el codi de resposta més habitual, quin és el \textit{User Agent} més comú\dots  i molts més atributs.
 \end{itemize}
 
 \noindent \\
@@ -25,7 +25,7 @@ Hem definit els següents casos d'ús:
 \begin{itemize}
     \item Per esbrinar quins són els recursos més accedits, treballarem directament sobre la base de dades InfluxDB.
 
-    A causa de la gran quantitat de dades que s'han d'analitzar, \textit{Grafana} no podria ser capaç d'afrontar aquesta càrrega computacional.
+    A causa de la gran quantitat de dades que s'ha d'analitzar, \textit{Grafana} no podria ser capaç d'afrontar aquesta càrrega computacional.
 
     \item Per aquest període de temps, consultarem tots els accessos a recursos presents (que ja tenim marcats) i agregarem els seus identificadors.
 
@@ -115,7 +115,7 @@ from(bucket: "upcommons")
     Concretament, estem cercant a InfluxDB:
 
     \begin{itemize}
-        \item Període del 2023.
+        \item Període: 2023.
         \item Accessos que siguin recursos i el seu contingut sigui diferent.
         \item Comptem els accessos cada trenta dies.
         \item La cerca que utilitzarem és la següent:
@@ -216,10 +216,10 @@ from(bucket: "upcommons")
     \item Seleccionarem una gràfica de tipus \texttt{Time Series} i afegirem a la part inferior la següent cerca.
     Concretament, estem cercant a InfluxDB:
     \begin{itemize}
-        \item Període del 2023/12/01.
+        \item Període: 2023/12/01.
         \item Obtenim tota la informació dels accessos de la taula \textit{epsevg-rights}.
         \item Comptem els accessos cada hora.
-        \item La cerca que utilitzarem és la següent:
+        \item La consulta que utilitzarem és la següent:
     \end{itemize}
 \end{itemize}
 
