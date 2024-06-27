@@ -79,7 +79,7 @@ from(bucket: "upcommons")
     \item Com a conseqüència, per cada combinació del tipus de contingut (\textit{content}), mètode \gls{HTTP} emprat (\textit{method}) i resposta de la petició (\textit{status\_code}) que accedeixin a aquest recurs tindran el seu seguiment.
     \item Podem veure a la llegenda de la figura~\ref{fig:most-accessed-resource}, com sempre el contingut del registre d'accés és correcte (content = “ok”) i el mètode utilitzat és el \texttt{GET}.
 
-    La resposta de la petició varia entre un \texttt{200} (succés) o un \texttt{301} (indica que el contingut és a una altra ubicació i et redirigeix).
+    La resposta de la petició varia entre un \texttt{200} (succés), un \texttt{301} (indica que el contingut és a una altra ubicació i et redirigeix) o un \texttt{404} molt puntual (indica que el contingut no s'ha trobat).
 \end{itemize}
 
 \clearpage
@@ -255,7 +255,7 @@ from(bucket: "upcommons")
     \end{itemize}
 
     \item Les condicions d'accés més habituals són aquelles on més usuaris poden accedir.
-    Aquest són l'accés obert i l'accés restringit a la comunitat acadèmica de la UPC.
+    Aquestes són l'accés obert i l'accés restringit a la comunitat acadèmica de la UPC.
     \item Cal remarcar que tots els exàmens són restringits a la comunitat acadèmica de la UPC.
     \begin{itemize}
         \item Aquell dia es van registrar un total de 2001 accessos a recursos restringits a la comunitat acadèmica de la UPC, dels quals 1961 eren accessos a exàmens.
