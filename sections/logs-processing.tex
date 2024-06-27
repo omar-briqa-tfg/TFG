@@ -61,7 +61,7 @@ Aquest format és més simple, les comparacions són més eficients i evitem pro
     \item Versió \gls{HTTP}: evolució d'\texttt{HTTP/1.0} fins a \texttt{HTTP/1.1} en el transcurs dels anys.
     No hi ha presència de registres amb \texttt{HTTP/2.0}.
     \item Codi d'estat que retorna la petició: codi que representa el resultat de la petició.
-    Els més habituals són els \texttt{2XX} (succés), \texttt{3XX} (redireccions) \texttt{4XX} (error del client) i \texttt{5XX} (error del servidor)
+    Els més habituals són els \texttt{2XX} (succés), \texttt{3XX} (redireccions) \texttt{4XX} (error del client) i \texttt{5XX} (error del servidor).
     \item Mida de la resposta: mida en \textit{bytes} del cos de la resposta.
 \end{itemize}
 
@@ -104,7 +104,7 @@ A continuació llistarem diversos casos identificats i la decisió presa en el s
 \noindent \\
 \textbf{Accés a recursos web} \\ \\
 Després d’un accés a algun recurs, generalment als \textit{\gls{log}s} es poden veure registres d’accessos a recursos web (a la figura~\ref{fig:log-web-resource}, en vermell),
-com podrien ser fitxers \textit{css}, \textit{javascript}, \textit{gifs} \dots
+com podrien ser fitxers \textit{css}, \textit{javascript}, \textit{gifs}\dots
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[width=\textwidth]{figures/log-web-resource}}
@@ -176,7 +176,7 @@ Diferenciarem entre dos casos:
     Alguns exemples śon:
     \begin{itemize}
         \item L'adreça \gls{IP} no existeix o està mal formada.
-        \item Contingut alterat (a vegades, intencionadament!)
+        \item Contingut alterat (a vegades, intencionadament!).
     \end{itemize}
     En aquests casos manipularem el registre afectat per homogeneïtzar el conjunt dels \textit{logs}.
     \item \textbf{Errors irreversibles:} alteració en grau superlatiu del cos del \textit{log}.
@@ -275,7 +275,7 @@ Així mateix, si tenim \(X_1\)..\(X_N\) funcions filtre, i \(Y_1\)..\(Y_N\) func
         \item \texttt{Transformació:} \(Y_1\)
         \item \texttt{Bolcat:} \texttt{PostgreSQLForwarder}
     \end{itemize}
-    \item \textbf{Cas d'ús \#2}: processa només els \textit{\gls{log}s} que accedeixin a recursos UPC, afegeix l’enllaç permanent i guarda-ho a un fitxer pla:
+    \item \textbf{Cas d'ús \#2}: processa només els \textit{\gls{log}s} que accedeixin a recursos UPC, afegeix l’enllaç permanent i guarda-ho a un fitxer pla.
     \begin{itemize}
         \item \texttt{Filtre:} \(X_2\)
         \item \texttt{Transformació:} \(Y_2\)
