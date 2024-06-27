@@ -142,11 +142,11 @@ Altres opcions que hem descartat perquè o bé no són de codi obert, la versió
 La primera decisió presa fou triar \textit{Grafana Loki}, amb els motius que llistarem a continuació:
 
 \begin{itemize}
-    \item Base de dades de codi obert compatible per diferents plataformes.
     \item És una eina ben documentada~\cite{loki:documentation}.
+    \item Base de dades de codi obert compatible per diferents plataformes.
+    \item Integració per defecte amb \textit{Grafana} per poder visualitzar els \textit{logs}.
     \item Té una gran quantitat d’usuaris actius.
     El repositori de codi~\cite{loki:code} és mantingut activament i de forma actual.
-    \item Integració per defecte amb \textit{Grafana} per poder visualitzar els \textit{logs}.
     \item Diverses llibreries~\cite{loki:libraries} ja implementades per enviar \textit{\gls{log}s} a la base de dades.
     \item Com prèviament s’ha mencionat, la indexació és a partir del \textit{\gls{timestamp}} més les metadades.
     Aquestes darreres poden ser utilitzades per afegir valors que després agilitzaran el processament.
