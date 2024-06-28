@@ -61,13 +61,13 @@ Per exemple, l'autor principal d'un recurs ve definit per la metadada:
 \end{center}
 
 Les metadades les podrem trobar a un servidor de desenvolupament on només hi són emmagatzemadaes aquestes.
-Utilitzarem el protocol OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting) per descarregar aquestes.
-Una característica interessant d'aquest servidor, i que no tots els servidors OAI tenen, és la funcionalitat del control de flux mitjançant \textit{resumptionToken}.
+Utilitzarem el protocol OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting) per descarregar-les.
+Una característica interessant d'aquest servidor, i que no tots els servidors OAI tenen, és la funcionalitat del control de flux mitjançant el \textit{resumptionToken}.
 
 Els verbs del protocol OAI-PMH per obtenir les metadades no poden obtenir totes les metadades d'una tirada, ja que no és gens pràctic a causa del seu gran nombre.
 Com a conseqüència, retornen un valor que indica en quin punt de la descàrrega ets, permetent la modularització de l'obtenció de les metadades.
 
-Implementarem aquest procés amb la llibreria Sickle~\cite{Sickle}, encara que gràcies a la simplicitat d'aquest protocol podríem dur a terme sense la necessitat de llibreries externes.
+Implementarem aquest procés amb la llibreria Sickle~\cite{Sickle}, encara que gràcies a la simplicitat d'aquest protocol ho podríem dur a terme sense la necessitat de llibreries externes.
 Com a primera fase, les estructurarem localment en el nostre sistema de fitxers.
 Més endavant les migrarem a un sistema gestor de bases de dades.
 
@@ -98,7 +98,7 @@ En relació amb la base de dades per emmagatzemar les metadades, com la quantita
 En canvi, el requisit més important és la flexibilitat del model de dades.
 Les metadades poden tenir valors múltiples, fet que faria incompatible l'ús d'algunes bases de dades relacionals.
 
-Pel fet que durant l'obtenció de les metadades del servidor OAI, aquestes estiguin en format XML (Extensible Markup Language), podríem convertir-les a un format d'un document de parelles clau-valor.
+Pel fet que durant l'obtenció de les metadades del servidor OAI té com a resposta fitxers en format XML (Extensible Markup Language), podríem convertir-les a un format d'un document de parelles clau-valor.
 El sistema gestor de bases de dades més popular basat en documents és MongoDB.
 Senzill d'utilitzar i de configurar, aquesta va ser la nostra decisió per emmagatzemar les metadades.
 
@@ -107,7 +107,7 @@ Senzill d'utilitzar i de configurar, aquesta va ser la nostra decisió per emmag
 El procés d'abocament de les metadades s'ha fet continuadament del de processament de dades.
 L'automatització dels dos processos ens ha permès treballar concurrentment en altres bandes del projecte, mentre monitoràvem puntualment l'estat d'aquest.
 S'ha fet un abocament per cada base de dades.
-Encara que l'objectiu no era optimitzar al màxim i reduir aquest temps, a causa del gran nombre de \textit{logs} hem dut a terme una sèrie de millores recomanades pel mateix InfluxDB~\cite{influxdb:optimizations}.
+Encara que l'objectiu no era optimitzar al màxim i reduir aquest temps, hem dut a terme una sèrie de millores recomanades pel mateix InfluxDB~\cite{influxdb:optimizations}.
 
 El resultat de l'abocament dels \textit{logs} conclou amb els resultats de la taula~\ref{tab:table1}.
 
