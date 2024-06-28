@@ -8,6 +8,8 @@
 \usepackage[catalan]{babel}
 \usepackage{lipsum}
 
+\renewcommand{\figurename}{\textbf{Figura}}
+
 \renewcommand{\abstractname}{Resum}
 \renewcommand{\IEEEkeywordsname}{Paraules clau}
 
@@ -156,10 +158,82 @@ D’aquesta manera evitem tornar a fer les peticions al servidor en cas que el b
 \lipsum[1]
 
 \section{Anàlisi i visualització de les dades}\label{sec:data-visualization}
-\lipsum[1]
+Un cop finalitzats tant l’anàlisi com l’emmagatzemament de les dades, arribem a la part de l’anàlisi i la visualització de les dades.
+Per mostrar el potencial d’aquesta eina, hem definit uns quants casos d’ús prou representatius que poden servir com a exemple.
+
+Utilitzem el programari d'observabilitat Grafana com a eina de suport.
+Amb aquesta eina generarem informes visuals dels diversos casos d'ús que vulguem tractar.
+Per cada cas d'ús, els nostres exemples es basen en definir del què tracta, que analitzarem, com ho representarem i la discussió dels resultats.
+
+N'hem definit tres:
+\begin{itemize}
+    \item Recurs més accedit durant un període de temps.
+    \item Accessos amb el seu contingut alterat.
+    \item Condicions d’accés dels accessos a recursos de l’EPSEVG.
+\end{itemize}
+
+A continuació detallarem el tercer cas d'ús, que tracta sobre les condicions d'accés dels accessos a recursos de l'EPSEVG, mostrant la funcionalitat completa de l'eina.
+
+\textit{\textbf{Precondicions}}
+
+Hem de tenir els \textit{logs} emmagatzemats a la base de dades InfluxDB.
+Això ja s'ha fet a l'emmagatzemament de les dades.
+
+També hem de tenir marcats els \textit{logs} que siguin un accés a un recurs d'UPCommons, d'aquesta manera podem descartar tots els altres registres durant aquesta anàlisi.
+Ho hem fet al processament de les dades.
+
+\textit{\textbf{Definició}}
+
+Donat el període de temps del primer de desembre del 2023, volem saber quines són les condicions d'accés dels accessos als recursos de l'EPSEVG.
+
+Volem determinar si són d'accés obert, restringits per decisió de l'usuari, restringits a la comunitat académica\dots
+
+\textit{\textbf{Anàlisi simplificat}}
+
+Obtenim tots els accessos a recursos d'aquest dia de la nostra base de dades de \textit{logs}, filtre només aquells que siguin accessos a recursos.
+
+A continuació busquem a la base de dades de les metadades amb l'identificador del recurs, si aquest està relacionat amb l'EPSEVG.
+Aquest filtre ho fem amb la metadata:
+\begin{center}
+    {dc.audience.mediator}
+\end{center}
+
+Si ho està, obtenim el tipus d'accéss d'aquest recurs, amb la metadata corresponent, i ho emmagatzemem.
+Aquesta informació es troba al valor de la metadata:
+\begin{center}
+    {dc.rights.access}
+\end{center}
+
+\textit{\textbf{Resultat}}
+
+Amb la informació prèviament processada, utilitzarem Grafana per representar visualment la tipologia d'accessos.
+
+Les diferents condicions d'accés d'aquest període per accessos a recursos, representades a la figura~\ref{fig:log-access-type}, són:
+\begin{itemize}
+    \item Verd: recurs d'accés obert.
+    \item Groc: recurs restringit per decisió de l'autor.
+    \item Blau: recurs restringit per acord de confidencialitat.
+    \item Vermell: recurs restringit a la comunitat acadèmica de la UPC.
+    \item Taronja: recurs restringit a la comunitat acadèmica del CSUC (Consorci de Serveis Universitaris de Catalunya).
+\end{itemize}
+
+Les condicions d'accés més habituals són aquelles on més usuaris poden accedir.
+
+Aquestes són l'accés obert i l'accés restringit a la comunitat acadèmica de la UPC.
+
+Cal remarcar que tots els exàmens són restringits a la comunitat acadèmica de la UPC.
+\begin{itemize}
+    \item Aquell dia es van registrar un total de 2001 accessos a recursos restringits a la comunitat acadèmica de la UPC, dels quals 1961 eren accessos a exàmens.
+\end{itemize}
+
+Els menys accedits són aquells d'accés restringit a un públic petit.
+
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=0.5\textwidth]{figures/access-rights-epsevg}}
+    \caption{Condicions d'accés dels accessos a recursos de l'EPSEVG el primer de desembre del 2023.}\label{fig:log-access-type}
+\end{figure}
 
 \section{Conclusions}\label{sec:conclusions}
-\lipsum[1]
 
 \begin{thebibliography}{1}
 \bibliographystyle{IEEEtran}
