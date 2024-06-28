@@ -1,9 +1,13 @@
 path := $(shell pwd)
-filename = main
+filename ?= main
 
 all:
 	make pdf bib gls
 	make pdf open
+
+proposta:
+	make pdf filename=proposta
+	make -B submit filename=proposta
 
 pdf:
 	pdflatex \
@@ -25,6 +29,9 @@ gls:
 
 open:
 	open $(path)/out/$(filename).pdf
+
+submit:
+	cp $(path)/out/$(filename).pdf $(path)/submit/$(filename).pdf
 
 clean:
 	rm -rf aux/*
