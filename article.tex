@@ -21,10 +21,15 @@
 \maketitle
 
 \begin{abstract}
+En el context actual de la ciència de dades, cada registre d'un esdeveniment és crucial.
+En el nostre cas, se'ns ha donat accés als \textit{logs} del servidor UPCommons, el portal del coneixement obert de la Universitat Politècnica de Catalunya.
+Els \textit{logs} són els registres d'accés de les consultes a la plataforma.
+El nostre objectiu és recopilar totes aquestes dades i convertir-les en informació significativa.
+Ho farem mitjançant el disseny d'una eina que processi aquestes dades, les emmagatzemi, i posteriorment les utilitzi per generar informes, analitzar determinades característiques o altres casos d'ús definits per l'usuari de l'eina.
 \end{abstract}
 
 \begin{IEEEkeywords}
-    DSpace, Metadades, UPCommons, Grafana, InfluxDB, MongoDB, Registre d’accés.
+    DSpace, Metadades, UPCommons, Grafana, InfluxDB, MongoDB, Registre d'accés.
 \end{IEEEkeywords}
 
 
@@ -141,7 +146,7 @@ Algunes consideracions:
 
 El resultat de l'abocament de les metadades al base de dades MongoDB conclou amb els resultats de la taula~\ref{tab:table2}.
 El volum total d'aquestes dades (648 MB) va fer possible realitzar aquest abocament prèviament al sistema de fitxers del servidor de treball.
-D’aquesta manera evitem tornar a fer les peticions al servidor en cas que el bolcat falli, o les dades pateixin algun tipus d’alteració o corrupció.
+D'aquesta manera evitem tornar a fer les peticions al servidor en cas que el bolcat falli, o les dades pateixin algun tipus d'alteració o corrupció.
 El resultat d'aquest abocament es mostra a la taula~\ref{tab:table3}.
 
 \begin{table}[!t]
@@ -172,18 +177,18 @@ El resultat d'aquest abocament es mostra a la taula~\ref{tab:table3}.
 \lipsum[1]
 
 \section{Anàlisi i visualització de les dades}\label{sec:data-visualization}
-Un cop finalitzats tant l’anàlisi com l’emmagatzemament de les dades, arribem a la part de l’anàlisi i la visualització de les dades.
-Per mostrar el potencial d’aquesta eina, hem definit uns quants casos d’ús prou representatius que poden servir com a exemple.
+Un cop finalitzats tant l'anàlisi com l'emmagatzemament de les dades, arribem a la part de l'anàlisi i la visualització de les dades.
+Per mostrar el potencial d'aquesta eina, hem definit uns quants casos d'ús prou representatius que poden servir com a exemple.
 
 Utilitzem el programari d'observabilitat Grafana com a eina de suport.
 Amb aquesta eina generarem informes visuals dels diversos casos d'ús que vulguem tractar.
-Per cada cas d'ús, els nostres exemples es basen en definir del què tracta, que analitzarem, com ho representarem i la discussió dels resultats.
+Per cada cas d'ús, els nostres exemples es basen a definir del que tracta, que analitzarem, com ho representarem i la discussió dels resultats.
 
 N'hem definit tres:
 \begin{itemize}
     \item Recurs més accedit durant un període de temps.
     \item Accessos amb el seu contingut alterat.
-    \item Condicions d’accés dels accessos a recursos de l’EPSEVG.
+    \item Condicions d'accés dels accessos a recursos de l'EPSEVG.
 \end{itemize}
 
 A continuació detallarem el tercer cas d'ús, que tracta sobre les condicions d'accés dels accessos a recursos de l'EPSEVG, mostrant la funcionalitat completa de l'eina.
