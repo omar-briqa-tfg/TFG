@@ -1,54 +1,39 @@
-\documentclass{article}
-\usepackage{graphicx} % for including figures
-\usepackage{lipsum}   % for sample text
+\documentclass[lettersize,journal]{IEEEtran}
+\usepackage{amsmath,amsfonts}
+\usepackage{array}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{graphicx}
 
-% Title of the paper
-\title{Sample Scientific Article}
-
-% List of authors and their affiliations
-\author{
-    First Author \\
-    Department of Science, University of LaTeX \\
-    \texttt{first.author@university.edu} \\
-    \and
-    Second Author \\
-    Department of Science, University of LaTeX \\
-    \texttt{second.author@university.edu}
-}
+\renewcommand{\abstractname}{Resum}
+\renewcommand{\IEEEkeywordsname}{Paraules clau}
 
 \begin{document}
 
-    \maketitle
+\title{Disseny d'una Eina per al Tractament i \\ Visualització de les Dades d'Accés a un Repositori}
+\author{\textbf{Omar Briqa} \\ \vspace{5pt} Escola Politècnica Superior d'Enginyeria de Vilanova i la Geltrú}
+\maketitle
 
-% Abstract of the paper
-    \begin{abstract}
-        \lipsum[1]  % Replace with your abstract
-    \end{abstract}
+\begin{abstract}
+   Resum
+\end{abstract}
 
-% Introduction section
-    \section{Introduction}
-    \lipsum[2-3]  % Replace with your introduction
+\begin{IEEEkeywords}
+    .
+\end{IEEEkeywords}
 
-% Methods section
-    \section{Methods}
-    \lipsum[4-5]  % Replace with your methods
+\section{Introduction}
 
-% Results section
-    \section{Results}
-    \lipsum[6-7]  % Replace with your results
+\IEEEPARstart{T}{his} file is intended to serve as a ``sample article file''
+for IEEE journal papers produced under \LaTeX\ using
+IEEEtran.cls version 1.8b and later. The most common elements are covered in the simplified and updated instructions in ``New\_IEEEtran\_how-to.pdf''. For less common elements you can refer back to the original ``IEEEtran\_HOWTO.pdf''. It is assumed that the reader has a basic working knowledge of \LaTeX. Those who are new to \LaTeX \ are encouraged to read Tobias Oetiker's ``The Not So Short Introduction to \LaTeX ,'' available at: \url{http://tug.ctan.org/info/lshort/english/lshort.pdf} which provides an overview of working with \LaTeX.
 
-% Discussion section
-    \section{Discussion}
-    \lipsum[8-9]  % Replace with your discussion
+\begin{thebibliography}{1}
+\bibliographystyle{IEEEtran}
 
-% Conclusion section
-    \section{Conclusion}
-    \lipsum[10]  % Replace with your conclusion
-
-% Acknowledgements section (if any)
-    \section*{Acknowledgements}
-    Insert acknowledgements here.
-
-% References section
+\bibitem{ref1}
+    {\textit{Mathematics Into Type}}. American Mathematical Society. [Online]. Available: https://www.ams.org/arc/styleguide/mit-2.pdf
+\end{thebibliography}
 
 \end{document}

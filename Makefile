@@ -10,7 +10,7 @@ proposta:
 	make -B submit filename=proposta
 
 article:
-	make pdf filename=article
+	make -B pdf filename=article
 
 pdf:
 	pdflatex \
