@@ -9,6 +9,9 @@ proposta:
 	make pdf filename=proposta
 	make -B submit filename=proposta
 
+article:
+	make pdf filename=article
+
 pdf:
 	pdflatex \
 		-file-line-error \
