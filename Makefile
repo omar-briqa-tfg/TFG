@@ -5,12 +5,15 @@ all:
 	make pdf bib gls
 	make pdf open
 
-proposta:
+propostatfe:
 	make pdf filename=proposta
-	make -B submit filename=proposta
+	make move filename=proposta
+	make open filename=proposta
 
-article:
-	make -B pdf filename=article
+resum:
+	make pdf filename=article
+	make move filename=article
+	make open filename=article
 
 pdf:
 	pdflatex \
@@ -33,7 +36,7 @@ gls:
 open:
 	open $(path)/out/$(filename).pdf
 
-submit:
+move:
 	cp $(path)/out/$(filename).pdf $(path)/submit/$(filename).pdf
 
 clean:

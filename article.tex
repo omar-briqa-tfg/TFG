@@ -5,6 +5,8 @@
 \usepackage{url}
 \usepackage{verbatim}
 \usepackage{graphicx}
+\usepackage[catalan]{babel}
+\usepackage{lipsum}
 
 \renewcommand{\abstractname}{Resum}
 \renewcommand{\IEEEkeywordsname}{Paraules clau}
@@ -16,18 +18,69 @@
 \maketitle
 
 \begin{abstract}
-   Resum
+    .
 \end{abstract}
 
 \begin{IEEEkeywords}
-    .
+    DSpace, Metadades, UPCommons, Grafana, InfluxDB, MongoDB, Registre d’accés.
 \end{IEEEkeywords}
 
-\section{Introduction}
 
-\IEEEPARstart{T}{his} file is intended to serve as a ``sample article file''
-for IEEE journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8b and later. The most common elements are covered in the simplified and updated instructions in ``New\_IEEEtran\_how-to.pdf''. For less common elements you can refer back to the original ``IEEEtran\_HOWTO.pdf''. It is assumed that the reader has a basic working knowledge of \LaTeX. Those who are new to \LaTeX \ are encouraged to read Tobias Oetiker's ``The Not So Short Introduction to \LaTeX ,'' available at: \url{http://tug.ctan.org/info/lshort/english/lshort.pdf} which provides an overview of working with \LaTeX.
+\section{Introducció}\label{sec:introduction}
+\IEEEPARstart{I} ntroducció
+\lipsum[1]
+
+\section{Processament de les dades}\label{sec:data-processing}
+La primera etapa del nostre projecte consisteix a processar les dades.
+Volem respondre a preguntes com: què són aquestes dades, com estan estructurades, quina informació proporcionen, com les podríem tractar\dots
+Durant aquest procés, analitzarem tots els registres d'accés, emmagatzemats al nostre servidor de treball.
+Concretament, parlem dels registres d'accés des del primer dia de l'any 2006 fins al darrer accés de l'any 2023.
+
+
+Degut a la gran quantitat de dades, hem de dissenyar un procés que analitzi tots aquests registres de manera automatitzada.
+Aquest procés ha de tractar diverses casuístiques dels registres, ja que els servidors no només registren accessos a la plataforma d'UPCommons, sinó que moltes més coses.
+Accessos a recursos web, repeticions de registres, alguns amb el seu format alterat, són alguns casos que hem anat trobant pel camí.
+Un cop aclarits tots els casos, proposem un disseny modular, independent de la seva implementació, per dur a terme aquesta anàlisi.
+
+
+L'objectiu d'aquest és convertir els \textit{logs} del format específic amb el qual s'enregistren a la plataforma d'UPCommons, a un altre més operable, on també hi hem afegit informació significativa que ens serà útil per als passos posteriors.
+Saber si el \textit{log} és una cerca a la plataforma, un accés a un recurs o d'altre tipus, i marcar-ho al mateix registre pot simplificar molt el seu tractament.
+
+
+Per altra banda, processarem també les metadades.
+Aquestes són les etiquetes presents a cadascun dels recursos d'UPCommons, amb l'objectiu d'enriquir la informació d'aquests.
+Els autors, la descripció del recurs, la data de pujada, el departament responsable, el tipus de document o més, es troben inclosos.
+La plataforma d'UPCommons està basada en el programari de codi obert DSpace, plataforma per la construcció i gestió de repositori digitals, una de les més utilitzades [REF].
+El format de les metadades és el DIM (DSpace Intermediate Metadata), que es basa en l'agregació d'un qualificador al format Dublin Core ja existent.
+Per exemple, l'autor principal d'un recurs ve definit per la metadada:
+\begin{center}
+    {dc.contributor.author}
+\end{center}
+
+
+Les metadades les podrem trobar a un servidor de desenvolupament on només hi són emmagatzemadaes aquestes.
+Utilitzarem el protocol OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting) per descarregar aquestes.
+Una característica interessant d'aquest servidor, i que no tots els servidors OAI tenen, és la funcionalitat del control de flux mitjançant \textit{resumptionToken}.
+Els verbs del protocol OAI-PMH per obtenir les metadades no poden obtenir totes les metadades d'una tirada, ja qué no és gens pràctic a causa del seu gran nombre.
+Com a conseqüència, retornen un valor que indica en quin punt de la descàrrega ets, permetent la modularització de l'obtenció de les metadades.
+
+
+Implementarem aquest procés amb la llibreria Sickle [REF], encara que gràcies a la simplicitat d'aquest protocol podríem dur a terme sense la necessitat de llibreries externes.
+Com a primera fase, les estructurarem localment en el nostre sistema de fitxers.
+Més endavant les migrarem a un sistema gestor de bases de dades.
+
+
+\section{Emmagatzemament de les dades}\label{sec:data-storing}
+\lipsum[1]
+
+\section{Servidor de treball}\label{sec:server-ostia}
+\lipsum[1]
+
+\section{Anàlisi i visualització de les dades}\label{sec:data-visualization}
+\lipsum[1]
+
+\section{Conclusions}\label{sec:conclusions}
+\lipsum[1]
 
 \begin{thebibliography}{1}
 \bibliographystyle{IEEEtran}
