@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage[catalan]{babel}
 \usepackage{lipsum}
+\usepackage[hidelinks]{hyperref}
 
 \renewcommand{\figurename}{\textbf{Figura}}
 
@@ -47,7 +48,7 @@ Saber si el \textit{log} és una cerca a la plataforma, un accés a un recurs o 
 Per altra banda, processarem també les metadades.
 Aquestes són les etiquetes presents a cadascun dels recursos d'UPCommons, amb l'objectiu d'enriquir la informació d'aquests.
 Els autors, la descripció del recurs, la data de pujada, el departament responsable, el tipus de document o més, es troben inclosos.
-La plataforma d'UPCommons està basada en el programari de codi obert DSpace, plataforma per la construcció i gestió de repositori digitals, una de les més utilitzades [REF].
+La plataforma d'UPCommons està basada en el programari de codi obert DSpace, plataforma per la construcció i gestió de repositori digitals, una de les més utilitzades~\cite{eprints:roar}.
 El format de les metadades és el DIM (DSpace Intermediate Metadata), que es basa en l'agregació d'un qualificador al format Dublin Core ja existent.
 Per exemple, l'autor principal d'un recurs ve definit per la metadada:
 \begin{center}
@@ -61,7 +62,7 @@ Una característica interessant d'aquest servidor, i que no tots els servidors O
 Els verbs del protocol OAI-PMH per obtenir les metadades no poden obtenir totes les metadades d'una tirada, ja que no és gens pràctic a causa del seu gran nombre.
 Com a conseqüència, retornen un valor que indica en quin punt de la descàrrega ets, permetent la modularització de l'obtenció de les metadades.
 
-Implementarem aquest procés amb la llibreria Sickle [REF], encara que gràcies a la simplicitat d'aquest protocol podríem dur a terme sense la necessitat de llibreries externes.
+Implementarem aquest procés amb la llibreria Sickle~\cite{Sickle}, encara que gràcies a la simplicitat d'aquest protocol podríem dur a terme sense la necessitat de llibreries externes.
 Com a primera fase, les estructurarem localment en el nostre sistema de fitxers.
 Més endavant les migrarem a un sistema gestor de bases de dades.
 
@@ -101,7 +102,7 @@ Senzill d'utilitzar i de configurar, aquesta va ser la nostra decisió per emmag
 El procés d'abocament de les metadades s'ha fet continuadament del de processament de dades.
 L'automatització dels dos processos ens ha permès treballar concurrentment en altres bandes del projecte, mentre monitoràvem puntualment l'estat d'aquest.
 S'ha fet un abocament per cada base de dades.
-Encara que l'objectiu no era optimitzar al màxim i reduir aquest temps, a causa del gran nombre de \textit{logs} hem dut a terme una sèrie de millores recomanades pel mateix InfluxDB [REF].
+Encara que l'objectiu no era optimitzar al màxim i reduir aquest temps, a causa del gran nombre de \textit{logs} hem dut a terme una sèrie de millores recomanades pel mateix InfluxDB~\cite{influxdb:optimizations}.
 
 El resultat de l'abocament dels \textit{logs} conclou amb els resultats de la taula~\ref{tab:table1}.
 
@@ -250,9 +251,12 @@ Els menys accedits són aquells d'accés restringit a un públic petit.
 
 \begin{thebibliography}{1}
 \bibliographystyle{IEEEtran}
-
-\bibitem{ref1}
-    {\textit{Mathematics Into Type}}. American Mathematical Society. [Online]. Available: https://www.ams.org/arc/styleguide/mit-2.pdf
+\bibitem{eprints:roar}
+    EPRINTS. Registry of Open Access Repositories. \url{https://roar.eprints.org/view/software/}, 2024. [En línia; data de consulta: 25-06-2024].
+\bibitem{Sickle}
+    MATHIAS LOESCH. Sickle. OAI-PMH for Humans. \url{https://sickle.readthedocs.io/en/latest/}, 2015. [En línia; data de consulta: 04-05-2024].
+\bibitem{influxdb:optimizations}
+    INFLUXDATA. Optimize writes to InfluxDB. \url{https://docs.influxdata.com/influxdb/v2/write-data/best-practices/optimize-writes/?t=Client+libraries}, 2024. [En línia; data de consulta: 04-05-2024].
 \end{thebibliography}
 
 \end{document}
