@@ -34,7 +34,19 @@ Ho farem mitjançant el disseny d'una eina que processi aquestes dades, les emma
 
 
 \section{Introducció}\label{sec:introduction}
-\IEEEPARstart{I} ntroducció
+\IEEEPARstart{L} objectiu d'aquest projecte és desenvolupar una eina de codi obert que, a partir de l'anàlisi dels registres d'accés de la plataforma UPCommons, converteixi aquesta informació específica del \textit{software} que utilitza UPCommons, a un conjunt de dades més comprensibles.
+
+Aquests registres consisteixen principalment en consultes de recursos d’UPCommons, malgrat que hi ha més tipus d’accessos: cerques, comandes del servidor internes, redireccions, i molt més.
+
+Hem fragmentat el nostre projecte en tres etapes ben diferenciades.
+La primera se centra en l’anàlisi dels registres d’accés.
+Definirem clarament què esperem d’un log, quin contingut ha de contenir i quina informació ha de proporcionar.
+
+Seguidament, emmagatzemarem aquesta informació a una base de dades de sèries temporals, InfluxDB.
+A més a més, descarregarem totes les metadades dels recursos d’UPCommons d’un servidor OAI (Open Archives Initiative) a una base de dades basada en documents, MongoDB.
+
+Finalment, amb les dades processades i emmagatzemades en un gestor de bases de dades, procedirem a definir uns casos d’ús que serviran de base i demostraran la proposta de valor de la nostra eina.
+Com a eina de suport, utilitzarem el programari d’observabilitat Grafana.
 
 \section{Processament de les dades}\label{sec:data-processing}
 La primera etapa del nostre projecte consisteix a processar les dades.
