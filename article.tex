@@ -37,7 +37,7 @@ Durant aquest procés, analitzarem tots els registres d'accés, emmagatzemats al
 Concretament, parlem dels registres d'accés des del primer dia de l'any 2006 fins al darrer accés de l'any 2023.
 
 
-Degut a la gran quantitat de dades, hem de dissenyar un procés que analitzi tots aquests registres de manera automatitzada.
+A causa de la gran quantitat de dades, hem de dissenyar un procés que analitzi tots aquests registres de manera automatitzada.
 Aquest procés ha de tractar diverses casuístiques dels registres, ja que els servidors no només registren accessos a la plataforma d'UPCommons, sinó que moltes més coses.
 Accessos a recursos web, repeticions de registres, alguns amb el seu format alterat, són alguns casos que hem anat trobant pel camí.
 Un cop aclarits tots els casos, proposem un disseny modular, independent de la seva implementació, per dur a terme aquesta anàlisi.
@@ -61,7 +61,7 @@ Per exemple, l'autor principal d'un recurs ve definit per la metadada:
 Les metadades les podrem trobar a un servidor de desenvolupament on només hi són emmagatzemadaes aquestes.
 Utilitzarem el protocol OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting) per descarregar aquestes.
 Una característica interessant d'aquest servidor, i que no tots els servidors OAI tenen, és la funcionalitat del control de flux mitjançant \textit{resumptionToken}.
-Els verbs del protocol OAI-PMH per obtenir les metadades no poden obtenir totes les metadades d'una tirada, ja qué no és gens pràctic a causa del seu gran nombre.
+Els verbs del protocol OAI-PMH per obtenir les metadades no poden obtenir totes les metadades d'una tirada, ja que no és gens pràctic a causa del seu gran nombre.
 Com a conseqüència, retornen un valor que indica en quin punt de la descàrrega ets, permetent la modularització de l'obtenció de les metadades.
 
 
