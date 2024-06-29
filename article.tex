@@ -277,6 +277,35 @@ Els menys accedits són aquells d'accés restringit a un públic petit.
 
 \section{Conclusions}\label{sec:conclusions}
 
+El projecte ha assolit plenament l'objectiu inicial: transformar dels registres d'accés amb un format específic del programari d'UPCommons a un conjunt de dades comprensibles.
+Mitjançant l'eina desenvolupada, aquesta transformació proporciona una visió detallada dels diferents casos definits pels usuaris, generant diversos informes específics.
+
+Començant per l'anàlisi dels registres d'accés, hem posat el focus en la modularitat del disseny, i no acoblar aquest amb la implementació.
+Principalment, és perquè les decisions de com s'ha analitzat poden variar si el cas d'ús és totalment diferent.
+
+Definint els passos a partir de l'anàlisi dels \textit{logs}, hem tractat i emmagatzemat tots els registres excepte aquells que són d'accessos a recursos web.
+Això ha resultat en poder descartar i no emmagatzemar un 22\% del \textit{logs} (430.789.238 registres).
+
+Hem processat 1.922.392.760 entrades de \textit{logs} en un temps d'aproximadament 33 hores, mitjançant un procés completament automatitzat.
+Un possible punt de treball futur és poder paral·lelitzar aquest procés, pel fet que els \textit{logs} són independents entre si.
+Sistemes com Hadoop o Spark estan especialitzats en aquests processos.
+
+Comparat amb el número de \textit{logs}, l'abocament és molt més ràpid.
+Hem afegit 242.555 entrades en 38 segons a la base de dades MongoDB.
+
+Com ja hem vist als diferents casos d'ús, els paràmetres escollits per processar els \textit{logs} i emmagatzemar-los ens han permès dur algun tipus d'anàlisis de forma immediata.
+Aquests són aquells que utilitzen els camps dels \textit{logs}, ja que les cerques estan optimitzades gràcies a la indexació.
+Després tenim aquells casos d'ús on hem d'analitzar els camps dels \textit{logs}.
+Aquests valors són molt diversos, i no els podem indexar.
+El tercer tipus de cas d'ús consisteix a relacionar els recursos amb les seves metadades.
+En aquesta etapa analitzem específicament els registres d'accés a recursos d'UPCommons per relacionar-los amb les seves metadades.
+Aquests casos es basen a cercar a MongoDB el valor d'aquestes metadades.
+
+Grafana ens ha permès analitzar visualment aquests casos, obtenint informació de les nostres fonts de dades.
+La gran majoria de bases de dades que utilitzaríem per emmagatzemar els \textit{logs} i les metadades tenen suport per a Grafana.
+
+Arribats a aquest punt, hem vist com a partir d'analitzar els registres d'accés a UPCommons, entendre el funcionament de les metadades dels recursos, afegir aquesta informació a un gestor de bases de dades, hem pogut desenvolupar uns casos d'ús base que demostren que aquesta eina de codi obert pot donar suport per analitzar les diferents casuístiques proposades per l'usuari de l'eina.
+
 \begin{thebibliography}{1}
 \bibliographystyle{IEEEtran}
 \bibitem{eprints:roar}
