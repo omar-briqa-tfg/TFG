@@ -8,6 +8,7 @@
 \usepackage[catalan]{babel}
 \usepackage{lipsum}
 \usepackage[hidelinks]{hyperref}
+\usepackage{caption}
 
 \renewcommand{\figurename}{\textbf{Figura}}
 
@@ -216,6 +217,65 @@ N'hem definit tres:
 
 A continuació detallarem el tercer cas d'ús, que tracta sobre les condicions d'accés dels accessos a recursos de l'EPSEVG, mostrant la funcionalitat completa de l'eina.
 
+\subsection{Accessos amb el seu contingut alterat.}\label{subsec:use-case-2}
+
+\textit{\textbf{Precondicions}}
+
+Hem de tenir els \textit{logs} emmagatzemats a la base de dades InfluxDB.
+Això ja s'ha fet a l'emmagatzemament de les dades.
+
+També hem de tenir marcats els \textit{logs} que tinguin el seu contingut alterat, d'aquesta manera podem descartar tots els altres registres durant aquesta anàlisi.
+Ho hem fet al processament de les dades.
+
+\textit{\textbf{Definició}}
+
+Volem consultar quants accessos s'han produït amb malformacions al seu contingut.
+Les malformacions del contingut dels accessos corresponen a registres que difereixen molt respecte el format general.
+
+També volem esbrinar com ha sigut la seva evolució al llarg del temps, a més dels paràmetres que s'utilitzen.
+
+\textit{\textbf{Anàlisi}}
+
+Treballarem sobre l'eina d'observabilitat Grafana, analitzant aquells accessos a recursos que tinguin alteracions en el seu contingut.
+
+\textit{\textbf{Resultat}}
+
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=0.5\textwidth]{figures/possible-attacks}}
+    \caption{Representació dels accessos amb el seu contingut alterat del 2023.}\label{fig:log-altered}
+\end{figure}
+
+El recompte d'accessos a recursos amb el contingut alterat durant l'any 2023, separats per mètode i codi d'estat, es troba representat a la figura~\ref{fig:log-altered}.
+
+Vora finals d'any (a la part dreta de la figura~\ref{fig:log-altered}), podem observar com hi ha un pic de peticions que no és gens habitual (punt vermell).
+
+Explorant una mica més, obtenim que aquest pic correspon a una llarga sèrie de peticions que va augmentar considerablement a partir de les 10:30 h de l'11 de novembre del 2023 i hauria acabat quinze minuts després.
+
+Per consultar el contingut d'aquestes peticions ens redirigim a InfluxDB i consultem les hores i els paràmetres prèviament determinats.
+
+El diagrama temporal de la figura~\ref{fig:possible-attacks} mostra el següent:
+
+\begin{itemize}
+    \item De les primeres peticions que es van enviar, només unes poques van ser bloquejades, d'aquí ve el màxim de peticions amb un codi 200 de resposta, de la figura~\ref{fig:log-altered}.
+    \item Minuts més tard, totes les peticions es van començar a rebutjar.
+\end{itemize}
+El patró que segueix és consultar un recurs i afegir paràmetres d'HTTP amb valors maliciosos.
+Els més habituals que s'han utilitzat són \texttt{filter} i \texttt{range}.
+
+La majoria d'aquests registres intenten executar un \texttt{sleep} per endarrerir la resposta certs segons.
+
+Un exemple, el contingut de la petició HTTP d'aquest \textit{log} mostra com s'intenta afegir una petició maliciiosa a l'interior d'aquest.
+
+\noindent \\
+\texttt{GET /handle/2099.1/11132/es\\?range=0"\textbf{XOR(if(now()=sysdate()\%2Csleep(15)}\\\%2C0))XOR"Z HTTP/1.1}
+
+\begin{figure}[!t]
+    \centerline{\includegraphics[width=0.5\textwidth]{figures/possible-attacks-403}}
+    \caption{Pic de peticions del tipus \texttt{GET} que retornen un codi 403.}\label{fig:possible-attacks}
+\end{figure}
+
+\subsection{Condicions d'accés dels accessos a recursos de l'EPSEVG.}\label{subsec:use-case-3}
+
 \textit{\textbf{Precondicions}}
 
 Hem de tenir els \textit{logs} emmagatzemats a la base de dades InfluxDB.
@@ -226,7 +286,7 @@ Ho hem fet al processament de les dades.
 
 \textit{\textbf{Definició}}
 
-Donat el període de temps del primer de desembre del 2023, volem saber quines són les condicions d'accés dels accessos als recursos de l'EPSEVG.
+Durant el primer día de desembre del 2023, volem saber quines són les condicions d'accés dels accessos als recursos de l'EPSEVG.
 
 Volem determinar si són d'accés obert, restringits per decisió de l'usuari, restringits a la comunitat académica\dots
 
