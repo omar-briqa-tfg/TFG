@@ -9,6 +9,7 @@ mkdir -p "$final_dir"/"$dir"
 mkdir -p "$final_dir"/"$dir"/"$annexos_dir"
 
 cp main.pdf "$final_dir"/"$dir"/memoria_"$project_code".pdf
+cp article.pdf "$final_dir"/"$dir"/resum_"$project_code".pdf
 cp proposta.pdf "$final_dir"/"$dir"/proposta_"$project_code".pdf
 
 cp "$annexos_dir"/annexA.pdf "$final_dir"/"$dir"/"$annexos_dir"/annexA_"$project_code".pdf
