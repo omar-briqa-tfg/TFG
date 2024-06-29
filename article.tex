@@ -73,7 +73,7 @@ Per exemple, l'autor principal d'un recurs ve definit per la metadada:
     {dc.contributor.author}
 \end{center}
 
-Les metadades les podrem trobar a un servidor de desenvolupament on només hi són emmagatzemadaes aquestes.
+Les metadades les podrem trobar a un servidor de desenvolupament on només hi són emmagatzemades aquestes.
 Utilitzarem el protocol OAI-PMH (Open Archives Initiative Protocol for Metadata Harvesting) per descarregar-les.
 Una característica interessant d'aquest servidor, i que no tots els servidors OAI tenen, és la funcionalitat del control de flux mitjançant el \textit{resumptionToken}.
 
@@ -215,7 +215,7 @@ N'hem definit tres:
     \item Condicions d'accés dels accessos a recursos de l'EPSEVG.
 \end{itemize}
 
-A continuació detallarem el tercer cas d'ús, que tracta sobre les condicions d'accés dels accessos a recursos de l'EPSEVG, mostrant la funcionalitat completa de l'eina.
+A continuació detallarem un parell d'ells per mostrar la dinàmica de treball i els passos realitzats durant la seva anàlisi.
 
 \subsection{Accessos amb el seu contingut alterat.}\label{subsec:use-case-2}
 
@@ -264,7 +264,7 @@ Els més habituals que s'han utilitzat són \texttt{filter} i \texttt{range}.
 
 La majoria d'aquests registres intenten executar un \texttt{sleep} per endarrerir la resposta certs segons.
 
-Un exemple, el contingut de la petició HTTP d'aquest \textit{log} mostra com s'intenta afegir una petició maliciiosa a l'interior d'aquest.
+Un exemple, el contingut de la petició HTTP d'aquest \textit{log} mostra com s'intenta afegir una petició maliciosa a l'interior d'aquest.
 
 \noindent \\
 \texttt{GET /handle/2099.1/11132/es\\?range=0"\textbf{XOR(if(now()=sysdate()\%2Csleep(15)}\\\%2C0))XOR"Z HTTP/1.1}
@@ -290,7 +290,7 @@ Durant el primer día de desembre del 2023, volem saber quines són les condicio
 
 Volem determinar si són d'accés obert, restringits per decisió de l'usuari, restringits a la comunitat académica\dots
 
-\textit{\textbf{Anàlisi simplificat}}
+\textit{\textbf{Anàlisi}}
 
 Obtenim tots els accessos a recursos d'aquest dia de la nostra base de dades de \textit{logs}, filtre només aquells que siguin accessos a recursos.
 
@@ -355,8 +355,10 @@ Hem afegit 242.555 entrades en 38 segons a la base de dades MongoDB.
 
 Com ja hem vist als diferents casos d'ús, els paràmetres escollits per processar els \textit{logs} i emmagatzemar-los ens han permès dur algun tipus d'anàlisis de forma immediata.
 Aquests són aquells que utilitzen els camps dels \textit{logs}, ja que les cerques estan optimitzades gràcies a la indexació.
+
 Després tenim aquells casos d'ús on hem d'analitzar els camps dels \textit{logs}.
 Aquests valors són molt diversos, i no els podem indexar.
+
 El tercer tipus de cas d'ús consisteix a relacionar els recursos amb les seves metadades.
 En aquesta etapa analitzem específicament els registres d'accés a recursos d'UPCommons per relacionar-los amb les seves metadades.
 Aquests casos es basen a cercar a MongoDB el valor d'aquestes metadades.
