@@ -1,6 +1,6 @@
 #!/bin/bash
 
-project_code="TFG-340GREIN18"
+project_code="TFG-340GREIN18-Disseny-d_una-eina-per-al-tractament-i-visualitzacio-de-les-dades-d_acces-a-un-repositori"
 
 final_dir=final
 annexos_dir=annexos
