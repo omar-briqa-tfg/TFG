@@ -4,10 +4,12 @@ This repository contains the report for the degree thesis:
 
 <p align="center" style="font-size:large;">
 <i>Disseny d'una eina per al tractament i <br />
-visualització de les dades d'accés a un repositori</i>
+visualització de les dades d'accés a un repositori <br /> <br />
+by Omar Briqa
+</i>
 </p>
 
-written by Omar Briqa, submitted to (Escola Politècnica Superior d'Enginyeria de Vilanova i la Geltrú (EPSEVG) at Universitat Politènica de Catalunya (UPC School).
+submitted to **Escola Politècnica Superior d'Enginyeria de Vilanova i la Geltrú** (EPSEVG) at **Universitat Politènica de Catalunya** (UPC School).
 
 ## Licence
 
