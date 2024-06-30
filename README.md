@@ -13,8 +13,7 @@ submitted to **Escola Polit√®cnica Superior d'Enginyeria de Vilanova i la Geltr√
 
 ## Licence
 
-`Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
-`
+`Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International`
 
 See `LICENSE` for more information.
 
