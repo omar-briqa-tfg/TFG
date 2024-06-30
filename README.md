@@ -19,5 +19,5 @@ See `LICENSE` for more information.
 
 ## PDF Version
 
-- Thesis: `m̀ake all`
+- Thesis: `make all`
 - Article: `make resum`
